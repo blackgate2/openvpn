@@ -1,0 +1,2 @@
+[05-Aug-2013 12:17:00 UTC] PHP Fatal error:  Using $this when not in object context in /home/forbac/public_html/test/js/login.js.php on line 55
+[05-Aug-2013 12:18:18 UTC] PHP Fatal error:  Using $this when not in object context in /home/forbac/public_html/test/js/login.js.php on line 55

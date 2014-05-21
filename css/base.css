@@ -1,0 +1,3840 @@
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, em, img, strong, dl, dt, dd, ol, ul, li, fieldset, form, label, button, input, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; }
+h1, h2, h3, h4, h5, h6 { line-height: normal; font-weight: normal; }
+li { list-style: none; }
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { display: block; }
+object, embed { display: block; }
+.hide { visibility: hidden; }
+.clear:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.clear { display: inline-block; }
+.hidden{position:absolute;left:0;top:-500px;width:1px;height:1px;overflow:hidden;line-height:1px;}
+
+html {
+    overflow-x: hidden;
+    /*overflow-y: scroll;*/
+    /*overflow-y: hidden;*/
+}
+
+
+input, select, textarea { font-family: Arial, Helvetica, sans-serif; }
+body { 
+    font-size: 62.5%;
+    background: #fff;
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff url(../images/sub_bg.jpg)/*tpa=http://www.bizfilings.com/images/sub_bg.jpg*/ top center no-repeat;
+
+}
+
+
+/* base styles */
+
+a {
+    color: #236792;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* base styles for forms */
+form {
+
+}
+form div.field,
+fieldset div.field,
+.form div.field,
+div.radios {
+    display: block;
+    margin-bottom: 10px;
+    position: relative;
+}
+form div p.note,
+fieldset div p.note
+.form div p.note {
+    font-size: 1.1em;
+    color: #777;
+    font-style: italic;
+}
+input.text, select, textarea {
+    background: #f3f3f3 url(../images/input_bg_white.png) top left no-repeat;
+    border: 1px solid #ccc;
+    color: #555;
+    font-size: 1.2em;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    padding: 5px;
+    padding: 6px 5px 4px 7px;
+    display: block;
+    margin-bottom: 3px;
+}
+select {
+    background: url(../images/select_bg.png) bottom left repeat-x;
+    padding: 3px;
+}
+form label,
+fieldset label,
+.form label {
+    font-size: 1.2em;
+    color: #555;
+    display: block;
+}
+form .error input, form .error select,
+fieldset .error input, fieldset .error select {
+    border-color: #c00;
+    border-width: 2px;
+    background: #ffc;
+}
+form .error select,
+fieldset .error select {
+    background: #ffffbf;
+}
+#main p.error, p.error, span.error {
+    clear: both;
+    color: #c00 !important;
+    display: block;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding-top: 4px;
+}
+span.error span {
+    display: block;
+    margin-top: 5px;
+}
+span.required {
+    color: #c00;
+}
+p.success {
+    font-weight: bold;
+    color: #399103;
+}
+.tooltip p.error {
+    color: #c00 !important;
+    font-weight: bold;
+}
+
+textarea{resize: none}
+
+#lightbox{	position: absolute;	left: 0; width: 100%; z-index: 100; text-align: center; line-height: 0;}
+#lightbox img{ width: auto; height: auto;}
+#lightbox a img{ border: none; }
+
+#outerImageContainer{ position: relative; background-color: #fff; width: 250px; height: 250px; margin: 0 auto; }
+#imageContainer{ padding: 10px; }
+
+#loading{ position: absolute; top: 40%; left: 0%; height: 25%; width: 100%; text-align: center; line-height: 0; }
+#hoverNav{ position: absolute; top: 0; left: 0; height: 100%; width: 100%; z-index: 10; }
+#imageContainer>#hoverNav{ left: 0;}
+#hoverNav a{ outline: none;}
+
+#prevLink, #nextLink{ width: 49%; height: 100%; background-image: url(data:image/gif;base64,AAAA); /* Trick IE into showing hover */ display: block; }
+#prevLink { left: 0; float: left;}
+#nextLink { right: 0; float: right;}
+#prevLink:hover, #prevLink:visited:hover { background: url(../images/lightbox/prevlabel.gif)/*tpa=http://www.bizfilings.com/images/lightbox/prevlabel.gif*/ left 15% no-repeat; }
+#nextLink:hover, #nextLink:visited:hover { background: url(../images/lightbox/nextlabel.gif)/*tpa=http://www.bizfilings.com/images/lightbox/nextlabel.gif*/ right 15% no-repeat; }
+
+#imageDataContainer{ font: 10px arial; background-color: #fff; margin: 0 auto; line-height: 1.4em; overflow: auto; width: 100%	; }
+
+#imageData{	padding:0 10px; color: #666; }
+#imageData #imageDetails{ width: 70%; float: left; text-align: left; }	
+#imageData #caption{ font-weight: bold;	}
+#imageData #numberDisplay{ display: block; clear: left; padding-bottom: 1.0em;	}			
+#imageData #bottomNavClose{ width: 66px; float: right;  padding-bottom: 0.7em; outline: none;}	 	
+
+#overlay{ position: absolute; top: 0; left: 0; z-index: 90; width: 100%; height: 500px; }
+
+/* baynote stripdown */
+.bn_g_container {
+    width: auto;
+    border: none;
+}	
+.bn_g_area {
+    width: auto;
+    font-size: 1em;
+}
+.bn_g_welcome {
+    background: none;
+    color: #555;
+    font-size: 1em;
+    font-weight: normal;
+    padding: 0;
+    text-transform: none;
+}
+.bn_g_results_list {
+    padding: 0;
+    font-size: 1em;
+}
+.bn_g_results_list .result {
+    float: none;
+    font-size: 1em;
+    padding: 0;
+    width: auto;
+    text-align: left;
+    word-wrap: break-word;
+}
+.bn_g_result_title {
+    font-size: 1em;
+    word-wrap: break-word;
+}
+.bn_g_result_title a {
+    color: #236792;
+    font-size: 1em;
+    text-decoration: none;
+}
+.bn_g_result_title a:hover {
+    text-decoration: underline;
+}
+/* tags, comma separated */	
+.bn_g_result_terms {
+    display: none;
+}
+/* "x people liked this" */
+.bn_g_details {
+    border: none;
+    clear: none;
+    text-align: left;
+    padding: 0;
+}
+.bn_g_details_text {
+    text-align: left;
+}
+.bn_g_footer {
+    display: none;
+}
+
+
+#container {
+    margin: 0 auto;
+    width: 960px;
+    position: relative;
+}
+
+#header {
+    height: 102px;
+    margin-bottom: 8px;
+}
+#logo {
+    position: absolute;
+    left: 1px;
+    top: 10px;
+    width: 181px;
+    height: 49px;
+    background: url(../images/logo.png) no-repeat;
+    _background: url(../images/logo.8bit.png)  no-repeat;
+}
+#logo a {
+    text-indent: -9000px;
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+#logo img { display: none; }
+.phone_chat,
+#phone_chat {
+    position: absolute;
+    top: 22px;
+    left: 198px;
+}
+.phone_chat .tel,
+#phone_chat .tel {
+    color: #79b2d9;
+    font-size: 1.5em;
+    vertical-align: baseline;
+    padding-right: 8px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.phone_chat .chat,
+#phone_chat .chat {
+    padding-left: 8px;
+    font-size: 1.2em;
+    color: #aaa;
+    border-left: 1px solid #777;
+    vertical-align: baseline;
+    line-height: 1;
+}
+.phone_chat a,
+#phone_chat a {
+    color: #fff;
+}
+#main_nav {
+    position: absolute;
+    left: 0;
+    top: 70px;
+}
+#main_nav li {
+    float: left;
+    padding: 0 21px;
+    cursor: pointer;
+    font-size: 120%; 
+}
+#main_nav li a{
+    color: #47b1ee;
+}
+#main_nav li a:hover{
+    color: #a0dcff;
+}
+
+#secondary_nav {
+    float: right;
+    margin-top: 25px;
+    height: 30px;
+}
+#secondary_nav li {
+    font-size: 1.2em;
+    float: left;
+    border-right: 1px solid #777;
+    padding: 0 8px;
+}
+#secondary_nav li.contact {
+    border: none;
+}
+#secondary_nav a {
+    color: #ccc;
+}
+#search {
+    float: right;
+    margin-top: 19px;
+    width: 183px;
+    height: 43px;
+}
+#search fieldset {
+    position: relative;
+    float: right;
+}
+#search label {
+    position: absolute;
+    top: 6px;
+    left: 7px;
+    color: #ddd;
+    display: none;
+}
+#search div.input {
+    background: url(../images/global_search.png)/*tpa=http://www.bizfilings.com/images/global_search.png*/ no-repeat;
+    height: 27px;
+    width: 135px;
+    padding-left: 6px;
+    float: left;
+}
+#search.active div.input {
+    background-position: 0 -27px;
+}
+#search.open div.input {
+    background-position: 0 -54px;
+}
+#search input {
+    background: transparent;
+    color: #ddd;
+    font-size: 1.2em;
+    margin-top: 6px;
+
+}
+#search.open input {
+    color: #333;
+}
+#search button,
+#search div.submit {
+    width: 28px;
+    height: 27px;
+    background: url(../images/global_search.png)/*tpa=http://www.bizfilings.com/images/global_search.png*/ -544px 0 no-repeat;
+    text-indent: -9000px;
+    cursor: pointer;
+    float: left;
+}
+#search button:hover, #search button:focus,
+#search div.submit:hover, #search div.submit:focus {
+    background-position: -572px 0;
+}
+#search.open button {
+    background-position: -572px -54px;
+}
+
+#incorporate_now {
+    float: right;
+    clear: both;
+    margin-right: -1px;
+}
+#incorporate_now a {
+    width: 170px;
+    height: 31px;
+    background: url(../images/main_nav.png) -850px -85px no-repeat;
+    text-indent: -9000px;
+    display: block;
+}
+#incorporate_now a:hover {
+    background-position: -850px -116px;
+}
+#plans_and_pricing {
+    float: right;
+    clear: both;
+    margin-right: -1px;
+}
+#plans_and_pricing a {
+    width: 170px;
+    height: 31px;
+    background: url(../images/buttons/plans_and_pricing.png) 0px 0px no-repeat;
+    text-indent: -9000px;
+    display: block;
+}
+#plans_and_pricing a:hover {
+    background-position: 0px -32px;
+}			
+#footer {
+    clear: both;
+    padding: 20px 0 60px;
+    zoom: 1;
+    background: #f9f9f9 url(../images/footer_bg.png)/*tpa=http://www.bizfilings.com/images/footer_bg.png*/ top repeat-x;
+
+}
+#footer .inner {
+    position: relative;
+    width: 960px;
+    margin: 0 auto;
+}
+#footer #feedback_popup,
+#feedback_popup_alternate {
+    position: absolute;
+    bottom: -41px;
+    left: 64px;
+    width: 314px;
+}
+#footer #feedback_popup .inner,
+#feedback_popup_alternate .inner {
+    width: auto;
+    min-height: 0;
+    height: auto;
+}
+#feedback_popup textarea,
+#feedback_popup_alternate textarea {
+    width: 258px;
+    height: 80px;
+}
+#feedback_popup .submit,
+#feedback_popup_alternate .submit {
+    height: auto;
+    overflow: auto;
+    padding: 0;
+}
+#feedback_popup  p.error,
+#feedback_popup_alternate p.error {
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+#feedback_popup .submit .field,
+#feedback_popup_alternate .submit .field {
+    float: left;
+    width: 194px;
+    margin-top: 2px;
+    position: static;
+}
+#feedback_popup input,
+#feedback_popup_alternate input {
+    width: 175px;
+    padding-left: 0;
+    text-indent: 6px;
+}
+#feedback_popup label,
+#feedback_popup_alternate label {
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 4px;
+}
+
+
+#state_name_check .submit,
+#free_guide input.submit,
+#main #feedback_popup_alternate input.submit, 
+#feedback_popup input.submit,
+#state_name_check input.submit {
+    width: 73px;
+    height: 31px;
+    background: url(../images/buttons/submit.png)/*tpa=http://www.bizfilings.com/images/buttons/submit.png*/ no-repeat;
+    display: block;
+    float: left;
+    text-indent: -9000px;
+    cursor: pointer;
+}
+#feedback_popup input.submit:hover,
+#state_name_check button:hover,
+#free_guide input.submit:hover,
+#feedback_popup_alternate input.submit:hover {
+    background-position: bottom left;
+}
+#footer .nav {
+
+}/*
+*:first-child+html #state_name_check .submit{
+                color:transparent!important;
+                }*/
+#footer li {
+    float: left;
+    border-right: 1px solid #ccc;
+    font-size: 1.2em;
+    color: #333;
+}
+#footer li a {
+    float: left;
+    padding: 0 7px;
+}
+#footer li.feedback {
+    position: relative;
+    font-size: 1em;
+}
+#footer li.feedback a {
+    font-size: 1.2em;
+}
+#footer li.last {
+    border: none;
+}
+#footer .copyright {
+    clear: both;
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 25px;
+}
+#footer .copyright a {
+    color: #555;
+}
+#footer .primary {
+    float: left;
+    margin-left: -9px;
+    margin-bottom: 15px;
+}
+#footer .primary .last {
+    border: none;
+}
+#footer .primary li {
+    height: 12px;
+    line-height: 12px;
+}
+#footer .media {
+    position: absolute;
+    right: 0;
+    top: -1px;
+}
+#footer .media p {
+    font-weight: bold;
+    color: #555;
+    font-size: 1.2em;
+    float: right;
+    margin-bottom: 10px;
+}
+#footer .media ul {
+    clear: right;
+    margin-right: -12px;
+    float: right;
+}
+#footer .media li {
+    border: none;
+    font-size: 1.1em;
+    margin-right: 14px;
+}
+#footer .media a,
+#main a.twitter,
+#main a.youtube,
+#main a.facebook {
+    padding-left: 21px;
+    background-repeat: no-repeat;
+    line-height: 17px;
+    display: block;
+    padding-right: 0;
+}
+#footer .media a {
+    font-size: 1em;
+    color: #555;
+}
+#footer .media .youtube {
+    border: none;
+}
+#footer .media .youtube a,
+#main a.youtube {
+    background: url(../images/icons/social_media.png)/*tpa=http://www.bizfilings.com/images/icons/social_media.png*/ -1000px 0 no-repeat;
+}
+#footer .media .facebook a,
+#main a.facebook {
+    background: url(../images/icons/social_media.png)/*tpa=http://www.bizfilings.com/images/icons/social_media.png*/ 0 0 no-repeat;
+}
+#footer .media .twitter a,
+#main a.twitter {
+    background: url(../images/icons/social_media.png)/*tpa=http://www.bizfilings.com/images/icons/social_media.png*/ -500px 0 no-repeat;
+}
+#footer .badges {
+    clear: both;
+    border-top: 1px solid #e4e4e4;
+    text-align: center;
+    padding-top: 18px;
+}
+#footer .badges .inner {
+    width: 400px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 15px 0;
+}
+#footer .badges a {
+    display: inline-block;
+    text-align: center;
+    padding: 0 8px;
+}
+#footer.mini {
+    background: none;
+    border-top: 1px solid #ddd;
+}
+#footer.mini .nav {
+    margin-left: -9px;
+    margin-bottom: 10px;
+    overflow: auto;
+}
+#footer.mini .nav li {
+    font-size: 1.2em;
+}
+#footer.mini .nav a {
+    color: #236792;
+}
+#footer.mini p.copyright {
+    clear: both;
+    font-size: 1.1em;
+    color: #555;
+}
+#footer.mini .badges {
+    clear: both;
+    margin: auto;
+    border: none;
+}
+
+.drops {
+    width: 960px;
+    margin: 0 auto;
+    position: relative;
+}
+.secondary_drop {
+    position: absolute;
+    z-index: 5;
+    width: 248px;
+    top: 49px;
+}
+.secondary_drop .header {
+    height: 35px;
+    overflow: hidden;
+    background: url(../images/secondary_drop.png)/*tpa=http://www.bizfilings.com/images/secondary_drop.png*/ top left no-repeat;
+    position: relative;
+    margin-top: -35px;
+}
+.secondary_drop .header div {
+    position: absolute;
+    color: #236792;
+    font-size: 1.2em;
+    left: 17px;
+    top: 11px;
+}
+.secondary_drop .top {
+    height: 20px;
+    background: url(../images/secondary_drop.png)/*tpa=http://www.bizfilings.com/images/secondary_drop.png*/ no-repeat;
+}
+#help_drop .header {
+    background-position: 0 -55px;
+}
+.secondary_drop .inner {
+    background: url(../images/secondary_drop.png)/*tpa=http://www.bizfilings.com/images/secondary_drop.png*/ left bottom no-repeat;
+    padding: 7px 25px 20px;
+    overflow: auto;
+}
+
+#search_popup {
+    position: absolute;
+    top: 41px;
+    right: -4px;
+    background: #fff;
+    padding: 10px 14px 23px;
+    width: 290px;
+    background: url(../images/search_popup.png)/*tpa=http://www.bizfilings.com/images/search_popup.png*/ bottom no-repeat;
+    z-index: 30;
+}
+#search_popup h2 {
+    background: #ececec;
+    padding: 6px 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 7px;
+}
+#search_popup ul {
+    padding: 0 10px;
+    margin-bottom: 15px;
+}
+#search_popup li {
+    line-height: 1.5;
+    font-size: 1.1em;
+    margin-bottom: 4px;
+}
+#search_popup li a {
+    color: #236792;
+    font-weight: bold;
+}
+#search_popup li p {
+    color: #555;
+}
+#search_popup .all {
+    border-top: 1px solid #e5e5e5;
+    margin: 0 10px;
+    padding: 7px 0 0 0;
+}
+
+#myaccount_drop {
+    right: 141px;
+}
+#myaccount_drop .header {
+    background-position: 0 0;
+    width: 98px;
+}
+#myaccount_drop .top {
+    background-position: 0 -35px;
+}
+#myaccount_drop p.title {
+    width: 150px;
+    height: 17px;
+    background: url(../images/headers/myaccount_signin.png)/*tpa=http://www.bizfilings.com/images/headers/myaccount_signin.png*/ no-repeat;
+    text-indent: -9000px;
+    margin-bottom: 10px;
+}
+#myaccount_drop input {
+    width: 183px;
+}
+#myaccount_drop button,
+#tout_affiliate button,
+#track_order button,
+#myaccount_drop input.submit,
+#tout_affiliate input.submit,
+#track_order input.submit {
+    width: 70px;
+    height: 24px;
+    background: url(../images/buttons/myaccount_signin.png)/*tpa=http://www.bizfilings.com/images/buttons/myaccount_signin.png*/ no-repeat;
+    text-indent: -9000px;
+    cursor: pointer;
+    margin-right: 15px;
+    display: block;
+    float: left;
+}
+#myaccount_drop input.submit:hover,
+#myaccount_drop button:hover,
+#tout_affiliate button:hover,
+#tout_affiliate input.submit:hover,
+#track_order input.submit:hover {
+    background-position: bottom left;
+}
+#myaccount_drop a,
+#tout_affiliate .submit a {
+    font-size: 1.1em;
+    float: left;
+    margin: 4px 0 0 0;
+    font-style: italic;
+    white-space: nowrap;
+}
+#myaccount_drop .field {
+    position: relative;
+    overflow: auto;
+}
+#myaccount_drop .submit {
+    overflow: auto;
+    padding: 0;
+    position: static;
+}
+#myaccount_drop .field label {
+    position: absolute;
+    top: 7px;
+    left: 9px;
+}
+#myaccount_drop .active label {
+    display: none;
+}
+#myaccount_drop .close,
+#help_drop .close {
+    top: 13px !important;
+    right: 10px !important;
+}
+#myaccount_drop .radios {
+    margin: 0 0 6px 0;
+}
+#myaccount_drop .radios div {
+    margin-bottom: 6px;
+    height: 1%;
+    overflow: hidden;
+}
+#myaccount_drop .radios input {
+    width: 12px;
+    height: 12px;
+    display: inline;
+    float: left;
+    margin: 0 3px 0 0;
+}
+#myaccount_drop .radios label {
+    font-size: 1.1em;
+    float: left;
+    margin: 0;
+}
+#myaccount_drop p.error {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+#help_drop {
+    right: 64px !important;
+}
+#help_drop .inner {
+    padding-bottom: 15px;
+}
+#help_drop .header {
+    background-position: 0 -55px;
+    width: 58px;
+}
+#help_drop .top {
+    background-position: 0 -90px;
+}
+#help_drop strong {
+    font-size: 1.2em;
+    color: #333;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+#help_drop ul,
+#help_drop .bn_g_results_list {
+    margin-bottom: 10px;
+}
+#help_drop li,
+#help_drop .bn_g_result_title {
+    margin-bottom: 5px;
+}
+#help_drop li a,
+#help_drop .bn_g_result_title a {
+    font-size: 1.1em;
+    word-wrap: break-word;
+}
+#help_drop .customer_service {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+#help_drop .customer_service a {
+    font-size: 1.2em;
+}
+
+#help_drop .bn_g_container {
+
+}	
+#help_drop .bn_g_area {
+
+}
+#help_drop .bn_g_welcome {
+    display: none;
+}
+
+/* tags, comma separated */	
+#help_drop .bn_g_result_terms {
+    display: none;
+}
+/* "x people liked this" */
+#help_drop .bn_g_details {
+    display: none;
+}
+
+.megadrop {
+    position: absolute;
+    z-index: 5;
+    display: none;
+}
+.megadrop.active,
+#megadrop_starting.active,
+#megadrop_managing.active,
+#megadrop_why.active,
+#megadrop_learning.active {
+    display: block;
+}
+.megadrop .inner {
+    background: url(../images/megadrop.png)/*tpa=http://www.bizfilings.com/images/megadrop.png*/ left -71px no-repeat;
+}
+.megadrop .main {
+    background: url(../images/megadrop.png)/*tpa=http://www.bizfilings.com/images/megadrop.png*/ right -71px no-repeat;
+    position: relative;
+    left: 22px;
+    margin-bottom: -22px;
+    margin-top: -49px;
+}
+.megadrop .top {
+    background: url(../images/megadrop.png)/*tpa=http://www.bizfilings.com/images/megadrop.png*/ right -60px no-repeat;
+    height: 11px;
+    position: relative;
+    top: -11px;
+}
+.megadrop .nav_header {
+    z-index: 10;
+    position: relative;
+    right: -22px;
+    top: -49px;
+    cursor: pointer;
+}
+.megadrop .nav_header div {
+    height: 49px;
+    background-image: url(../images/main_nav.png)/*tpa=http://www.bizfilings.com/images/main_nav.png*/;
+    background-repeat: no-repeat;
+    text-indent: -9000px;
+    position: relative;
+    left: -15px;
+}
+.megadrop .nav_header a {
+    display: block;
+    height: 100%;
+}
+.megadrop .bottom {
+    background: url(../images/megadrop.png)/*tpa=http://www.bizfilings.com/images/megadrop.png*/ top left no-repeat;
+    height: 22px;
+    position: relative;
+    top: 22px;
+}
+.megadrop .bottom div {
+    width: 22px;
+    height: 22px;
+    float: right;
+    background: url(../images/megadrop.png)/*tpa=http://www.bizfilings.com/images/megadrop.png*/ top right no-repeat;
+    position: relative;
+    right: -22px;
+}
+.megadrop .content {
+    background: #f6f5f6 url(../images/megadrop_inner_gray.png)/*tpa=http://www.bizfilings.com/images/megadrop_inner_gray.png*/ top left no-repeat;
+    margin-right: 21px;
+}
+.megadrop .content .wrapper {
+    background: #f6f5f6 url(../images/megadrop_inner_gray.png)/*tpa=http://www.bizfilings.com/images/megadrop_inner_gray.png*/ top right no-repeat;
+    padding: 16px 18px 10px 13px;
+    margin-left: 5px;
+    overflow: hidden;
+}
+.megadrop .content div.header,
+.selectboxmenu h2 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 9px;
+}
+.megadrop .content ul,
+.selectboxmenu ul {
+    font-size: 1.1em;
+    margin-bottom: 12px !important;
+}
+.megadrop .content li,
+.selectboxmenu li {
+    margin-bottom: 8px !important;
+    background: none !important;
+    padding: 0 !important;
+    font-size: 1.0em !important;
+    line-height: 14px !important;
+}
+.megadrop .lead {
+    margin-bottom: 9px;
+    font-size: 1.1em;
+    line-height: 14px;
+}
+.megadrop .content li a,
+.selectboxmenu li a {
+    color: #2c75a3;
+}
+.megadrop .content li a:hover {
+
+}
+.megadrop p {
+    color: #777;
+    font-size: 1.1em;
+    line-height: 16px;
+    margin-bottom: 10px;
+}
+.megadrop .content .base {
+    background: #f6f5f6 url(../images/megadrop_inner_gray.png)/*tpa=http://www.bizfilings.com/images/megadrop_inner_gray.png*/ bottom left no-repeat;
+    height: 5px;
+    overflow: hidden;
+    margin-top: -10px;
+}
+.megadrop .content .base div {
+    background: #f6f5f6 url(../images/megadrop_inner_gray.png)/*tpa=http://www.bizfilings.com/images/megadrop_inner_gray.png*/ bottom right no-repeat;
+    height: 5px;
+    margin-left: 10px;
+}
+.megadrop .additional {	
+    background: #205d84 url(../images/megadrop_inner_blue.png)/*tpa=http://www.bizfilings.com/images/megadrop_inner_blue.png*/ bottom left no-repeat;
+    margin-right: 21px;
+}
+.megadrop .additional .wrapper {
+    background: #205d84 url(../images/megadrop_inner_blue.png)/*tpa=http://www.bizfilings.com/images/megadrop_inner_blue.png*/ bottom right no-repeat;
+    padding: 13px 18px 16px 13px;
+    margin-left: 5px;
+    overflow: hidden;
+}
+.megadrop .additional strong {
+    height: 16px;
+    display: block;
+    width: 74px;
+    background: url(../images/megadrop_addtext.png)/*tpa=http://www.bizfilings.com/images/megadrop_addtext.png*/ no-repeat;
+    margin-bottom: 9px;
+    text-indent: -9000px;
+}
+.megadrop .additional ul {
+    zoom: 1;
+    margin-bottom: 0 !important;
+}
+.megadrop .additional li {
+    float: left;
+    margin-right: 15px;
+    font-size: 1.1em !important;
+    background: none !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    line-height: 14px !important;
+    padding: 0 !important;
+    font-style: italic;
+}
+.megadrop .additional li.last {
+    margin-right: 0;
+}
+.megadrop .additional li a,
+#get_started_mini .links a {
+    color: #c9e8fe;
+    background: url(../images/icons/arrow_lb.png)/*tpa=http://www.bizfilings.com/images/icons/arrow_lb.png*/ right 60% no-repeat;
+    padding-right: 9px;
+
+}
+.megadrop .additional li a:hover {
+    color: #fff;
+}
+
+#megadrop_starting {
+    top: 97px;
+    left: 54px;
+    width: 402px;
+}
+#megadrop_starting .nav_header { width: 192px; }
+#megadrop_starting .nav_header div {
+    background-position: -102px -98px;
+    width: 207px;
+}
+#megadrop_starting .colA {
+    float: left;
+    width: 195px;
+}
+#megadrop_starting .colB {
+    width: 150px;
+    float: right;
+}
+.megadrop .more {
+    border-top: 1px solid #ccc;
+    padding-top: 9px;
+}
+
+#megadrop_managing {
+    top: 97px;
+    left: 260px;
+    width: 460px;
+}
+#megadrop_managing .nav_header { width: 204px; }
+#megadrop_managing .nav_header div {
+    background-position: -321px -98px;
+    width: 220px;
+}
+#megadrop_managing .colA {
+    float: left;
+    width: 165px;
+}
+#megadrop_managing .colB {
+    width: 210px;
+    float: right;
+}
+#megadrop_managing .additional strong {
+    background-position: -119px 0;
+    width: 154px;
+}
+
+#megadrop_why {
+    top: 97px;
+    left: 478px;
+    width: 200px;
+}
+#megadrop_why .nav_header { width: 133px; }
+#megadrop_why .nav_header div {
+    background-position: -552px -98px;
+    width: 148px;
+}
+#megadrop_why .colA {
+    float: left;
+    width: 165px;
+}
+
+#megadrop_learning {
+    top: 97px;
+    left: auto;
+    right: 162px;
+    width: 398px;
+}
+#megadrop_learning .nav_header { width: 137px; }
+#megadrop_learning .nav_header div {
+    background-position: -712px -98px;
+    width: 160px;
+    left: -22px;
+}
+#megadrop_learning .colA {
+    float: left;
+    width: 160px;
+    margin-right: 28px;
+}
+#megadrop_learning .colB {
+    float: left;
+    width: 150px;
+}
+/* modifications to make the nav header right-aligned */
+#megadrop_learning .nav_header {
+    margin-left: 231px;
+}
+#megadrop_learning .nav_header div {
+
+}
+#megadrop_learning .inner {
+    background-position: right -773px;
+}
+#megadrop_learning .inner .main {
+    background-position: left -773px;
+    left: auto;
+    right: 21px;
+    clear: both;
+}
+#megadrop_learning .top {
+    background-position: left -760px;
+}
+#megadrop_learning .content {
+    margin-right: 0;
+    margin-left: 22px;
+}
+#megadrop_learning .content .wrapper {
+
+}
+#megadrop_learning .bottom {
+    background-position: right top;
+}
+#megadrop_learning .bottom div {
+    background-position: left top;
+    float: left;
+    right: auto;
+    left: -21px;
+}
+
+/* buttons */
+
+.button.btnw {
+    background: url(../images/buttons/btn_12gr.png)/*tpa=http://www.bizfilings.com/images/buttons/btn_12gr.png*/ top left no-repeat;
+    height: 23px;
+    font-size: 1.2em;
+    color: #399103;
+    font-weight: bold;
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 3px;
+}
+.button.btnw span {
+    background: url(../images/buttons/btn_12gr.png)/*tpa=http://www.bizfilings.com/images/buttons/btn_12gr.png*/ top right no-repeat;
+    color: #399103;
+    line-height: 23px;
+    display: inline-block;
+    margin-left: 3px;
+    position: relative;
+    left: 6px;
+    padding: 0 10px 0 1px;
+}
+.button.btnw:hover, .button.btnw:hover span {
+    text-decoration: none;
+}
+.button.btnw:hover {
+    background-position: bottom left;
+}
+.button.btnw span:hover {
+    background-position: bottom right;
+}
+button.btnw {
+    font-family: Arial, Helvetica, sans-serif;
+}
+button.btnw span {
+    top: -1px;
+}
+
+/* icons */
+a.more {
+    background: url(../images/icons/arrow_b.png)/*tpa=http://www.bizfilings.com/images/icons/arrow_b.png*/ right 55% no-repeat;
+    padding-right: 9px;
+    font-size: 1.2em;
+}
+
+/* header styles */
+h2.b21 {
+    color: #208dda;
+    font-size: 2em;
+    height: 21px;
+}
+
+/* fadebox style */
+.fadebox {
+    width: 472px;
+    background: url(../images/fadebox.png)/*tpa=http://www.bizfilings.com/images/fadebox.png*/ top left no-repeat;
+    padding-top: 20px;
+    margin-left: -6px;
+    margin-bottom: 20px;
+}
+.fadebox .inner {
+    background: url(../images/fadebox.png)/*tpa=http://www.bizfilings.com/images/fadebox.png*/ bottom left no-repeat;
+    padding: 0 17px 22px;
+}
+
+/* white box style */
+.whitebox {
+    width: 248px;
+    background: url(../images/whitebox.png)/*tpa=http://www.bizfilings.com/images/whitebox.png*/ top left no-repeat;
+    padding-top: 20px;
+}
+.whitebox .inner {
+    background: url(../images/whitebox.png)/*tpa=http://www.bizfilings.com/images/whitebox.png*/ bottom left no-repeat;
+    position: relative;
+    padding: 0 23px 23px;
+    overflow: auto;
+}
+.whitebox p {
+    color: #777;
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin-bottom: 4px;
+}
+.whitebox ul {
+
+}
+.whitebox li {
+    background: url(../images/icons/bullet_gray.png)/*tpa=http://www.bizfilings.com/images/icons/bullet_gray.png*/ left 10px no-repeat;
+    font-size: 1.2em;
+    border-top: 1px solid #eee;
+    zoom: 1;
+}
+.whitebox li a {
+    padding: 4px 0 4px 8px;
+    display: block;
+}
+.static_tout {
+    margin-bottom: 15px;
+    display: block;
+}		
+.col_touts .video_popup_trigger img {
+    margin-bottom: 15px;
+}
+.tout,
+.incorporate_module .compare {
+    width: 240px;
+    background: url(../images/whitebox_230.png)/*tpa=http://www.bizfilings.com/images/whitebox_230.png*/ top left no-repeat;
+    padding-top: 17px;
+    margin-bottom: 10px;
+    position: relative;
+    margin-left: -5px;
+}
+.tout a.twitter,
+.tout a.youtube,
+.tout a.facebook {
+    font-weight: bold;
+}
+.tout .inner,
+.incorporate_module .compare .inner {
+    background: url(../images/whitebox_230.png)/*tpa=http://www.bizfilings.com/images/whitebox_230.png*/ bottom left no-repeat !important;
+    padding: 0 15px 15px !important;
+    min-height: 115px;
+}
+.tout h4,
+#main .get_started h4,
+.tout .bn_g_welcome,
+#main .get_started .bn_g_welcome {
+    font-size: 1.7em;
+    color: #444;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+}
+.displayAltPage .bn_g_welcome{color:#236792 !important;}		
+#main .tout p {
+    line-height: 1.4;
+    color: #555;
+    margin-bottom: 6px;
+}
+#main .tout ul,
+#main .tout .bn_g_results_list {
+    margin-bottom: 8px;
+    overflow: hidden;
+    *margin-bottom: 0;
+}
+#main .tout li,
+#main .tout .bn_g_result_title {
+    background: url(../images/icons/bullet_gray.png)/*tpa=http://www.bizfilings.com/images/icons/bullet_gray.png*/ left 7px no-repeat;
+    padding-left: 9px;
+    font-size: 11px;
+    margin-bottom: 4px;
+    word-wrap: break-word;
+}
+#main .tout ul li {
+    list-style: none;
+}
+#main .tout a.bn_g_learninglink {
+    float: left;
+    margin-top: 5px;
+    clear: both;
+}
+#main .tout ol {
+    margin-bottom: 0;
+}
+#main .tout ol li {
+    padding: 0;
+    background: none;
+}
+#main .tout li {
+    line-height: 1.4;
+}
+#main .tout a.cta,
+.tooltip a.cta,
+#main .tout .bn_g_learninglink {
+    color: #236792;
+    background-image: url(../images/icons/arrow_b.png)/*tpa=http://www.bizfilings.com/images/icons/arrow_b.png*/;
+}
+.tout .badge_how {
+    position: absolute;
+    width: 83px;
+    height: 84px;
+    background: url(../images/badge_howitworks.png)/*tpa=http://www.bizfilings.com/images/badge_howitworks.png*/ no-repeat;
+    top: -4px;
+    right: -4px;
+}
+#tout_state .inner {
+    min-height: 0;
+}
+#main #tout_popular .bn_g_result_title {
+    background: none;
+    padding-left: 0;
+}
+#tout_signup {
+    background: url(../images/tout_signup.png)/*tpa=http://www.bizfilings.com/images/tout_signup.png*/ top left no-repeat;
+    width: 230px;
+    margin-left: 0;
+    margin-bottom: 15px;
+    padding-top: 0;
+    height: 137px;
+}
+#tout_signup .inner {
+    background: none !important;
+    padding-left: 10px !important;
+    padding-top: 17px !important;
+}
+#tout_signup h4 {
+    color: #fff;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    border: none;
+    padding-top: 4px;
+}
+#main #tout_signup p {
+    color: #fff !important;
+    margin-bottom: 12px;
+}
+#tout_signup a {
+    display: block;
+    width: 134px;
+    height: 31px;
+    text-indent: -9000px;
+    background: url(../images/buttons/sign_up_for_free.png)/*tpa=http://www.bizfilings.com/images/buttons/sign_up_for_free.png*/ no-repeat;
+}
+#tout_signup a:hover {
+    background-position: bottom left;
+}
+#tout_how {
+
+}
+#tout_how h4 {
+    border: none;
+    margin-bottom: 0px;
+}
+#main #tout_how p {
+    padding-right: 100px;
+    margin-bottom: 0;
+    font-size: 1.2em;
+    border-bottom: 1px solid #cfcfcf;
+    padding-bottom: 10px;
+    margin-bottom: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#main #tout_how img {
+    position: absolute;
+    top: 26px;
+    right: 15px;
+}
+#main #tout_how div.cta {
+    font-size: 1em;
+}
+#main #tout_how .cta a {
+    font-size: 1.2em;
+    font-weight: normal;
+}
+
+#tout_affiliate {
+
+}
+#tout_affiliate h4 {
+    margin-bottom: 10px;
+}
+#tout_affiliate input {
+    width: 196px;
+}
+#tout_affiliate .submit {
+    overflow: auto;
+    margin-bottom: 8px;
+}
+
+#tout_stateguides {
+    min-height: 0;	
+}
+#tout_stateguides .inner {
+    min-height: 0;
+}
+#tout_stateguides select {
+    width: 94%;
+    cursor: pointer;
+}
+#tout_help {
+
+}
+#tout_help .inner {
+    min-height: 0;
+}
+#tout_help p {
+    width: 80%
+}
+#tout_help .contact {
+    overflow: hidden;
+    padding-right: 5px;
+}
+#tout_help strong {
+    font-size: 1.5em;
+    float: left;
+    font-weight: bold;
+    line-height: 23px;
+}
+#tout_help .button {
+    float: right;
+
+}
+#tout_help .button span {
+    font-weight: normal;
+    color: #777;
+}
+#tout_help .button span:hover {
+    color: #000;
+}
+
+#tout_blog {
+
+}
+#tout_blog .entry {
+    margin-bottom: 5px;
+}
+#tout_blog .entry h3 {
+    font-size: 1em;
+    line-height: 1.5;
+    margin: 0;
+}
+#tout_blog .entry a {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+#tout_blog .entry div {
+    font-size: 1.1em;
+    color: #999;
+    font-weight: normal;
+}
+#tout_blog .rss {
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    background: url(../images/icons/rss.png)/*tpa=http://www.bizfilings.com/images/icons/rss.png*/ no-repeat;
+    padding-left: 22px;
+    line-height: 16px;
+}
+#tout_blog .rss a {
+    color: #ff8b3f;
+}
+#main #tout_media p {
+    margin: 10px 0;
+    line-height: 20px;
+}
+
+#questions_tout {
+
+}
+#questions_tout p {
+    width: 150px;
+}
+.tout .bubble {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: url(../images/live_help_bubble.png)/*tpa=http://www.bizfilings.com/images/live_help_bubble.png*/ no-repeat 0 0;
+    width: 81px;
+    height: 81px;
+    z-index: 10;
+}
+#questions_tout .email {
+    background: url(../images/icons/email.png)/*tpa=http://www.bizfilings.com/images/icons/email.png*/ no-repeat;
+    line-height: 17px;
+    padding-left: 22px;
+}
+#main #questions_tout .phone {
+    background: url(../images/icons/phone.png)/*tpa=http://www.bizfilings.com/images/icons/phone.png*/ no-repeat;
+    line-height: 17px;
+    padding-left: 21px;
+    color: #333;
+}
+#main #questions_tout li {
+    padding: 0;
+    background: none;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+#questions_tout .photo {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+}
+
+
+#partner_tout {
+    z-index: 5;
+}
+#partner_slides {
+    position: relative;
+    margin: 0 auto 10px;
+    width: 210px;
+}
+#partner_slides .mask {
+    position: relative;
+    width: 210px;
+    z-index: 2;
+    margin: auto;
+}
+#partner_slides ul.slides {
+    z-index: 1;
+    background: #fff;
+}
+#partner_slides ul.slides li {
+    width: 210px;
+    margin: 0;
+    padding: 0;
+    height: 105px;
+    background: #fff;
+}
+#partner_slides ul.slides img {
+    margin-left: -5px;
+}
+#main #partner_slides .f90,
+#main #partner_slides .navigation {
+    padding: 0;
+    border: none;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    width: 210px;
+    z-index: 3;
+    display: none;
+}
+#partner_slides .f90 div,
+#partner_slides .navigation div {
+    width: 16px;
+    height: 105px;
+    background: url(../images/mini_sliders.png)/*tpa=http://www.bizfilings.com/images/mini_sliders.png*/ no-repeat;
+    text-indent: -9000px;
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+    z-index: 5;
+}
+#partner_slides .f90 div.prev,
+#partner_slides .navigation div.prev {
+    left: 0;
+}
+#partner_slides .f90 div.prev:hover,
+#partner_slides .navigation div.prev:hover {
+    background-position: 0 -105px;
+}
+#partner_slides .f90 div.disabled_prev,
+#partner_slides .navigation div.disabled_prev {
+    background-position: 0 -210px !important;
+    cursor: default !important;
+}
+
+#partner_slides .f90 div.next,
+#partner_slides .navigation div.next {
+    right: 0;
+    background-position: right 0;
+}
+#partner_slides .f90 div.next:hover,
+#partner_slides .navigation div.next:hover {
+    background-position: right -105px;
+}
+#partner_slides .f90 div.disabled_next,
+#partner_slides .navigation div.disabled_next {
+    background-position: right -210px !important;
+    cursor: default !important;
+}	
+
+/* tab box style */
+.tabbox {
+    position: relative;
+}
+.tabbox .tabs {
+    width: 150px;
+    position: absolute;
+    z-index: 5; 
+}
+.tabbox .tabs li {
+    height: 41px;
+    background: url(../images/tabbox_tabs.png)/*tpa=http://www.bizfilings.com/images/tabbox_tabs.png*/ no-repeat;
+    background-position: 0 -128px;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: -11px;
+    clear: both;
+    white-space: nowrap;
+}
+.tabbox .tabs li a {
+    color: #777;
+    display: block;
+    height: 41px;
+    line-height: 29px;
+    padding-left: 15px;
+}
+.tabbox .tabs li a:hover {
+    color: #333;
+    text-decoration: none;
+}
+.tabbox .tabs li.active {
+    background-position: 0 -82px;
+    height: 41px;
+    z-index: 10;
+    position: relative;
+    top: -6px;
+    margin-bottom: 0
+}
+.tabbox .tabs li.active a {
+    color: #333;
+    line-height: 41px;
+}
+.tabbox .tabs li#tabfirst {
+    height: 41px;
+    margin-top: 0;
+    margin-bottom: 6px;
+    background-position: 0 -41px;
+}
+.tabbox .tabs li#tabfirst a {
+    line-height: 41px;
+}
+.tabbox .tabs li#tabfirst.active {
+    background-position: 0 0;
+    top: 0;
+}
+.tabbox .tabs li#tablast {
+    background-position: 0 -205px;
+    height: 41px;
+    margin-top: -16px;
+}
+.tabbox .tabs li#tablast a {
+    line-height: 38px;
+}
+.tabbox .tabs li#tablast.active {
+    background-position: 0 -165px;
+    top: 0;
+}
+.tabbox .tab {
+    width: 287px;
+    background: url(../images/tabbox_main.png)/*tpa=http://www.bizfilings.com/images/tabbox_main.png*/ top left no-repeat;
+    padding-top: 20px;
+    z-index: 0;
+    margin-bottom: 15px;
+}
+.tabbox .tab .inner {
+    background: url(../images/tabbox_main.png)/*tpa=http://www.bizfilings.com/images/tabbox_main.png*/ bottom left no-repeat;
+    position: relative;
+    top: 5px;
+    padding: 0 23px 23px;
+}
+.tabbox .tab h3 {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+.tabbox .tab p {
+    color: #777;
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+#modal_overlay,
+#overlay {
+    background: #000;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.4 !important;
+    filter: alpha(opacity=40) !important;
+    z-index: 100;
+}
+
+#video_popup,
+.video_popup,
+#photo_popup {
+    background: url(../images/bg/video_player.png)/*tpa=http://www.bizfilings.com/images/bg/video_player.png*/ no-repeat 0 0;
+    padding: 15px 20px 0px;
+    position: absolute;
+    width: 640px;
+    height: 410px;
+}
+#video_popup .player_btm,
+.video_popup .player_btm,
+#photo_popup .player_btm {
+    background: url(../images/bg/video_player_btm.png)/*tpa=http://www.bizfilings.com/images/bg/video_player_btm.png*/ no-repeat 0 0;
+    position: absolute;
+    width: 680px;
+    height: 10px;
+    padding: 0 0 0 0;
+    margin: 10px 0 0 -20px;
+}
+#video_popup .inner,
+#pricing_policy_popup .inner,
+.video_popup .inner,
+#photo_popup .inner {
+    position: relative;
+}
+#video_popup .close,
+#myaccount_drop .close,
+#pricing_policy_popup .close,
+#help_drop .close,
+.video_popup .close,
+#photo_popup .close,
+#savings_popup .close {
+    position: absolute;
+    width: 17px;
+    height: 16px;
+    background: url(../images/mini_close.png)/*tpa=http://www.bizfilings.com/images/mini_close.png*/ no-repeat;
+    top: -10px;
+    right: -15px;
+    text-indent: -9000px;
+    cursor: pointer;
+}
+#video_popup .close:hover,
+#myaccount_drop .close:hover,
+#pricing_policy_popup .close:hover,
+#help_drop .close:hover,
+.video_popup .close:hover,
+#photo_popup .close:hover,
+#savings_popup .close:hover {
+    background-position: bottom left;
+}
+#video_popup .video_header,
+.video_popup .video_header,
+#photo_popup .photo_header {
+    border-bottom: 1px solid #e4e4e4;
+    margin-bottom: 10px;
+    padding-bottom: 7px;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #333;
+}
+#video_popup #video_player {
+    background: #e7e7e7;
+    height: 360px;
+}
+#video_player img {
+    margin: auto;
+    padding: 115px 0 30px;
+}
+#video_player p {
+    text-align: center;
+    font-size: 1.3em;
+    color: #555;
+}
+
+#photo_popup {
+    height: 530px;
+}
+#photo_popup #photo_container {
+    height: 480px;
+    overflow: hidden;
+}
+
+.incorporate_module {
+    position: absolute;
+    z-index: 150;
+    width: 862px;
+    background: url(../images/green_pop.png)/*tpa=http://www.bizfilings.com/images/green_pop.png*/ 0 -40px no-repeat;
+}
+.incorporate_module .bottom {
+    background: url(../images/green_pop.png)/*tpa=http://www.bizfilings.com/images/green_pop.png*/ 0 0 no-repeat;
+    height: 31px;
+    position: relative;
+    top: 31px;
+}
+.incorporate_module .inner {
+    position: relative;
+    padding: 40px 45px 0 45px;
+    margin-bottom: -20px;
+}
+.incorporate_module .close {
+    width: 75px;
+    height: 36px;
+    background: url(../images/buttons/pop_close.png)/*tpa=http://www.bizfilings.com/images/buttons/pop_close.png*/ 0 0 no-repeat;
+    cursor: pointer;
+    text-indent: -9000px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.incorporate_module .close:hover {
+    background-position: 0 -36px;
+}
+.incorporate_module .header {
+    border-bottom: 2px solid #d1d1d1;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    width: 515px;
+}
+.incorporate_module .header strong {
+    font-size: 2.6em;
+    color: #3589c5;
+    display: block;
+    font-weight: normal;
+    text-indent: -9999px;
+    overflow: hidden;
+    height: 48px;
+    background: url(../images/headers/megaoverlays.png)/*tpa=http://www.bizfilings.com/images/headers/megaoverlays.png*/ no-repeat 0 -48px;
+}
+.incorporate_module .header p {
+    color: #555;
+    font-size: 1.4em;
+}
+.incorporate_module p.compare_types {
+    display: none;
+}
+.incorporate_module .compare {
+    width: 240px;
+    position: absolute;
+    right: 45px;
+    top: 40px;
+    background-image: url(../images/compare_box.png)/*tpa=http://www.bizfilings.com/images/compare_box.png*/;
+    padding-top: 20px;
+    z-index: 40;
+}
+.incorporate_module .compare .inner {
+    position: relative;
+    background-image: url(../images/compare_box.png)/*tpa=http://www.bizfilings.com/images/compare_box.png*/;
+    padding-bottom: 25px;
+}
+.incorporate_module .compare h3 {
+    background: url(../images/headers/need_help_getting_started.png)/*tpa=http://www.bizfilings.com/images/headers/need_help_getting_started.png*/ no-repeat;
+    height: 52px;
+    border-bottom: 1px solid #cfcfcf;
+    margin-bottom: 10px;
+    text-indent: -9000px;
+}
+.incorporate_module .compare p.intro {
+    color: #555;
+    font-size: 1.3em;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+.incorporate_module .compare .button {
+    display: block;
+    width: 203px;
+    height: 24px;
+    background: url(../images/buttons/compare_incorporation_options.png)/*tpa=http://www.bizfilings.com/images/buttons/compare_incorporation_options.png*/ no-repeat;
+    text-indent: -9000px;
+    margin-bottom: 10px;
+}
+.incorporate_module .compare .button:hover {
+    background-position: bottom left;
+}
+.incorporate_module .compare ul {
+    border-top: 1px solid #d1d1d1;
+    margin-bottom: 12px;
+}
+.incorporate_module .compare li {
+    border-bottom: 1px solid #d1d1d1;
+    padding: 6px 0;
+    zoom: 1;
+}
+.incorporate_module .compare li a {
+    font-size: 1.2em;
+    font-style: italic;
+    background: url(../images/icons/arrow_b.png)/*tpa=http://www.bizfilings.com/images/icons/arrow_b.png*/ right 60% no-repeat;
+    line-height: normal;
+    padding-right: 9px;
+}
+.incorporate_module .help {
+    color: #555;
+}
+.incorporate_module .help p {
+    font-size: 1.4em;
+    margin-bottom: 8px;
+    color: #333333;
+}
+.incorporate_module .help .contact {
+
+}
+.incorporate_module .help span.tel {
+    vertical-align: baseline;
+    font-size: 1.4em;
+    border-right: 1px solid #d1d1d1;
+    padding-right: 7px;
+    margin-right: 7px;
+}
+.incorporate_module .help a {
+    vertical-align: baseline;
+    font-size: 1.2em;
+}
+.incorporate_module fieldset {
+    z-index: 30;
+    position: relative;
+}
+.incorporate_module div.field {
+    padding: 1px 0 0 40px;
+    margin-bottom: 15px;
+    width: 475px;
+}
+.incorporate_module div.state {
+    background: url(../images/icons/numbers.png)/*tpa=http://www.bizfilings.com/images/icons/numbers.png*/ 0 0 no-repeat;
+    border-bottom: 2px solid #d2d2d2;
+    padding-bottom: 15px;
+}
+.incorporate_module .state .note {
+    font-size: 1.1em;
+    width: 215px;
+    float: right;
+    border-left: 1px solid #e1e1e1;
+    line-height: 1.4;
+    padding: 3px 0;
+}
+.incorporate_module .state .note em {
+    color: #555;
+    font-weight: bold;
+    font-style: normal;
+    margin-left: 16px;
+    display: block;
+}
+.incorporate_module .state .note p {
+    margin-left: 16px;
+    color: #8e8e8e;
+    font-style: italic;
+}
+.incorporate_module .state .note p a {
+    color: #555;
+    background: url(../images/icons/arrow_g.png)/*tpa=http://www.bizfilings.com/images/icons/arrow_g.png*/ right 60% no-repeat;
+    padding-right: 8px;
+}
+.incorporate_module div.state .fields {
+    float: left;
+    position: relative;
+    overflow: visible !important;
+}
+.incorporate_module div.state select {
+    width: 165px;
+}
+.incorporate_module div.type {
+    background: url(../images/icons/numbers.png)/*tpa=http://www.bizfilings.com/images/icons/numbers.png*/ -800px 0 no-repeat;
+    margin-bottom: 0;
+}
+.incorporate_module div.label,
+.incorporate_module .state label {
+    color: #333;
+    font-size: 1.8em !important;
+    margin-bottom: 7px;
+    display: block;
+    font-weight: bold;
+    line-height: 1.5;
+    margin-top: -2px;
+}
+.incorporate_module div.label {
+    width: 225px;
+}
+.incorporate_module div.label span,
+.incorporate_module .state label span,
+#main span.question {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    overflow: hidden;
+    background: url(../images/icons/question.png)/*tpa=http://www.bizfilings.com/images/icons/question.png*/ no-repeat;
+    text-indent: -9000px;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-left: 3px;
+    border-bottom: none;
+    padding-bottom: 0;
+    position: static;
+}
+.incorporate_module div.label span:hover,
+.incorporate_module .state label span:hover {
+    background-position: 0 -15px;
+}
+.incorporate_module div.type .popular {
+    float: left;
+    width: 160px;
+}
+.incorporate_module div.type .popular div,
+.incorporate_module div.type .more div {
+    *overflow: hidden;
+    height: 16px;
+    clear: both;
+}
+.incorporate_module div.type .popular label {
+    font-weight: bold;
+}
+.incorporate_module div.type .more {
+    width: 280px;
+    float: left;
+}
+.incorporate_module div.type div {
+    margin-bottom: 7px;
+}
+.incorporate_module div.type p {
+    color: #333;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+#main .incorporate_module div.type p a {
+    font-size: 1em;
+    font-weight: normal;
+}
+.incorporate_module div.type label {
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.1;
+    float: left;
+    margin: 1px 0 0 0;
+    font-weight: normal !important;
+}
+.incorporate_module div.type input {
+    width: 13px;
+    height: 13px;
+    float: left;
+    margin: 0 3px 0 0;
+}
+.incorporate_module #incorporate_selection {
+    color: #777;
+    font-size: 1.2em;
+    border-top: 2px solid #d2d2d2;
+    padding-top: 13px;
+    margin-bottom: 10px;
+    width: 515px;
+}
+#incorporate_selection em {
+    color: #555;
+    font-weight: bold;
+    font-style: normal;
+}
+#incorporate_selection a {
+    color: #333;
+    background: url(../images/icons/arrow_g.png)/*tpa=http://www.bizfilings.com/images/icons/arrow_g.png*/ right 60% no-repeat;
+    padding-right: 8px;
+}
+.incorporate_module .packages {
+    width: 527px;
+    height: 84px;
+    border-top: 2px solid #d2d2d2;
+    padding-top: 18px;
+    background: none;
+}
+
+.incorporate_module .packages p {
+    display: block;
+    float: left;
+    font-style: italic;
+    margin-top: 30px;
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    max-width: 560px;			
+}
+.incorporate_module .packages .price {
+    margin: 18px 0 0 210px;
+    font-size: 1em;
+    color: #407ba0;
+    line-height: 36px;
+    float: left;
+}
+.incorporate_module .packages .price span {
+    color: #ff8610;
+    font-size: 3.8em;
+    font-weight: bold;
+    vertical-align: baseline;
+    letter-spacing: -0.04em;
+    padding-right: 3px;
+}
+.incorporate_module .packages .price span.symbol {
+    font-size: 0.6em;
+    font-weight: normal;
+    vertical-align: text-top;
+}
+.incorporate_module .packages .price span#incorp_startfrom {
+    font-size: 1em;
+}
+.incorporate_module .packages .price a {
+    color: #407ba0;
+    vertical-align: baseline;
+    font-size: 1.4em;
+}
+.incorporate_module .packages button,
+.incorporate_module .order button {
+    float: left;
+    width: 117px;
+    height: 41px;
+    text-indent: -9000px;
+    background: url(../images/buttons/order_now_gr.png)/*tpa=http://www.bizfilings.com/images/buttons/order_now_gr.png*/ no-repeat;
+    cursor: pointer;
+    margin: 22px 22px 0 40px;
+
+}
+.incorporate_module .packages button:hover,
+.incorporate_module .order button:hover {
+    background-position: left bottom;
+}
+.incorporate_module .tooltip {
+    top: -23px !important;
+    width: 260px;
+}
+.incorporate_module .tooltip strong {
+    display: block;
+}
+#incorporation_options {
+    position: absolute;
+    z-index: 150;
+    width: 862px;
+    background: url(../images/green_pop.png)/*tpa=http://www.bizfilings.com/images/green_pop.png*/ 0 -40px no-repeat;
+}
+#incorporation_options .bottom {
+    background: url(../images/green_pop.png)/*tpa=http://www.bizfilings.com/images/green_pop.png*/ 0 0 no-repeat;
+    height: 31px;
+    position: relative;
+    top: 31px;
+}
+#incorporation_options .inner {
+    position: relative;
+    padding: 40px 42px 0 50px;
+    margin-bottom: -31px;
+}
+#incorporation_options .close {
+    width: 75px;
+    height: 36px;
+    background: url(../images/buttons/pop_close.png)/*tpa=http://www.bizfilings.com/images/buttons/pop_close.png*/ 0 0 no-repeat;
+    cursor: pointer;
+    text-indent: -9000px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#incorporation_options .close:hover {
+    background-position: 0 -36px;
+}
+#incorporation_options .compare_head {
+    margin-bottom: 15px;
+    overflow: hidden;
+} 
+#incorporation_options .compare_head .heads {
+    float: left;
+    border-right: 1px solid #e5e5e5;
+    height: 67px;
+    margin: 0;
+    width: 564px;
+}
+#incorporation_options .compare_head .heads h2 {
+    color: #399103;
+    font-family: Arial, sans-serif;
+    font-size: 2.6em;
+    text-indent: -9999px;
+    overflow: hidden;
+    height: 48px;
+    background: url(../images/headers/megaoverlays.png)/*tpa=http://www.bizfilings.com/images/headers/megaoverlays.png*/ no-repeat 0 0;
+    margin-left: -3px;
+    position: relative;
+}
+#incorporation_options .compare_head .heads h2 {
+    display:block;
+}
+#incorporation_options .compare_head .heads h3 {
+    color: #555;
+    font-family: Arial, sans-serif;
+    font-size: 1.6em;
+}
+#incorporation_options .full_guide {
+    float: right;
+    background: url(../images/buttons/full_comparison_guide.png)/*tpa=http://www.bizfilings.com/images/buttons/full_comparison_guide.png*/ no-repeat;
+    width: 181px;
+    height: 30px;
+    margin: 17px 0 0 0;
+    text-indent: -9000px;
+}
+#incorporation_options .full_guide:hover {
+    background-position: bottom left;
+}
+#incorporation_options #compare_table { 
+    background: url(../images/compare_bg.png)/*tpa=http://www.bizfilings.com/images/compare_bg.png*/ top right repeat-y;
+    width: 776px;
+
+}
+#incorporation_options #compare_table table {
+    float: left;
+    border: none;
+    margin: 0;
+}
+#incorporation_options #compare_table tr { }
+#incorporation_options #compare_table td { 
+    padding: 0;
+    width: 17%;
+}
+#incorporation_options #compare_table td.last { border-right: none; }
+#incorporation_options #compare_table thead { 
+}
+#incorporation_options #compare_table thead td {
+    color: #236792;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: center;
+    border-top: 4px solid #6daddc;
+    border-right: 1px solid #cfcfcf;
+    border-left: 1px solid #ececec;
+    padding: 10px 6px;
+}
+#compare_table thead td a.product_link {
+    display: block;
+    height: 42px;
+}
+#compare_table thead td a.button {
+    background: url(../images/buttons/order_now_gr_small.png)/*tpa=http://www.bizfilings.com/images/buttons/order_now_gr_small.png*/ no-repeat;
+    width: 82px;
+    height: 24px;
+    text-indent: -9000px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+}
+#compare_table thead td a.button:hover {
+    background-position: bottom left;
+}
+
+#incorporation_options #compare_table thead td.legend {
+    background: url(../images/bg/bg_compare_popup_top_left.gif)/*tpa=http://www.bizfilings.com/images/bg/bg_compare_popup_top_left.gif*/ repeat-y right top;
+    color: #999;
+    font-size: 1.2em;
+    font-weight: normal;
+    font-style: italic;
+    text-align: left;
+    width: 224px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    padding: 0;
+}
+/*#incorporation_options #compare_table thead td.first {
+        color: #989898;
+        border-top: 4px solid #cfcfcf;
+}*/
+#incorporation_options #compare_table td.header_title {
+    color: #fff;
+    font-size: 1.2em;
+    text-align: left;
+    background-color: #3589c5;
+    height: 30px;
+    padding: 0 0 0 11px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    width: auto;
+}
+#incorporation_options #compare_table tbody { padding: 0 0 0 11px; }
+#incorporation_options #compare_table tbody tr { }
+#incorporation_options #compare_table tbody tr.last_feature td { border-bottom: none; }
+#incorporation_options #compare_table tbody td {
+    border-bottom: 1px solid #e4e4e4;
+    line-height: normal;
+    text-align: center;
+    padding: 7px 0;
+}
+#incorporation_options #compare_table tbody td.feature {
+    background: #f6f6f6 url(../images/bg/bg_compare_popup_left.png)/*tpa=http://www.bizfilings.com/images/bg/bg_compare_popup_left.png*/ repeat-y right top;
+    color: #333;
+    font-size: 1.1em;
+    padding: 6px 8px 6px 11px;
+    border-right: none;
+    border-left: none;
+    width: auto;
+    text-align: left;
+    font-weight: bold;
+}
+#incorporation_options #compare_table tbody td.feature span { }
+#incorporation_options #compare_table tbody td img {
+    margin: 0 auto;
+}
+#incorporation_options #compare_table td p {
+    color: #555;
+    font-size: 11px;
+    font-weight: bold;
+}
+#incorporation_options #compare_table col.description {
+    width: 32%;
+}
+#incorporation_options .table_right {
+    float: left;
+    right: 35px;
+    position: absolute;
+}
+#incorporation_options .table_right .table_right_top {
+    background: url(../images/bg/bg_compare_popup_top_right.gif)/*tpa=http://www.bizfilings.com/images/bg/bg_compare_popup_top_right.gif*/ no-repeat right top;
+    width: 6px;
+    height: 12px;
+}
+#incorporation_options .table_right .table_right_bottom {
+    background: url(../images/bg/bg_compare_popup_right.gif)/*tpa=http://www.bizfilings.com/images/bg/bg_compare_popup_right.gif*/ repeat-y right top;
+    width: 6px;
+    height: 320px;
+}
+#incorporation_options .table_bottom {
+    background: url(../images/bg/bg_compare_popup_bottom.gif)/*tpa=http://www.bizfilings.com/images/bg/bg_compare_popup_bottom.gif*/ no-repeat right bottom;
+    width: 561px;
+    height: 7px;
+    float: right;
+    right: 35px;
+    margin-bottom: 7px;
+}
+
+/* subpage styles */
+#content {
+
+}
+#breadcrumbs {
+    float: left;
+    height: 29px;
+}
+#breadcrumbs ul {
+    height: 23px;
+    overflow: hidden;
+}
+#breadcrumbs li {
+    color: #c3c8ce;
+    float: left;
+    font-size: 1.1em;
+    background: url(../images/breadcrumb_slash.png)/*tpa=http://www.bizfilings.com/images/breadcrumb_slash.png*/ 0 40% no-repeat;
+    margin-left: -6px;
+    margin-right: 6px;
+}
+#breadcrumbs li a,
+#breadcrumbs a {
+    color: #c3c8ce;
+    padding: 0 6px 0 10px;
+    float: left;
+}
+#breadcrumbs li:last-child a {
+    color: #e1e4e8;
+}
+#breadcrumbs li:first-child a {
+    color: #c3c8ce;
+}
+#page_tools {
+    float: right;
+    height: 29px;
+}
+#page_tools a {
+    color: #c3c8ce;
+}
+#page_tools a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+#page_tools .print {
+    color: #c3c8ce;
+    font-size: 1.1em;
+    float: left;
+    margin-right: 15px;
+    cursor: pointer;
+}
+#page_tools .print a {
+    background: url(../images/icons/print_share.png)/*tpa=http://www.bizfilings.com/images/icons/print_share.png*/ no-repeat;
+    padding-left: 18px;
+}
+#page_tools .print a:hover {
+    color: #fff;
+    background-position: 0 -33px;
+}
+#page_tools .share {
+    font-size: 1.1em;
+    float: left;
+    width: 72px;
+    text-align: right;
+    white-space: nowrap;
+}
+#page_tools .share a {
+    background: url(../images/icons/print_share.png)/*tpa=http://www.bizfilings.com/images/icons/print_share.png*/ -200px 0px no-repeat;
+    padding-left: 17px;
+}
+#page_tools .share a span {
+    display: inline;
+    width: 1px;
+    visibility: hidden;
+}
+#page_tools .share a:hover {
+    background-position: -200px -33px;
+}
+#sidenav {
+    width: 200px;
+    background: url(../images/sidenav_bg.png)/*tpa=http://www.bizfilings.com/images/sidenav_bg.png*/ top left no-repeat;
+    min-height: 550px;
+    float: left;
+    clear: both;
+    margin-left: -5px;
+}
+#sidenav .inner {
+    padding: 18px 15px 0 15px;
+}
+/* main sidenav header */
+#sidenav h2, #sidenav div.header {
+    height: 17px;
+    text-indent: -9000px;
+    margin-bottom: 8px;
+}
+#sidenav h2 a, #sidenav div.header a {
+    display: block;
+    height: 17px;
+}
+#content.starting #sidenav h2,
+#content.starting #sidenav div.header {
+    background: url(../images/headers/sidenav_starting.png)/*tpa=http://www.bizfilings.com/images/headers/sidenav_starting.png*/ no-repeat;
+}
+#content.managing #sidenav h2,
+#content.managing #sidenav div.header {
+    background: url(../images/headers/sidenav_managing.png)/*tpa=http://www.bizfilings.com/images/headers/sidenav_managing.png*/ no-repeat;
+}
+#content.learning #sidenav h2,
+#content.learning #sidenav div.header {
+    background: url(../images/headers/sidenav_learning.png)/*tpa=http://www.bizfilings.com/images/headers/sidenav_learning.png*/ no-repeat;
+}
+#content.why #sidenav h2,
+#content.why #sidenav div.header {
+    background: url(../images/headers/sidenav_whybizfilings.png)/*tpa=http://www.bizfilings.com/images/headers/sidenav_whybizfilings.png*/ no-repeat;
+}
+#content.about #sidenav h2,
+#content.about #sidenav div.header {
+    background: url(../images/headers/sidenav_about.png)/*tpa=http://www.bizfilings.com/images/headers/sidenav_about.png*/ no-repeat;
+}
+#content.customerservice #sidenav h2,
+#content.customerservice #sidenav div.header {
+    background: url(../images/headers/sidenav_customerservice.png)/*tpa=http://www.bizfilings.com/images/headers/sidenav_customerservice.png*/ no-repeat;
+    margin-left: -1px;
+}
+#helpful_tools {
+    border: 1px solid #ddd;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    padding: 4px 9px 4px;
+    background: #fff url(../images/helpful_tools_bg.png)/*tpa=http://www.bizfilings.com/images/helpful_tools_bg.png*/ bottom left repeat-x;
+    margin-bottom: 14px;
+}
+#sidenav #helpful_tools strong {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+#sidenav #helpful_tools ul {
+    margin-bottom: 0;
+}
+#sidenav #helpful_tools li {
+    font-style: italic;
+    font-size: 1.1em;
+    border-top: 1px solid #e3e3e3;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+#sidenav #helpful_tools li a {
+    color: #418304;
+    padding: 5px 0;
+    background: url(../images/icons/arrow_green.png)/*tpa=http://www.bizfilings.com/images/icons/arrow_green.png*/ right 60% no-repeat;
+    line-height: 24px;
+    padding-right: 9px;
+}
+/* group heading */
+#sidenav strong,
+#sidenav h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    line-height: 2;
+}
+#sidenav ul {
+    margin-bottom: 18px;
+}
+#sidenav li,
+#sidenav .lead  {
+    font-size: 1.1em;
+    margin: 0;
+    line-height: 2;
+}
+#sidenav li a,
+#sidenav li.active li a,
+#sidenav .lead a {
+    color: #2c75a3;
+}
+#sidenav li a:hover {
+    text-decoration: underline !important;
+}
+#sidenav .youtube a {
+    padding-left: 21px;
+    background: url(../images/icons/social_media.png)/*tpa=http://www.bizfilings.com/images/icons/social_media.png*/ -1000px 0 no-repeat;
+    line-height: 17px;
+    display: block;
+}
+#sidenav .facebook a {
+    padding-left: 21px;
+    background: url(../images/icons/social_media.png)/*tpa=http://www.bizfilings.com/images/icons/social_media.png*/ 0 0 no-repeat;
+    line-height: 17px;
+    display: block;
+}
+#sidenav .twitter a {
+    padding-left: 21px;
+    background: url(../images/icons/social_media.png)/*tpa=http://www.bizfilings.com/images/icons/social_media.png*/ -500px 0 no-repeat;
+    line-height: 17px;
+    display: block;
+}
+#sidenav li.youtube,
+#sidenav li.facebook,
+#sidenav li.twitter {
+    line-height: normal;
+    margin-bottom: 6px !important;
+}
+#sidenav li.active {
+
+}
+#sidenav li.active a {
+    color: #555;
+}
+#sidenav li ul {
+    margin-bottom: 0;
+}
+#sidenav li li {
+    font-size: 1em;
+    margin-left: 10px;
+}
+#sidenav li li a {
+    padding-left: 8px;
+    background: url(../images/icons/arrow_b.png)/*tpa=http://www.bizfilings.com/images/icons/arrow_b.png*/ left 50% no-repeat;
+}
+
+/* this is the main content area -- sidenav is outside of this */			
+#main {
+    float: right;
+    width: 710px;
+    position: relative;
+    right: -5px;
+    padding: 30px 25px 25px;
+    background: url(../images/main_bg.png)/*tpa=http://www.bizfilings.com/images/main_bg.png*/ no-repeat;
+    _background: url(../images/main_bg.8bit.png)/*tpa=http://www.bizfilings.com/images/main_bg.8bit.png*/ no-repeat;
+}
+
+#content.wide #main {
+    width: 900px;
+    background: url(../images/main_bg_wide.png)/*tpa=http://www.bizfilings.com/images/main_bg_wide.png*/ no-repeat;
+    _background: url(../images/main_bg_wide.8bit.png)/*tpa=http://www.bizfilings.com/images/main_bg_wide.8bit.png*/ no-repeat;
+    margin-left: -5px;
+    padding: 25px 35px;
+    float: none;
+    right: 0;
+    min-height: 600px;
+    clear: both;
+}
+#main .col_content,
+#main .col_profile {
+    width: 460px;
+    float: left;
+}
+#content.wide #main .col_content {
+    width: 650px;
+}
+#main .col_touts,
+#main .col_photo {
+    width: 230px;
+    float: right;
+}
+/* subhead */
+#main h2 {
+    color: #333;
+    font-size: 2.1em;
+    margin-bottom: 7px;
+}
+#main h2.sf_listTitle {
+    margin: 0 0 12px 0;
+}
+#main .section,
+#content #main .col_profile .section {
+    border-bottom: 2px solid #e5e5e5;
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+}
+#main .section ~ .ctas,
+#content #main .col_profile .section ~ .ctas {
+    border: none;
+}
+#main p.intro {
+    font-size: 1.6em;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+#main p a {
+    font-size: 1em;
+}
+#main a.back {
+    font-size: 1.2em;
+    background: url(../images/icons/arrow_up.png)/*tpa=http://www.bizfilings.com/images/icons/arrow_up.png*/ right 50% no-repeat;
+    padding-right: 12px;
+    float: right;
+}
+#main p.sub {
+    color: #999;
+    font-size: 1.1em;
+    margin-top: -5px;
+    margin-bottom: 8px;
+}
+#main h3,
+#main h2.h3,
+#main strong.h3,
+#main .additional_content .bn_g_welcome,
+#main #sitemap h2,
+#product_header .utility div.h3 {
+    display: block;
+    font-size: 1.4em;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+#main h3 span.price {
+    padding-left: 8px;
+    font-weight: normal;
+    color: #ff8610;
+}
+#main p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    max-width: 560px;
+}
+#main p.note {
+    font-size: 1.1em;
+    color: #999;
+    margin-bottom: 0;
+}
+#main p.privacy {
+    font-size: 1.1em;
+    color: #999;
+    margin-bottom: 0;
+    background: url(../images/icons/lock.gif)/*tpa=http://www.bizfilings.com/images/icons/lock.gif*/ no-repeat;
+    padding-left: 21px;
+    line-height: 18px;
+    font-style: normal;
+}
+#main .form {
+    background: #f6f6f6;
+    border-top: 4px solid #ddd;
+    padding: 15px 20px 20px;
+    margin-bottom: 20px;
+}
+#main .form .section {
+    padding-bottom: 10px;
+}
+#main .form fieldset.section {
+    padding-bottom: 0;
+}
+#main .form label {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+}
+#main .form legend {
+    font-size: 1.8em;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-left: 0;
+    padding: 0;
+    *margin-left: -8px;
+}
+#main .form legend.indicator {
+    font-size: 1.2em;
+    font-weight: normal;
+    color: #555;
+}
+#main .form .field {
+    margin-bottom: 15px;
+}
+#main .form .field.last {
+    margin-bottom: 10px;
+}
+#main .form .fields {
+    overflow: auto;
+}
+#main .form .fields .field {
+    float: left;
+    margin-right: 20px;
+}
+#main .form .fields .field.last {
+    margin-right: 0;
+}
+#main ul,
+#main .additional_content .bn_g_results_list {
+    margin-bottom: 15px;
+}
+#main ul.sf_anchorList {
+    border-bottom: 2px solid #e5e5e5;
+    padding-bottom: 12px;
+}
+#main ul.sf_anchorList li {
+    margin-left: 0;
+}
+#main ul.sf_expandedList {
+
+}
+#main ul.sf_expandedList li {
+    font-size: 1em;
+    margin-left: 0;
+    padding-left: 0;
+    background: none;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0;
+    margin-bottom: 15px;
+}
+#main .additional_content .bn_g_services {
+    display: none;
+}
+#main li,
+#main ol ul li,
+#main .additional_content .bn_g_result {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 4px;
+    background: transparent url(../images/icons/bullet_orange.png)/*tpa=http://www.bizfilings.com/images/icons/bullet_orange.png*/ left 8px no-repeat;
+    padding-left: 10px;
+}
+#main .additional_content .bn_g_result {
+    background-image: url(../images/icons/bullet_gray.png)/*tpa=http://www.bizfilings.com/images/icons/bullet_gray.png*/;
+}
+#main li ul,
+#main li ol {
+    margin-bottom: 0;
+}
+#main li li {
+    font-size: 1em !important;
+}
+#main ol ul li {
+    list-style: none;
+}
+#main ul ul {
+    margin-left: 15px;
+}
+#main ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+#main ol li {
+    list-style: decimal;
+    background: none;
+    padding-left: 0;
+}
+
+#main ul.checks {
+    margin-bottom: 25px;
+}
+#main ul.checks li {
+    background: url(../images/icons/check_large.png)/*tpa=http://www.bizfilings.com/images/icons/check_large.png*/ 0 2px no-repeat;
+    padding-left: 30px;
+    font-size: 1.4em;
+    line-height: 22px;
+    margin-bottom: 12px;
+}
+#main ul.checks-large {
+    margin-bottom: 0;
+}
+#main ul.checks-large li {
+    background: url(../images/check_large.png)/*tpa=http://www.bizfilings.com/images/check_large.png*/ no-repeat;
+    padding-left: 40px;
+    border-bottom: 1px solid #e1e1e1;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+#main ul.checks-large li strong {
+    color: #555;
+}
+#main ul.checks-large li.last {
+    border: none;
+}
+#main ol.alphabetical,
+#main ul.alphabetical {
+
+}
+#main ol.alphabetical li,
+#main ul.alphabetical li {
+    list-style: lower-alpha !important;
+    background: none;
+}
+#main strong {
+    color: #333;
+}
+#main .pagination {
+    background: #f6f6f6;
+    border-top: 1px solid #e5e5e5;
+    padding: 8px 10px;
+    overflow: auto;
+    margin-bottom: 20px;
+    position: relative;
+}
+#main .pagination p {
+    font-size: 1.1em;
+    margin-bottom: 6px;
+}
+#main .pagination select {
+    float: left;
+    width: 290px;
+}
+
+#main .pagination a {
+    width: 57px;
+    height: 21px;
+    text-indent: -9000px;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 32px;
+}
+
+#main .pagination .prev {
+    background: url(../images/buttons/pagination_prev.png)/*tpa=http://www.bizfilings.com/images/buttons/pagination_prev.png*/ no-repeat;
+    margin-right: 10px;
+    right: 60px;
+    width: 64px;
+}
+#main .pagination .next {
+    background: url(../images/buttons/pagination_next.png)/*tpa=http://www.bizfilings.com/images/buttons/pagination_next.png*/ no-repeat;
+    right: 10px;
+    width: 48px;
+}
+#main .pagination a:hover {
+    background-position: bottom left;
+}
+#main a.cta,
+#search_popup .all a,
+#main p.sf_readMore a,
+#main .get_started .bn_g_result_link,
+.tooltip a.cta,
+#main .tout .bn_g_learninglink,
+#product_header .utility #trigger_how_it_works,
+#product_header .utility #trigger_how_it_works_alt {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #236792;
+    background: url(../images/icons/arrow_b.png)/*tpa=http://www.bizfilings.com/images/icons/arrow_b.png*/ right 60% no-repeat;
+    line-height: normal;
+    padding-right: 9px;
+}
+#main .program {
+    border-bottom:2px solid #E5E5E5;
+    margin-bottom:18px;
+    padding-bottom:18px;
+}
+#main .program a.cta {
+    margin-right: 10px;
+}
+#main a.pdf {
+    background: url(../images/icons/pdf.png)/*tpa=http://www.bizfilings.com/images/icons/pdf.png*/ left 60% no-repeat;
+    padding-left: 20px;
+    line-height: 16px;
+}
+#main h1,
+#main #landing_header h2 {
+    color: #3488c6;
+    font-size: 30px;
+    margin-bottom: 9px;
+    font-weight: normal;
+}
+.cufon-loading #main h1 { visibility: hidden !important; }
+#content.wide #main h1 {
+    font-size: 3em;
+}
+#main div.f90,
+#main div.navigation {
+    border-bottom: 1px solid #ddd;
+    padding-left: 13px;
+    margin-bottom: 25px;
+    _zoom: 1;
+    *position: relative;
+    *z-index: 0;
+}
+#main ul.tabs {
+    height: 35px;
+    border-left: 1px solid #ddd;
+    margin-bottom: 0;
+    position: relative;
+}
+#main ul.tabs li {
+    float: left;
+    border: solid #ddd;
+    border-width: 1px 1px 0 0;
+    background: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+#main ul.tabs li a {
+    display: block;
+    background: #f6f6f6;
+    padding: 0 24px;
+    height: 35px;
+    line-height: 35px;
+    float: left;
+    position: relative;
+}
+#main ul.tabs li.active {
+    border-top: none;
+
+}
+#main ul.tabs li.active a {
+    background: #fff url(../images/tab_bg_active.png)/*tpa=http://www.bizfilings.com/images/tab_bg_active.png*/ repeat-x;
+    top: 2px;
+    height: 37px;
+    line-height: 37px;
+    margin-top: -2px;
+}
+#main .tab {
+    clear: both;
+    padding-left: 20px;
+}
+#main ul.minitabs {
+    height: 29px;
+    margin-top: 5px;
+}
+#main ul.minitabs li {
+    font-size: 1.1em;
+}
+#main ul.minitabs li a {
+    padding: 0 12px;
+    height: 28px;
+    line-height: 28px;
+}
+#main ul.minitabs li.active {
+
+}
+#main ul.minitabs li.active a {
+    height: 30px;
+    line-height: 30px;
+}
+#main .ctas {
+    overflow: auto;
+    border-top: 1px solid #e4e4e4;
+    padding-top: 25px;
+    margin-top: 25px;
+}
+#main .ctas .group {
+    float: left;
+    width: 50%;
+}
+#main .ctas .group p {
+    padding-right: 20px;
+}
+#main .ctas .group li {
+    background-image: url(../images/icons/bullet_gray.png)/*tpa=http://www.bizfilings.com/images/icons/bullet_gray.png*/;
+}
+
+#main .selectbox {
+    background: url(../images/selectbox.png)/*tpa=http://www.bizfilings.com/images/selectbox.png*/ top left;
+    height: 24px;
+    cursor: pointer;
+    padding-left: 12px;
+    display: block;
+}
+#main .selectbox span {
+    background: url(../images/selectbox.png)/*tpa=http://www.bizfilings.com/images/selectbox.png*/ top right;
+    color: #236792;
+    font-size: 1.3em;
+    display: block;
+    height: 100%;
+    line-height: 23px;
+    padding-right: 30px;
+}
+#main .selectboxmenu {
+    background: url(../images/selectbox_popup.png)/*tpa=http://www.bizfilings.com/images/selectbox_popup.png*/ bottom left no-repeat;
+    position: absolute;
+    z-index: 100;
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), 4px 0 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), 4px 0 10px rgba(0, 0, 0, 0.15);
+    margin-right: 4px;
+    margin-top: 29px;
+}
+#main .selectboxmenu .top {
+    background: url(../images/selectbox_popup.png)/*tpa=http://www.bizfilings.com/images/selectbox_popup.png*/ 0 -101px no-repeat;
+    height: 4px;
+    margin-top: -4px;
+}
+#main .selectboxmenu .top div {
+    float: right;
+    width: 4px;
+    height: 4px;
+    margin-right: -4px;
+    background: url(../images/selectbox_popup.png)/*tpa=http://www.bizfilings.com/images/selectbox_popup.png*/ right -101px no-repeat;
+}
+#container #main .selectboxmenu .inner {
+    background: url(../images/selectbox_popup.png)/*tpa=http://www.bizfilings.com/images/selectbox_popup.png*/ bottom right no-repeat;
+    position: relative;
+    left: 4px;
+    padding: 10px;
+    height: auto;
+}
+#container #main .selectboxmenu .header {
+    background: url(../images/selectbox_popup.png)/*tpa=http://www.bizfilings.com/images/selectbox_popup.png*/ top left;
+    height: 26px;
+    padding-left: 0;
+    color: #333;
+    position: absolute;
+    top: -29px;
+    right: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    text-indent: 0;
+    width: auto;
+    -moz-box-shadow: -3px -3px 3px rgba(0, 0, 0, 0.03), 3px -3px 3px rgba(0, 0, 0, 0.03);
+}
+
+#container #main .selectboxmenu .header {
+    width:165px\9;
+}
+#main .selectboxmenu .header span {
+    background: url(../images/selectbox_popup.png)/*tpa=http://www.bizfilings.com/images/selectbox_popup.png*/ top right;
+    padding: 0 30px 0 8px;
+    font-size: 1.3em;
+    height: 100%;
+    display: block;
+    line-height: 23px;
+    font-size: 1.3em;
+    position: relative;
+    left: 4px;
+    -moz-box-shadow: 3px -1px 3px rgba(0, 0, 0, 0.05);
+}
+
+
+#main .selectboxmenu h2 {
+    font-size: 1.2em;
+}
+#main .selectboxmenu ul {
+
+}
+#main .selectboxmenu li {
+    font-size: 1em;
+    background: none;
+    padding: 0;
+    white-space: nowrap;
+}
+#main .selectboxmenu p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+#main .selectboxmenu.leftbox {
+
+}
+#main .selectboxmenu.leftbox .header {
+    left: -4px;
+    right: auto;
+}
+#main .selectboxmenu.leftbox .top {
+    background-position: right -71px;
+    margin-right: -4px;
+}
+#main .selectboxmenu.leftbox .top div {
+    float: left;
+    background-position: left -71px;
+}
+
+table {
+    border-right: 1px solid #d2d2d2;
+    margin-bottom: 20px;
+}
+thead th {
+    background: #3589c5;
+    color: #c9e8fe;
+    text-align: center;
+    font-size: 1.2em;
+    border-left: 1px solid #2c71a2;
+}
+thead th:first-child {
+    color: #fff;
+    text-align: left;
+    background: #3384be url(../images/table_blue.png)/*tpa=http://www.bizfilings.com/images/table_blue.png*/ repeat-y;
+}
+tbody th {
+    color: #222;
+    font-weight: bold;
+    font-size: 1.1em;
+    background: #f6f6f6 url(../images/table_lg.png)/*tpa=http://www.bizfilings.com/images/table_lg.png*/ repeat-y;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #d2d2d2;
+}
+tbody th a {
+    color: #222;
+}
+td, th {
+    padding: 8px 20px;
+}
+td {
+    font-size: 1.2em;
+    border-bottom: 1px solid #e4e4e4;
+    border-left: 1px solid #d2d2d2;
+}
+
+#feedback_popup,
+.tooltip.tooltip_alt,
+#feedback_popup_alternate {
+    background: url(../images/tooltip.png)/*tpa=http://www.bizfilings.com/images/tooltip.png*/ bottom left no-repeat;
+    position: absolute;
+    z-index: 30;
+    width: 300px;
+}
+#feedback_popup .inner,
+.tooltip.tooltip_alt .inner,
+#feedback_popup_alternate .inner {
+    background: url(../images/tooltip.png)/*tpa=http://www.bizfilings.com/images/tooltip.png*/ bottom right no-repeat;
+    margin: -14px -17px 0 31px !important;
+    padding: 5px 24px 12px 5px !important;
+    min-height: 50px;
+    position: relative;
+}
+#feedback_popup .close,
+.tooltip.tooltip_alt .close,
+#feedback_popup_alternate .close,
+.tooltip .close {
+    width: 17px !important;
+    height: 16px !important;
+    background: url(../images/mini_close.png)/*tpa=http://www.bizfilings.com/images/mini_close.png*/ no-repeat !important;
+    top: -7px !important;
+    right: 9px !important;
+    position: absolute;
+    text-indent: -9000px;
+    cursor: pointer;
+}
+#feedback_popup .close:hover,
+.tooltip.tooltip_alt .close:hover,
+#feedback_popup_alternate .close:hover,
+.tooltip .close:hover {
+    background-position: bottom left !important;
+}
+#feedback_popup .top,
+.tooltip.tooltip_alt .top,
+#feedback_popup_alternate .top {
+    background: url(../images/tooltip.png)/*tpa=http://www.bizfilings.com/images/tooltip.png*/ top left no-repeat;
+    height: 14px;
+    position: relative;
+    top: -14px;
+}
+#feedback_popup .top div,
+.tooltip.tooltip_alt .top div,
+#feedback_popup_alternate .top div {
+    background: url(../images/tooltip.png)/*tpa=http://www.bizfilings.com/images/tooltip.png*/ top right no-repeat;
+    float: right;
+    height: 14px;
+    width: 17px;
+    margin-right: -17px;
+}
+#main #feedback_popup_alternate {
+    background: url(../images/tooltip_right.png)/*tpa=http://www.bizfilings.com/images/tooltip_right.png*/ bottom left no-repeat;
+    bottom: -20px;
+    right: 150px;
+    position: absolute;
+    top: auto;
+    left: auto;
+}
+#main #feedback_popup_alternate .close {
+    right: 23px !important;
+}
+#feedback_popup_alternate .top {
+    background-image: url(../images/tooltip_right.png)/*tpa=http://www.bizfilings.com/images/tooltip_right.png*/;
+}
+#main.landing .col_touts .tout #feedback_popup_alternate .inner {
+    background: url(../images/tooltip_right.png)/*tpa=http://www.bizfilings.com/images/tooltip_right.png*/ bottom right no-repeat !important;
+    margin: -14px -31px 0 17px !important;
+    padding: 5px 24px 12px 5px !important;
+}
+#stateguides_tout #stateguides_tout_topic,
+#stateguides_tout #stateguides_tout_state {
+    width:94%;
+}
+#stateguides_tout .button.btnw span {
+    color: #777;
+    font-weight: normal;
+}
+
+.tooltip {
+    background: url(../images/tooltip_top.png)/*tpa=http://www.bizfilings.com/images/tooltip_top.png*/ top left no-repeat;
+    position: absolute;
+    z-index: 30;
+    width: 300px;
+}
+.tooltip .inner {
+    background: url(../images/tooltip_top.png)/*tpa=http://www.bizfilings.com/images/tooltip_top.png*/ top right no-repeat;
+    margin: 0 -17px -14px 31px !important;
+    padding: 14px 24px 5px 5px !important;
+    min-height: 50px;
+    position: relative;
+}
+.tooltip .close {
+    width: 17px !important;
+    height: 16px !important;
+    background: url(../images/mini_close.png)/*tpa=http://www.bizfilings.com/images/mini_close.png*/ no-repeat !important;
+    top: -7px !important;
+    right: 9px !important;
+    position: absolute;
+    text-indent: -9000px;
+    cursor: pointer;
+}
+.tooltip .close:hover {
+    background-position: bottom left;
+}
+.tooltip .bottom,
+.incorporate_module .tooltip .bottom {
+    background: url(../images/tooltip_top.png)/*tpa=http://www.bizfilings.com/images/tooltip_top.png*/ bottom left no-repeat;
+    height: 14px;
+    position: relative;
+    bottom: -14px;
+    top: auto;
+}
+
+.tooltip .bottom div {
+    background: url(../images/tooltip_top.png)/*tpa=http://www.bizfilings.com/images/tooltip_top.png*/ bottom right no-repeat;
+    position: absolute;
+    right: 0;
+    height: 14px;
+    width: 17px;
+    margin-right: -17px;
+}
+.tooltip h3, #main .tooltip h3,
+.tooltip strong, #main .tooltip strong,
+#pricing_policy_popup strong,
+#savings_popup strong {
+    font-size: 12px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+}
+.tooltip p, #main .tooltip p, .incorporate_module div.type .tooltip p, #pricing_policy_popup p, #savings_popup p {
+    color: #555;
+    line-height: 1.4;
+    margin-bottom: 5px;
+    font-size: 11px;
+    font-weight: normal;
+}
+#main .tooltip .ctas {
+    background: none;
+    padding: 0;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    margin-bottom: 0;
+}
+#main .tooltip ul {
+    margin-bottom: 10px;
+}
+.tooltip ul li {
+    font-size: 1.1em !important;
+}
+.tooltip p a.cta {
+    font-size: 1em !important;
+}
+.tooltip .inner .cta {
+    font-size: 1em;
+    display: inline;
+    padding-left: 0;
+    background-position: right 55%;
+}
+
+#state_tooltip a, #state_tooltip p, #state_tooltip strong{
+    line-height: 1.7em;
+}
+.statett_break{
+    color: #555;
+}
+#state_tooltip p{
+    padding-left: 3px;
+}
+
+.main_header {
+    position: relative;
+    background: url(../images/landing_bg.jpg)/*tpa=http://www.bizfilings.com/images/landing_bg.jpg*/ no-repeat;
+    width: 730px;
+    height: auto;
+    margin: -25px 0 25px -20px;
+    padding: 0 0 0 20px;
+}
+#content.wide .main_header,
+#content.wide #main.login .main_header {
+    background-image: url(../images/landing_bg_wide.jpg)/*tpa=http://www.bizfilings.com/images/landing_bg_wide.jpg*/;
+}
+#main .main_header h1,
+#main #landing_header h2 {
+    color: #76bcee;
+    padding-top: 28px;
+}
+#main .main_header p.intro {
+    color: #fff;
+    width: 420px;
+    margin-bottom: 10px;
+    border: none;
+    padding-bottom: 30px;
+    line-height: 1.4;
+}
+.main_header .photo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #ffc;
+    opacity: 0.4;
+    height: 100px;
+    width: 100px;
+    border: 1px solid #ccc;
+}
+#content.landing .main_header {
+    background: url(../images/main_bg_landing.png)/*tpa=http://www.bizfilings.com/images/main_bg_landing.png*/ no-repeat;
+    width: 960px;
+    margin-left: -30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#content.landing .main_header h1 {
+    color: #c9e8fe;
+    font-size: 2.8em;
+    padding-top: 5px;
+    margin-bottom: 5px;
+}
+#content.landing .main_header p.intro {
+    padding-bottom: 0;
+    width: 630px;
+    max-width: none;
+}
+
+div.prompt {
+    position: relative;
+}
+div.prompt label {
+    position: absolute;
+    left: 9px;
+    top: 6px;
+    display: block;
+}
+div.prompt input {
+
+}
+
+#sitemap {
+    overflow: auto;
+    margin-top: 30px;
+}
+#sitemap .column {
+    float: left;
+    width: 33%;
+}
+#sitemap .section {
+    margin-right: 45px;
+    border-bottom: 2px solid #e1e1e1;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+}
+#sitemap .column.last .section {
+    margin-right: 0;
+}
+#sitemap h2 {
+    margin: 0 !important;
+}
+#sitemap h2 a {
+    color: #333;
+}
+#sitemap strong {
+    font-size: 1.2em;
+    margin-top: 12px;
+    display: block;
+    color: #555;
+}
+#sitemap ul {
+    margin: 0;
+    padding: 0;
+    margin-top: 8px;
+}
+#sitemap li {
+    padding: 0;
+    background: none;
+    line-height: 2;
+    font-weight: normal;
+    margin-left: 15px;
+    background: url(../images/icons/bullet_orange.png)/*tpa=http://www.bizfilings.com/images/icons/bullet_orange.png*/ 0 11px no-repeat;
+    padding-left: 10px;
+}
+#sitemap li ul {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+#sitemap li li {
+
+}
+#search_404 {
+    margin-top: 5px;
+}
+#search_404 .field {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+#search_404 input {
+    font-size: 1em;
+    width: 200px;
+}
+#search_404 button {
+    width: 71px;
+    height: 31px;
+    text-indent: -9000px;
+    display: block;
+    background: url(../images/buttons/search.png)/*tpa=http://www.bizfilings.com/images/buttons/search.png*/ no-repeat;
+    cursor: pointer;
+    margin-top: -1px;
+}
+#search_404 button:hover {
+    background-position: bottom left;
+}
+
+#free_guide {
+
+}
+#guide_selection {
+    position: relative;
+    z-index: 20;
+    height: 80px;
+    padding-bottom: 0;
+}
+#guide_selection input {
+    float: left;
+    margin-right: 6px;
+    margin-top: 2px;
+    width: 12px;
+    height: 12px;
+}
+#guide_selection .info {
+    float: left;
+    width: 370px;
+    position: static;
+}
+#main #guide_selection label {
+    margin-bottom: 4px;
+}
+#main #guide_selection p {
+    font-size: 1.1em;
+    margin: 0;
+    color: #555;
+}
+#free_guide #guide_selection .field {
+    margin-bottom: 8px;
+    height: 20px;
+}
+#free_guide #guide_selection .field .tooltip {
+    margin-left: 25px;
+}
+#free_guide #guide1_tooltip {
+    top: -28px !important;
+    left: 258px !important;
+}
+#free_guide #guide2_tooltip {
+    top: -1px !important;
+    left: 320px !important;
+}
+#free_guide #guide3_tooltip {
+    top: 27px !important;
+    left: 320px !important;
+}
+#free_guide .section {
+    padding-bottom: 10px;
+}
+#free_guide .section.last {
+    border: none;
+    margin: 0;
+}
+#free_guide .field,
+#free_guide .fields {
+    width: 400px;
+}
+#free_guide input.text {
+    width: 96%;
+}
+#free_guide .fields .field {
+    width: 190px;
+}
+#free_guide .fields input.text,
+#free_guide .fields select {
+    width: 174px;
+}
+#free_guide select {
+    width: 250px;
+}
+#free_guide input.submit {
+    float: none;
+    margin-bottom: 20px;
+}
+#free_guide .locality {
+
+}
+#free_guide .locality .field {
+    width: 120px;
+}
+#free_guide .locality .field input.text {
+    width: 106px;
+}
+#free_guide .locality .field select {
+    width: 118px;
+}
+
+#fees_tabs {
+    margin-left: -10px;
+    position: relative;
+}
+#fees_tabs .overlay {
+    position: absolute;
+    top: 70px;
+    width: 100%;
+}
+#fees_tabs .overlay img { margin: 0 auto; }
+#fees_tabs .tab {
+    display: none;
+
+}
+#fees_tabs .tab.active {
+    display: block;
+}
+#fees_tabs h2 {
+    margin-bottom: 15px;
+}
+
+#explore {
+    width: 238px;
+    background: url(/images/explore_module.gif) top left no-repeat;
+    position: relative;
+    padding: 14px 0 0 0;
+    margin-top: -73px;
+}
+#explore .inner { padding: 0 0 0 14px; }
+#explore h4 {
+    color: #fff;
+    font-size: 1.8em;
+    margin: 0 0 17px 0;
+}
+#explore ul { }
+#explore li {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 4px;
+    background: url(/images/icons/bullet_gray.png) left 8px no-repeat;
+    padding-left: 10px;
+}
+#explore a.all {
+    background: url(/images/icons/arrow_link.gif) right 55% no-repeat;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding-right: 7px;
+}
+#explore .explore_btm {
+    background: url(/images/explore_module_btm.gif) top left no-repeat;
+    width: 238px;
+    height: 18px;
+}
+
+/* options for managing business page */
+#how_it_works_container {
+    width: 604px;
+    height: 401px;
+}
+#how_it_works { 
+    background: url(/images/bg/bg_how_it_works_popup.png) no-repeat 0 0;
+    width: 604px;
+    height: 401px;
+    padding: 16px 0 0 0;
+    position: absolute;
+    z-index: 150;
+    top: 0;
+    left: 200px;
+}
+#how_it_works .inner { padding: 0; }
+#how_it_works .inner .close { 
+    width: 17px;
+    height: 16px;
+    background: url(/images/buttons/how_it_works_close.gif) 0 0 no-repeat;
+    cursor: pointer;
+    text-indent: -9000px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+#how_it_works .inner .close:hover { background-position: 0 -16px; }
+#how_it_works .inner .inner_content {
+    width: 604px;
+}
+#how_it_works .header {
+    margin: 0 auto 28px auto;
+    width: 413px;
+    height: 31px;
+    background: url(/images/headers/5_steps.png) no-repeat;
+    text-indent: -9000px;
+}
+#how_it_works .steps {
+    border-bottom: 1px solid #dbdbdb;
+    padding: 0 0 16px 14px;
+    margin: 0 0 37px 0;
+}
+#how_it_works .steps ul {
+    list-style: none;
+    margin: 0;
+    height: 19px;
+}
+#how_it_works .steps li {
+    background: url(/images/icons/icons_numbers.gif) no-repeat 0 0;
+    float: left;
+    height: 19px;
+    padding: 0 0 0 27px;
+    margin: 0 16px 0 0;
+    position: relative;
+    cursor: pointer;
+}
+#how_it_works .steps li.last { margin: 0; }
+#how_it_works .steps li a { 
+    color: #76bcee;
+    font-size: 1.3em;
+    line-height: 19px;
+    text-decoration: none;
+}					
+#how_it_works .steps li a:hover { text-decoration: none; }
+#how_it_works .steps li.active a, 
+#how_it_works .steps li a:hover { 
+    color: #3589c5;
+    text-decoration: underline;
+}
+#how_it_works li#step_1 { background-position: 0 0; }
+#how_it_works li#step_1.active { background-position: 0 -19px; }
+
+#how_it_works li#step_2 { background-position: 0 -38px; }
+#how_it_works li#step_2.active { background-position: 0 -57px; }
+
+#how_it_works li#step_3 { background-position: 0 -76px; }
+#how_it_works li#step_3.active { background-position: 0 -95px; }
+
+#how_it_works li#step_4 { background-position: 0 -114px; }
+#how_it_works li#step_4.active { background-position: 0 -133px; }
+
+#how_it_works li#step_5 { background-position: 0 -152px; }
+#how_it_works li#step_5.active { background-position: 0 -171px; }
+#how_it_works li.last { margin: 0; }
+
+#how_it_works .overflow {
+    overflow: hidden;
+    position: relative;
+    height: 245px;
+    width: 483px;
+    margin: 0 0 0 60px;
+}
+#how_it_works .tabs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5000px;
+}
+
+#how_it_works .tab { 
+    float: left;
+    width: 482px;
+}
+#how_it_works .step_content {
+    padding: 0 30px 0 17px;
+}
+#how_it_works .step_number {
+    float: left;
+    background: url(/images/icons/icons_numbers_large.gif) no-repeat 0 0;
+    width: 64px;
+    height: 64px;
+    margin: 0 16px 0 0;
+}
+#how_it_works .step_number.one { background-position: 0 0; }
+#how_it_works .step_number.two { background-position: 0 -64px; }
+#how_it_works .step_number.three { background-position: 0 -128px; }
+#how_it_works .step_number.four { background-position: 0 -192px; }
+#how_it_works .step_number.five { background-position: 0 -256px; }
+#how_it_works .content {
+    width: 340px;
+    float: left;
+}
+#how_it_works .content a {
+    font-family: Arial;
+    font-size: 1.5em;
+    color: #399103;
+    font-style: italic;
+    margin: 0 0 0 2px;
+}
+#how_it_works .step_header {
+    color: #3589c5;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 3em;
+    line-height: 1.8em;
+    height: 56px;
+    overflow: hidden;
+    text-indent: -9999px;
+    background: url(/images/headers/5_steps_sub.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+#how_it_works .step1 .step_header { background-position: 0 0; }
+#how_it_works .step2 .step_header { background-position: 0 -56px; }
+#how_it_works .step3 .step_header { background-position: 0 -112px; }
+#how_it_works .step4 .step_header { background-position: 0 -168px; }
+#how_it_works .step5 .step_header { background-position: 0 -224px; }
+
+
+#how_it_works .step_content h4 {
+    color: #333;
+    font-family: Arial;
+    font-size: 1.6em;
+    margin: 0 0 2px 0;
+}
+#how_it_works .step_content p {
+    color: #555;
+    font-family: Arial;
+    font-size: 1.5em;
+    line-height: 24px;
+    margin: 0 0 0 2px;
+}
+#how_it_works .toggle {
+    width: 100%;
+    top: 189px;
+    padding: 0 0 0 4px;
+    position: absolute;
+}
+#how_it_works .toggle ul {
+    list-style: none;
+}
+#how_it_works .toggle li.prev { float: left; }
+#how_it_works .toggle li.next { 
+    float: right;
+    padding: 0 9px 0 0;
+}
+#how_it_works .toggle li a { 
+    display: block;
+    width: 49px;
+    height: 101px;
+}
+#how_it_works .toggle li.prev a {
+    background: url(/images/buttons/arrow_left.gif) no-repeat 0 0;
+    text-indent: -9999px;
+}
+#how_it_works .toggle li.prev a:hover { background-position: 0 -101px; }
+#how_it_works .toggle li.next a {
+    background: url(/images/buttons/arrow_right.gif) no-repeat 0 0;
+    text-indent: -9999px;
+}
+#how_it_works .toggle li.next a:hover { background-position: 0 -101px; }
+
+a.download_pdf {
+    width: 146px;
+    height: 30px;
+    background: url(/images/buttons/download_pdf.png) no-repeat;
+    clear: both;
+    display: block;
+    text-indent: -9000px;
+    margin-bottom: 12px;
+}
+a.download_pdf:hover {
+    background-position: bottom left;
+}
+
+a.download_free_pdf {
+    width: 179px;
+    height: 30px;
+    background: url(/images/buttons/download_free_pdf.png) no-repeat;
+    clear: both;
+    display: block;
+    text-indent: -9000px;
+    margin-bottom: 12px;
+}
+a.download_free_pdf:hover {
+    background-position: bottom left;
+}
+
+a.view_webinar {
+    width: 147px;
+    height: 30px;
+    background: url(/images/buttons/view_our_webinar.png) no-repeat;
+    clear: both;
+    display: block;
+    text-indent: -9000px;
+    margin-bottom: 12px;
+}
+a.view_webinar:hover {
+    background-position: bottom left;
+}
+
+input.send_green,
+button.send_green {
+    display: block;
+    width: 61px;
+    height: 31px;
+    background: url(/images/buttons/send.png) no-repeat;
+    text-indent: -9000px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+input.send_green:hover,
+button.send_green:hover {
+    background-position: bottom left;
+}
+
+.button_green {
+    background: #88c616 url(/images/generic_button.png) bottom repeat-x;
+    height: 30px;
+    width: auto !important;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 0 9px 3px;
+    font-size: 13px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 28px;
+    -moz-box-shadow: 1px 1px 1px #d3d3d3;
+    -webkit-box-shadow: 1px 1px 1px #d3d3d3;
+    box-shadow: 1px 1px 1px #d3d3d3;
+}
+
+*:first-child+html .tout{
+    z-index:-999;
+}

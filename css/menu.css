@@ -1,0 +1,55 @@
+/*style the main menu*/
+.myMenu {
+	margin:0;
+	padding:0; text-align: left; position: relative; z-index: 1000
+}
+
+.myMenu li {
+	list-style:none;
+	float:left; 
+}
+
+.myMenu li a:link, .myMenu li a:visited ,.myMenu li span   {
+	color: #87858c;
+        font-size:105%;
+        text-shadow: 0px 1px 0px #fff;
+        display: block;
+        padding:5px 10px;
+        margin: 1px; 
+        font-weight:  normal;
+}
+
+
+.myMenu li a:hover,.myMenu li span   {
+	color: #2f95cf;
+        text-decoration: none;
+}
+
+/*style the sub menu*/
+.myMenu li ul {
+	position:absolute;
+	visibility:hidden; width: 200px; 
+/*        background-image: url('/images/contacts_bg.png');
+        background-repeat: no-repeat;
+        background: #e3edf3;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;*/
+
+	margin:0 ;
+	padding:5px 0 5px 0 ;
+}
+
+.myMenu li ul li {
+	display:inline;
+	float:none;
+}
+
+.myMenu li ul li a:link, .myMenu li ul li a:visited {
+	font-size:90%; line-height: 110%; 
+	width:auto;
+}
+
+.myMenu li ul li a:hover,.myMenu li ul li span  {
+/*	background-color:#ebeeef;*/
+}

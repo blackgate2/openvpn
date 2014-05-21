@@ -1,0 +1,2 @@
+DirectoryIndex start_page.php
+#php_flag magic_quotes_gpc off

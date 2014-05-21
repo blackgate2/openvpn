@@ -1,0 +1,332 @@
+[15-Sep-2013 16:24:47 UTC] PHP Warning:  call_user_func() expects parameter 1 to be a valid callback, class 'vars_db' not found in /home/forbac/public_html/beta/protected/cammon/forms.class.php on line 267
+[15-Sep-2013 16:27:33 UTC] PHP Warning:  call_user_func() expects parameter 1 to be a valid callback, class 'vars_db' not found in /home/forbac/public_html/beta/protected/cammon/forms.class.php on line 267
+[15-Sep-2013 16:27:33 UTC] PHP Warning:  call_user_func() expects parameter 1 to be a valid callback, class 'vars_db' not found in /home/forbac/public_html/beta/protected/cammon/forms.class.php on line 267
+[01-Oct-2013 14:03:21 UTC] PHP Warning:  implode() [<a href='function.implode'>function.implode</a>]: Invalid arguments passed in /home/forbac/public_html/test/admin/show_table.php on line 11
+[01-Oct-2013 14:03:27 UTC] PHP Warning:  implode() [<a href='function.implode'>function.implode</a>]: Invalid arguments passed in /home/forbac/public_html/test/admin/show_table.php on line 11
+[01-Oct-2013 14:03:28 UTC] PHP Warning:  implode() [<a href='function.implode'>function.implode</a>]: Invalid arguments passed in /home/forbac/public_html/test/admin/show_table.php on line 11
+[01-Oct-2013 14:03:37 UTC] PHP Warning:  implode() [<a href='function.implode'>function.implode</a>]: Invalid arguments passed in /home/forbac/public_html/test/admin/show_table.php on line 11
+[15-Oct-2013 00:12:13 UTC] PHP Fatal error:  Class 'commonConsts' not found in /home/forbac/public_html/test/admin/main.php on line 2
+[15-Oct-2013 00:13:16 UTC] PHP Fatal error:  Class 'commonConsts' not found in /home/forbac/public_html/test/admin/main.php on line 2
+[15-Oct-2013 00:27:54 UTC] PHP Fatal error:  Class 'commonConsts' not found in /home/forbac/public_html/test/admin/vars.php on line 51
+[15-Oct-2013 00:33:31 UTC] PHP Fatal error:  Class 'commonConsts' not found in /home/forbac/public_html/test/admin/main.php on line 2
+[15-Oct-2013 00:43:22 UTC] PHP Fatal error:  Class 'commonConsts' not found in /home/forbac/public_html/test/admin/main.php on line 2
+[15-Oct-2013 00:46:27 UTC] PHP Fatal error:  Class 'commonConsts' not found in /home/forbac/public_html/test/admin/vars.php on line 51
+[15-Oct-2013 00:46:37 UTC] PHP Fatal error:  Class 'commonConsts' not found in /home/forbac/public_html/test/admin/vars.php on line 51
+[19-Nov-2013 11:48:42 UTC] PHP Warning:  implode() [<a href='function.implode'>function.implode</a>]: Invalid arguments passed in /home/forbac/public_html/beta/admin/show_table.php on line 11
+[22-Jan-2014 20:19:46 UTC] PHP Fatal error:  Call to a member function query() on a non-object in /home/forbac/public_html/test/admin/vars_db.class.php on line 14
+[27-Jan-2014 20:34:01 UTC] PHP Fatal error:  Class 'strDate' not found in /home/forbac/public_html/test/admin/vars_filters.php on line 48
+[27-Jan-2014 20:34:18 UTC] PHP Fatal error:  Class 'strDate' not found in /home/forbac/public_html/test/admin/vars_filters.php on line 48
+[27-Jan-2014 20:36:45 UTC] PHP Fatal error:  Class 'strDate' not found in /home/forbac/public_html/test/admin/vars_filters.php on line 48
+[27-Jan-2014 21:19:15 UTC] PHP Warning:  require(./protected/class.define.conts.php) [<a href='function.require'>function.require</a>]: failed to open stream: No such file or directory in /home/forbac/public_html/test/admin/index.php on line 5
+[27-Jan-2014 21:19:15 UTC] PHP Fatal error:  require() [<a href='function.require'>function.require</a>]: Failed opening required './protected/class.define.conts.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/forbac/public_html/test/admin/index.php on line 5
+[27-Jan-2014 21:58:31 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/forbac/public_html/test/admin/vars_filters.php on line 40
+[30-Jan-2014 09:52:49 UTC] PHP Fatal error:  Call to undefined function L_() in /home/forbac/public_html/test/protected/cammon/forms.class.php on line 1107
+[30-Jan-2014 09:52:59 UTC] PHP Fatal error:  Call to undefined function L_() in /home/forbac/public_html/test/protected/cammon/forms.class.php on line 1107
+[30-Jan-2014 09:57:12 UTC] PHP Fatal error:  Call to undefined function L_() in /home/forbac/public_html/test/protected/cammon/forms.class.php on line 1107
+[30-Jan-2014 10:09:20 UTC] PHP Fatal error:  Cannot redeclare class common in /home/forbac/public_html/test/protected/cammon/class.common.php on line 13
+[30-Jan-2014 10:09:35 UTC] PHP Fatal error:  Cannot redeclare class common in /home/forbac/public_html/test/protected/cammon/class.common.php on line 13
+[30-Jan-2014 10:09:42 UTC] PHP Fatal error:  Cannot redeclare class common in /home/forbac/public_html/test/protected/cammon/class.common.php on line 13
+[30-Jan-2014 10:10:05 UTC] PHP Fatal error:  Cannot redeclare class common in /home/forbac/public_html/test/protected/cammon/class.common.php on line 13
+[30-Jan-2014 10:10:37 UTC] PHP Fatal error:  Cannot redeclare class common in /home/forbac/public_html/test/protected/cammon/class.common.php on line 13
+[30-Jan-2014 10:12:04 UTC] PHP Fatal error:  Cannot redeclare class common in /home/forbac/public_html/test/protected/cammon/class.common.php on line 13
+[30-Jan-2014 10:12:28 UTC] PHP Fatal error:  Cannot redeclare class common in /home/forbac/public_html/test/protected/cammon/class.common.php on line 13
+[30-Jan-2014 10:12:50 UTC] PHP Fatal error:  Cannot redeclare class common in /home/forbac/public_html/test/protected/cammon/class.common.php on line 13
+[30-Jan-2014 10:12:55 UTC] PHP Fatal error:  Cannot redeclare class common in /home/forbac/public_html/test/protected/cammon/class.common.php on line 13
+[30-Jan-2014 10:13:34 UTC] PHP Fatal error:  Cannot redeclare class common in /home/forbac/public_html/test/protected/cammon/class.common.php on line 13
+[30-Jan-2014 10:14:02 UTC] PHP Fatal error:  Cannot redeclare class common in /home/forbac/public_html/test/protected/cammon/class.common.php on line 13
+[30-Jan-2014 10:15:29 UTC] PHP Fatal error:  Cannot redeclare class common in /home/forbac/public_html/test/protected/cammon/class.common.php on line 13
+[30-Jan-2014 10:15:52 UTC] PHP Fatal error:  Cannot redeclare class strDate in /home/forbac/public_html/test/protected/cammon/strDate.class.php on line 3
+[30-Jan-2014 10:15:55 UTC] PHP Fatal error:  Cannot redeclare class strDate in /home/forbac/public_html/test/protected/cammon/strDate.class.php on line 3
+[30-Jan-2014 10:16:00 UTC] PHP Fatal error:  Cannot redeclare class strDate in /home/forbac/public_html/test/protected/cammon/strDate.class.php on line 3
+[30-Jan-2014 10:16:26 UTC] PHP Fatal error:  Cannot redeclare class strDate in /home/forbac/public_html/test/protected/cammon/strDate.class.php on line 3
+[30-Jan-2014 10:17:04 UTC] PHP Fatal error:  Call to undefined function L_() in /home/forbac/public_html/test/protected/cammon/forms.class.php on line 1107
+[30-Jan-2014 10:51:51 UTC] PHP Fatal error:  Call to undefined function L_() in /home/forbac/public_html/test/protected/cammon/forms.class.php on line 1107
+[30-Jan-2014 12:09:11 UTC] PHP Fatal error:  Call to undefined function L_() in /home/forbac/public_html/test/protected/cammon/forms.class.php on line 1107
+[30-Jan-2014 12:13:41 UTC] PHP Fatal error:  Call to undefined function L_() in /home/forbac/public_html/test/protected/cammon/forms.class.php on line 1107
+[30-Jan-2014 12:16:13 UTC] PHP Fatal error:  Call to undefined function L_() in /home/forbac/public_html/test/protected/cammon/forms.class.php on line 1107
+[30-Jan-2014 12:16:51 UTC] PHP Fatal error:  Call to undefined function L_() in /home/forbac/public_html/test/protected/cammon/forms.class.php on line 1107
+[01-Feb-2014 20:32:04 UTC] PHP Warning:  include(MY_ROOT_TEMPLATES/form.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/forbac/public_html/test/admin/form.php on line 75
+[01-Feb-2014 20:32:04 UTC] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'MY_ROOT_TEMPLATES/form.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/forbac/public_html/test/admin/form.php on line 75
+[01-Feb-2014 21:22:52 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 7167737 bytes) in /home/forbac/public_html/test/admin/form.php on line 75
+[01-Feb-2014 21:37:08 UTC] PHP Fatal error:  Call to undefined function L_() in /home/forbac/public_html/test/admin/vars_dialogs.php on line 3
+[01-Feb-2014 21:37:39 UTC] PHP Fatal error:  Call to undefined function L_() in /home/forbac/public_html/test/admin/vars_dialogs.php on line 3
+[01-Feb-2014 22:03:14 UTC] PHP Fatal error:  Call to undefined method stdClass::__set() in /home/forbac/public_html/test/admin/form.php on line 24
+[01-Feb-2014 22:36:46 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'The required method "dialog_title_field" does not exist for forms' in /home/forbac/public_html/test/protected/cammon/forms.class.php:72
+Stack trace:
+#0 /home/forbac/public_html/test/protected/cammon/forms.class.php(998): forms->__call('dialog_title_fi...', Array)
+#1 /home/forbac/public_html/test/protected/cammon/forms.class.php(998): forms->dialog_title_field()
+#2 /home/forbac/public_html/test/protected/cammon/forms.class.php(1045): forms->get_name_dialog_title()
+#3 /home/forbac/public_html/test/protected/cammon/forms.class.php(1275): forms->valid_submite_dialog_form()
+#4 /home/forbac/public_html/test/admin/form.php(72): forms->print_form_site()
+#5 /home/forbac/public_html/test/admin/main.php(158): include('/home/forbac/pu...')
+#6 /home/forbac/public_html/test/admin/dialog.php(27): include('/home/forbac/pu...')
+#7 {main}
+  thrown in /home/forbac/public_html/test/protected/cammon/forms.class.php on line 72
+[01-Feb-2014 22:38:50 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/forbac/public_html/test/protected/cammon/forms.class.php on line 1000
+[04-Feb-2014 09:04:01 UTC] PHP Warning:  array_push() expects parameter 1 to be array, string given in /home/forbac/public_html/test/admin/show_table.php on line 37
+[04-Feb-2014 09:36:10 UTC] PHP Fatal error:  Call to undefined function is_set() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 523
+[04-Feb-2014 09:50:54 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 515
+[10-Feb-2014 09:22:12 UTC] PHP Warning:  implode() [<a href='function.implode'>function.implode</a>]: Invalid arguments passed in /home/forbac/public_html/beta/admin/show_table.php on line 11
+[27-Mar-2014 10:15:25 UTC] PHP Warning:  implode() [<a href='function.implode'>function.implode</a>]: Invalid arguments passed in /home/forbac/public_html/beta/admin/show_table.php on line 13
+[15-Apr-2014 19:21:52 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/forbac/public_html/test/protected/templates/form.php on line 36
+[15-Apr-2014 19:22:25 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/forbac/public_html/test/protected/templates/form.php on line 36
+[15-Apr-2014 19:48:00 UTC] PHP Fatal error:  Class 'strDate' not found in /home/forbac/public_html/test/admin/vars_filters.php on line 58
+[15-Apr-2014 19:48:48 UTC] PHP Fatal error:  Class 'strDate' not found in /home/forbac/public_html/test/admin/vars_filters.php on line 58
+[16-Apr-2014 18:17:44 UTC] PHP Warning:  array_values() expects parameter 1 to be array, null given in /home/forbac/public_html/test/protected/cammon/forms.class.php on line 1270
+[16-Apr-2014 18:19:01 UTC] PHP Warning:  array_values() expects parameter 1 to be array, null given in /home/forbac/public_html/test/protected/cammon/forms.class.php on line 1270
+[16-Apr-2014 18:27:50 UTC] PHP Warning:  array_values() expects parameter 1 to be array, null given in /home/forbac/public_html/test/protected/cammon/forms.class.php on line 1270
+[16-Apr-2014 18:44:25 UTC] PHP Warning:  array_values() expects parameter 1 to be array, null given in /home/forbac/public_html/test/protected/cammon/forms.class.php on line 1270
+[16-Apr-2014 18:48:40 UTC] PHP Warning:  array_values() expects parameter 1 to be array, null given in /home/forbac/public_html/test/protected/cammon/forms.class.php on line 1270
+[16-Apr-2014 19:03:08 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/forbac/public_html/test/admin/form.php on line 10
+[16-Apr-2014 19:19:11 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/DBObject.class.php on line 82
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[23-Apr-2014 17:50:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/forbac/public_html/test/protected/cammon/show_from_db.class.php on line 388
+[02-May-2014 13:17:23 UTC] PHP Fatal error:  Call to undefined method actions::lock_by_date_exp() in /home/forbac/public_html/test/admin/main.php on line 25
+[02-May-2014 13:18:11 UTC] PHP Fatal error:  Call to undefined method actions::lock_by_date_exp() in /home/forbac/public_html/test/admin/main.php on line 25
+[02-May-2014 13:21:43 UTC] PHP Fatal error:  Call to undefined method actions::lock_by_date_exp() in /home/forbac/public_html/test/admin/main.php on line 25
+[02-May-2014 13:21:55 UTC] PHP Fatal error:  Call to undefined method actions::lock_by_date_exp() in /home/forbac/public_html/test/admin/main.php on line 26

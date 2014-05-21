@@ -1,0 +1,16 @@
+DirectoryIndex index.php
+RewriteEngine on
+
+RewriteCond %{REQUEST_URI} !/admin/*
+RewriteCond %{REQUEST_URI} !/images/*
+RewriteCond %{REQUEST_URI} !/upload-files/*
+RewriteCond %{REQUEST_URI} !/js/*
+RewriteCond %{REQUEST_URI} !/css/*
+RewriteCond %{REQUEST_URI} !/fonts/*
+RewriteCond %{REQUEST_URI} !/downloadConfig.php
+RewriteCond %{REQUEST_URI} !/order_calc.php
+RewriteCond %{REQUEST_URI} !/login_form.php
+RewriteCond %{REQUEST_URI} !/login_check.php
+RewriteCond %{REQUEST_URI} !/order_ext_pay.php
+RewriteCond %{REQUEST_URI} !/inf.php
+RewriteRule ^(.*)$ index.php [L]

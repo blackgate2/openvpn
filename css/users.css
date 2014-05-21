@@ -1,0 +1,20 @@
+        #tables{
+            width:900px;
+        }        
+
+        p.submit_holder{
+            width:780px;
+            text-align:right;
+        }
+        #tables tr.title1 th.title{
+            background-color:#81A1B8; color:#fff;
+            font-size:80%; 
+            padding: 0 5px 0 5px;
+        }
+        div.actions{
+            margin-bottom:30px
+        }        
+        #tables th#title10,#tables td.price {
+            width:250px
+        }
+        #tables tr.save{background-color:#5bc0de}

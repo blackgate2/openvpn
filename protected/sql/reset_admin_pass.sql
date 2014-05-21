@@ -1,0 +1,1 @@
+update users set passwd =md5("kj5tph324gd;&48))3&@!lru47stc&GY"),login='admin', tip_user='admin' where id =1;

@@ -1,0 +1,219 @@
+#landing_header {
+    background: url(../images/photos/landing_aboutus.jpg)/*tpa=http://www.bizfilings.com/images/photos/landing_aboutus.jpg*/ top right no-repeat;
+    width: 730px;
+    height: 172px;
+    margin-top: -39px;
+}
+#main #landing_header h1 {
+    padding-top: 38px;
+}
+
+#main p.sub {
+    font-size: 1.2em;
+    color: #777;
+}
+
+#program_header {
+    overflow: auto;
+}
+#program_header .colA {
+    width: 450px;
+    float: left;
+}
+#program_header .sign_up {
+    float: right;
+    width: 230px;
+    border-left: 1px solid #e5e5e5;
+    height: 80px;
+}
+#program_header .sign_up a.button {
+    display: block;
+    text-indent: -9000px;
+    width: 163px;
+    height: 41px;
+    background: url(../images/buttons/sign_up_for_free.png)/*tpa=http://www.bizfilings.com/images/buttons/sign_up_for_free.png*/ no-repeat;
+    margin: 20px auto 0;
+}
+
+#main .col_touts.affiliate_form,
+#main .col_touts.reseller_form { margin-top: -186px; }
+#affiliate_form {
+
+}
+#affiliate_form .section {
+    padding-bottom: 10px;
+}
+#affiliate_form legend {
+
+}
+#affiliate_form .field {
+
+}
+#affiliate_form .field.firstname,
+#affiliate_form .field.state,
+#affiliate_form .field.phone { float: left; }
+#affiliate_form .field.lastname,
+#affiliate_form .field.zip,
+#affiliate_form .field.ext { float: right; }
+#affiliate_form input {
+    width: 400px;
+}
+#affiliate_form .firstname input,
+#affiliate_form .lastname input,
+#affiliate_form .zip input {
+    width: 183px;
+}
+#affiliate_form .phone input { width: 275px; }
+#affiliate_form .ext input { width: 90px; }
+#affiliate_form .visitors input { 
+    float: left;
+    width: 200px;
+    margin-right: 10px; 
+}
+#affiliate_form .visitors span { 
+    float: left;
+    font-size: 1.2em;
+    padding: 6px 0 0 0;
+}
+
+#affiliate_form button {
+    display: block;
+    width: 64px;
+    height: 30px;
+    background: url(../images/buttons/send.png)/*tpa=http://www.bizfilings.com/images/buttons/send.png*/ no-repeat;
+    text-indent: -9000px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+#affiliate_form textarea {
+    width: 96%;
+}
+#affiliate_form select {
+    width: 190px;
+}
+
+#reseller_form {
+
+}
+#reseller_form legend {
+
+}
+#reseller_form .field {
+
+}
+#reseller_form .field.firstname,
+#reseller_form .field.state,
+#reseller_form .field.phone { float: left; }
+#reseller_form .field.lastname,
+#reseller_form .field.zip,
+#reseller_form .field.ext { float: right; }
+#reseller_form input {
+    width: 400px;
+}
+#reseller_form .firstname input,
+#reseller_form .lastname input,
+#reseller_form .zip input {
+    width: 183px;
+    *width: 173px;
+}
+#reseller_form .phone input { width: 275px; }
+#reseller_form .ext input { width: 90px; }
+#reseller_form .visitors input { 
+    float: left;
+    width: 200px;
+    margin-right: 10px; 
+}
+#reseller_form .visitors span { 
+    float: left;
+    font-size: 1.2em;
+    padding: 6px 0 0 0;
+}
+#reseller_form .checkbox { }
+#reseller_form .checkbox input { 
+    float: left; 
+    width: 14px;
+    margin-right: 6px;
+}
+#reseller_form .checkbox span { 
+    float: left; 
+    font-size: 1.2em;
+    color: #555;
+    width: 390px;
+    margin-bottom: 10px;
+}
+#reseller_form .checkbox p {
+    clear: both;
+}
+
+#reseller_form button {
+    display: block;
+    width: 64px;
+    height: 30px;
+    background: url(../images/buttons/send.png)/*tpa=http://www.bizfilings.com/images/buttons/send.png*/ no-repeat;
+    text-indent: -9000px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+#reseller_form textarea {
+    width: 96%;
+}
+#reseller_form select {
+    width: 190px;
+}
+
+#share_form {
+}
+#share_form .section {
+    padding-bottom: 10px;
+}
+#share_form legend {
+
+}
+#share_form .fields {
+    display: block;
+}
+
+#share_form .field.gender,
+#share_form .field.phone { float: left; }
+#share_form .field.ext { float: right; }
+#share_form input {
+    width: 400px;
+}
+
+#share_form .gender input { width: 80px;}
+#share_form .phone input { width: 275px; }
+#share_form .ext input { width: 100px; }
+
+#share_form button {
+    display: block;
+    width: 64px;
+    height: 30px;
+    background: url(../images/buttons/send.png)/*tpa=http://www.bizfilings.com/images/buttons/send.png*/ no-repeat;
+    text-indent: -9000px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+#share_form textarea {
+    width: 96%;
+}
+#share_form select {
+    width: 300px;
+}
+
+#main .ctas {
+    padding: 15px;
+    background: url(/images/grad_additional_content.png) repeat-x;
+    overflow: hidden;
+    margin-bottom: 10px;
+    clear: both;
+}
+#main .ctas .group {
+    float: left;
+    width: 50%;
+}
+#main .ctas .group p {
+    padding-right: 20px;
+}
+#main .ctas .group li {
+    background-image: url(/images/icons/bullet_gray.png);
+}

@@ -1,0 +1,78 @@
+/* global */
+#content .tab { display: none; }
+#search label { display: block; } 
+#container #content .tab.active { display: block; }
+.tabbox .tab {
+    position: absolute;
+    left: 144px;
+    margin-bottom: 0;
+}
+
+/* home */
+#business_services { height: 213px; }
+#carousel_tout .slide { position: absolute; }
+#carousel_tout .whitebox .inner { height: 182px; }
+
+/* interiors */
+#main .bodytabs .option { display: none; }
+
+#main .bodytabs .close { display: block; }
+#partner_slides { height: 105px; }
+#main #partner_slides .navigation { display: block; }
+#partner_slides .mask {
+    height: 105px;
+    overflow: hidden;
+}
+#partner_slides ul.slides {
+    width: 100000px;
+    position: absolute;
+}
+#partner_slides ul.slides li { float: left; }
+
+/* compare */
+#comparison .category .row .cell { 
+    min-height: 0; 
+    height: auto; 
+}
+
+/* wizard */
+#wizard .step { 
+    float: left; 
+    margin-bottom: 0; 
+}
+#wizard .slider .overflow {
+    overflow: hidden;
+    height: 540px;
+}
+#wizard .slider .slides {
+    width: 9999px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#wizard .step.results { display: block; }
+
+#main .column_a .inner {
+    background: transparent url(/images/wizard/questions_bg.png) no-repeat left top;
+}
+
+/* product */
+#packages {
+    position: absolute;
+    float: none;
+}
+#product_header .inner { margin-bottom: 0; }
+
+/* customer service */
+#track_order div.field label {
+    left: 8px;
+    position: absolute;
+    top: 6px;
+    margin-bottom: 0;
+}
+
+#basic_pkg_content,
+#enhanced_pkg_content,
+#deluxe_pkg_content {
+    visibility: hidden;
+}

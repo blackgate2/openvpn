@@ -1,0 +1,42 @@
+http://test.robokassa.ru/Index.aspx/?MerchantLogin=riflemag&amp;OutSum=50.00&amp;InvId=721&amp;shpItem=2_2&amp;SignatureValue=ab2b1f825613c2e174118459ab237690&amp;Description=Продление заказа openvpn.ru&amp;Culture=ru&amp;Encoding=utf-8
+http://test.robokassa.ru/Index.aspx/?MerchantLogin=riflemag&OutSum=50.00&InvId=721&shpItem=2_2&SignatureValue=ab2b1f825613c2e174118459ab237690&Description=Продление заказа openvpn.ru&Culture=ru&Encoding=utf-8
+
+riflemag:50.00:721:rockcity12:shpItem=2_2
+riflemag:50.00:2:rockcity12:shpItem=2_2
+
+            <span class="ui-button-text">Продлить </span> 
+
+            </button>
+http://test.robokassa.ru/Index.aspx/?&MerchantLogin=riflemag&OutSum=50&InvId=721&shpItem=2_2&SignatureValue=6613971d6988ce2ab1e00a46c5b4cb40&Description=Продление заказа openvpn.ru&Culture=ru&Encoding=utf-8
+
+
+
+
+    $(".formselect").change(function() {
+        id = $(this).attr("name").replace("ext_pay_select_", "");
+        
+        $.getJSON("/order_ext_pay.php", {
+            orderID: id,
+            periodID: $(this).val()
+        }, function(data) {
+            
+            var url = ''
+            $.each(data, function(key, val) {
+                if (key != 'url'){
+                    url += '&'+key + '=' + val;                
+                }else{
+                    url +=val+'/?';
+                }
+            });
+            $("#ext_pay_button_" + id).attr("href", url);
+        });
+
+
+
+
+        return false;
+    });
+
+
+http://test.robokassa.ru/Index.aspx?MerchantLogin=riflemag&amp;OutSum=50.00&amp;InvId=721&amp;shpItem=order_ext&amp;SignatureValue=831ee3ebfa00ad1447a38ef15c0f6164&amp;Description=Продление заказа openvpn.ru&amp;Culture=ru&amp;Encoding=utf-8
+http://test.robokassa.ru/Index.aspx?MerchantLogin=riflemag&amp;OutSum=50.00&amp;InvId=14&amp;shpItem=order_ext&amp;SignatureValue=2ab8b1475d95a6b45e6711e409f5e4ec&amp;Desc=Продление заказа openvpn.ru&amp;Culture=ru&amp;Encoding=utf-8
