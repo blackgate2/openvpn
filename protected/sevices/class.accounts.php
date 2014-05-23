@@ -70,30 +70,12 @@ class accounts {
             if ($r == 'FULL') {
                 $v['command'] = 'full';
                 $v['action_id'] = 6;
-                
             }
-            if ((!$retval && $v['command']=='lock') || $v['command'] == 'full'){
-                $subj= $v['command'].' order ID:'.$v['order_id'];
-                $mess= $v['order_id'].' | '.$v['command'].' | '. $sysStr.' | '.$pass ;
-                self::to_mail(commonConsts::admin_email, $subj, $mess);
-            }
-            
             $this->logLaunchScript($v['command'], $sysStr, $retval,$pass, $v['order_id']);
             return $r;
         }
     }
-    public static function to_mail($email, $subj, $mess) {
-        // print_r($u);
-        //send_mail($u['email'], commonConsts::admin_name, commonConsts::admin_email, $this->subj, $this->mess);
-        $from = "From: " . commonConsts::admin_name . " <" . commonConsts::admin_name . ">\r\n";
-        $replay = "Reply-To: " . commonConsts::admin_email . "\r\n";
-        $params = "MIME-Version: 1.0\r\nContent-type: text/html; charset=utf-8\r\n";
-        $header = $from . $replay . $params;
 
-        mail($email, $subj, $mess, $header);
-        
-        
-    }
     public function startAction() {
         $this->checkServer();
 
