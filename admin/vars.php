@@ -155,7 +155,7 @@ $tables = array(
         array(form => 'text', caption => 'Hoster', status => 'X', name => 'hoster', value => ''),
         array(form => 'text', caption => 'Email', status => 'X', name => 'emails', value => ''),
         array(form => 'text', caption => 'Способ оплаты сервера', status => 'X', name => 'payment', value => ''),
-        array(form => 'date_form', caption => 'Дата аренды', status => '0', name => 'date_begin', format => 'dd.mm.yy', value => ''),
+        array(form => 'date_form', caption => 'Дата наччала аренды', status => '0', name => 'date_begin', format => 'dd.mm.yy', value => ''),
         array(form => 'date_form', caption => 'Дата конца аренды', status => '0', name => 'date_expire', format => 'dd.mm.yy', value => ''),
         array(form => 'textarea', caption => 'Содержание', status => '0', name => 'comments', value => '', css => 'tinymce'),
         array(form => 'checkbox', caption => 'Статус', status => '0', name => 'status', value => 1, checked => 1),

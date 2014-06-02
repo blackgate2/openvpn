@@ -10,6 +10,8 @@
  * @author Oleg
  */
 class vars_db {
+    
+    
     public static function delete_configs($ids) {
         $q = DB::Open();
         $q->query('DELETE FROM order_configs Where order_id IN (' . implode(',', $ids) . ')');
@@ -38,6 +40,10 @@ class vars_db {
     public static function actions() {
         $q = DB::Open();
         return $q->fetch_data_to_array('Select id,name From actions Order by id');
+    }
+    public function get_hosts($add_where='') {
+        $q = DB::Open();
+        return $q->fetch_data_to_array('Select `name`, `hostname`,  `hoster`, `emails`, `payment`, `date_begin`, `date_expire`, `comments` From servers s Where s.status=\'1\' and iddouble =\'\' and idmultidouble=\'\'  '.$add_where);
     }
     public static function __table($p) {
         $q = DB::Open();

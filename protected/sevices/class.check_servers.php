@@ -31,14 +31,16 @@ class check_servers {
 
     
     public static function check() {
+       // exit( 'sss');
         $s = vars_db::get_hosts();
-        foreach ($s as $v) {
+        //print_r($s);echo 'ddd';
+        foreach ($s as $v) {  
             $subj= "host ".$v['hostname'];
-            
+            //echo $subj."\n";
             if(!self::send($v['hostname'])){
                 $mess= "Don't respons ".$v['hostname']." on port ".self::$port;
                 common::to_mail(commonConsts::admin_email, $subj, $mess);
-                //echo;
+                
             }else{
 //                $mess= "respons ".$v['hostname']." on port ".self::$port;
 //                common::to_mail(commonConsts::admin_email, $subj, $mess);

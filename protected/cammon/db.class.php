@@ -149,6 +149,7 @@ final class DB extends Database_Object {
 
     public function get_fetch_data($sql) {
         $this->query($sql);
+        echo $sql;
         $data = array();
         while ($d = $this->getrow()) {
             foreach ($d as $k => $v) {
