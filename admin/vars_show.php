@@ -149,12 +149,13 @@ $tables['faq_group_show'] = array(
     'actions_pannel' => array()
 );
 $tables['users_show'] = array(
-    'titles' => array('ID', 'Login', 'ФИО', 'Email', 'ICQ', 'Jabber', 'Тип пользователя', 'Статус', 'Уведомлять по', 'Дата регистрации', 'Заметки'),
-    'fields' => array('id', 'login', 'name', 'email', 'icq', 'jabber', 'tip_user', 'status', 'note_method', 'date_reg', 'notes'),
+    'titles' => array('ID', 'Login', 'Группа', 'ФИО', 'Email', 'ICQ', 'Jabber', 'Тип пользователя', 'Статус', 'Уведомлять по', 'Дата регистрации', 'Заметки'),
+    'fields' => array('id', 'login', 'gr',     'name', 'email', 'icq', 'jabber', 'tip_user', 'status', 'note_method', 'date_reg', 'notes'),
+    'fields_sql'=>'u.id, u.login, g.name as gr, u.name,u.email, u.icq, u.jabber, u.tip_user, u.status, u.note_method, u.date_reg, u.notes',
     'table' => 'users',
-    'table_view' => 'users',
-    'where' => '',
-    'order' => isset($_SESSION['users']['order']) ? $_SESSION['users']['order'] : 'id',
+    'table_view' => 'users u',
+    'where' => 'LEFT JOIN user_groups g ON g.id=u.group_id',
+    'order' => isset($_SESSION['users']['order']) ? $_SESSION['users']['order'] : 'u.id',
     'order_dir' => ($_SESSION['users']['order_dir']) ? 'desc' : '',
     'dialog_url_edit' => '/admin/dialog.php?m=main&table=' . $table,
     'defMaxRow' => 300,

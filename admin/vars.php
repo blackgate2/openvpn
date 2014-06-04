@@ -115,6 +115,8 @@ $tables = array(
         //array(form => 'date_form', caption => 'Дата регистрации', status => '0', name => 'date_reg', value => ''),
         array(form => 'select_simple', caption => 'Тип пользователя', status => '0', name => 'tip_user', values => array('user' => 'user', 'operator' => 'operator', 'admin' => 'admin'), value => $_POST['tip_user']),
         array(form => 'select_simple', caption => 'Способ рассылки сообщений', status => '0', name => 'note_method', values => array('email' => 'email', 'jabber' => 'jabber', 'icq' => 'icq'), value => $_POST['tip_user']),
+            array(form => 'select', caption => 'Группа', status => 'X', first_val => 'no', name => 'group_id', value => '',
+            data => array('vars_db::__table', array('table' => 'user_groups', 'order' => 'id'))),
     ),
     accounts => array(
         array(form => 'text', caption => 'Логин ', status => 'X', name => 'name', value => ''),
