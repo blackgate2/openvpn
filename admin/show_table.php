@@ -18,7 +18,7 @@ $sql = 'Select ' . ((isset($show->obj['fields_sql'])) ? $show->obj['fields_sql']
             ' . (($show->obj['group']) ? 'Group by ' . $show->obj['group'] : '') . ' 
             ' . (($show->obj['order']) ? 'Order by ' . $show->obj['order'] : '') . ' ' . $show->obj['order_dir'] . ' 
             ' . (($show->obj['limit']) ? 'Limit ' . $show->obj['limit'] : '');
-//exit('<pre>'.$sql.'<pre>');
+//exit($table.'<pre>'.$sql.'<pre>');
 
 $show->dataAll = $q->fetch_data_to_array($sql);
 

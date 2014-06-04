@@ -250,6 +250,17 @@ $tables = array(
         array(form => 'hidden', status => '0', name => 'account_id', value => ''),
         ($action == 'copy') ? array(form => 'checkbox', caption => 'Блокировать родительский заказ', status => '0', name => 'is_lock_parent', no_sql => 1, value => 1, checked => 1) : null,
     ),
+    user_groups => array(
+        array(form => 'text', caption => 'Название', status => 'X', name => 'name', value => ''),
+        array(form => 'text', caption => 'Кол-во дней по начала рассылки', status => 'X', name => 'note_period_days', value => ''),
+        array(form => 'select_simple', 
+            caption => 'Способ рассылки сообщений', status => '0',
+            name => 'note_method',
+            values => array('email' => 'email', 'jabber' => 'jabber', 'icq' => 'icq'), value =>''),
+        array(form => 'select', caption => 'Сообщение', status => 'X', first_val => 'no', name => 'mess_id', value => '',
+            data => array('vars_db::__table', array('table' => 'user_messages', 'order' => 'id'))),
+
+    ),
     user_messages => array(
         array(form => 'text', caption => 'Тема', status => 'X', name => 'name', value => ''),
         array(form => 'textarea', caption => 'Сообщение', status => 'X', name => 'mess', value => '', css => 'tinymce'),

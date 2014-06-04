@@ -1,5 +1,16 @@
 <?php
-
+$tables['user_groups_df'] = array(
+    'table' => 'user_groups',
+    'dialog_name' => 'dialog_modal',
+    'dialog_title' => 'Группа',
+    'dialog_title_field'=>'name',
+    'dialog_is_modal'=>true,
+    'dialog_width' => '500',
+    'dialog_height' => '350',
+    'count_view_col'=>0,
+    'dialog_inc_modul'=>'',
+    'dialog_template_form' => '',
+);
 $tables['orders_params_df'] = array(
     'table' => 'orders',
     'dialog_name' => 'dialog_modal',
@@ -43,7 +54,7 @@ $tables['users_df'] = array(
     'dialog_title_field'=>'name',
     'dialog_is_modal'=>true,
     'dialog_width' => '800',
-    'dialog_height' => '400',
+    'dialog_height' => '450',
     'count_view_col'=>2,
     'dialog_inc_modul'=>'',
     'dialog_template_form' => '',

@@ -55,26 +55,39 @@ $admin_menu = array(
         action => 'show',
         table => 'orders',
     ),
+
     array(
-        fold => false,
-        title => 'Пользователи',
-        href => 'index.php',
-        m => 'main',
-        action => 'show',
-        table => 'users'
+        fold => true, title => 'Пользователи',
+        childs => array(
+            array(
+                fold => false,
+                title => 'Пользователи',
+                href => 'index.php',
+                m => 'main',
+                action => 'show',
+                table => 'users'
+            ),
+            array(
+                fold => false,
+                title => 'Группы',
+                href => 'index.php',
+                m => 'main',
+                action => 'show',
+                table => 'user_groups'
+            ),
+          ),
     ),
-    array(
-        fold => false,
-        title => 'Аккаунты',
-        href => 'index.php',
-        m => 'main',
-        action => 'show',
-        table => 'accounts'
-    ),
-    
     array(
         fold => true, title => 'Логи',
         childs => array(
+            array(
+                fold => false,
+                title => 'Аккаунты',
+                href => 'index.php',
+                m => 'main',
+                action => 'show',
+                table => 'accounts'
+            ),
             array(
                 fold => false,
                 title => 'Лог рассылки',

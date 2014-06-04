@@ -1,20 +1,27 @@
 <?php
-//$tables['dns_by_order_id_show'] = array(
-//    'titles' => array('', 'name'),
-//    'fields' => array('name'),
-//    'fields_sql' => 'CONCAT(\'<strong>\', s.name,\'</strong> dns1: \',d1.name,\' dns2: \',d2.name) as name',
-//		 
-//    'table' => 'dns_by_order_id',
-//    'table_view' => 'order_server_ids ids  
-//                  ',
-//    'where' => 'Join servers s On s.id = ids.serverID  
-//		  Join dns d1 On s.dns1_id = d1.id 
-//		  Join dns d2 On s.dns2_id = d2.id  Where ids.orderID  ='.$id,
-//    'group' => '',
-//    'order' => '',
-//    'order_dir' => '',
-//    'defMaxRow' => 999999,
-//);
+$tables['user_groups_show'] = array(
+    'titles' => array('ID', 'Название', 'Кол-во дней по начала рассылки', 'Способ отправки', 'Сообщение'),
+    'fields' => array('id', 'name', 'note_period_days', 'note_method', 'mess_id'),
+    'fields_sql' => 'g.id, g.name, g.note_period_days, g.note_method, m.mess',
+    'table' => 'user_groups',
+    'table_view' => $table_lang . ' g',
+    'where' => 'LEFT JOIN user_messages m ON m.id = g.mess_id',
+    'order' => 'g.name',
+    'order_dir' => ($_SESSION[$table_lang]['order_dir']) ? 'desc' : '',
+    'dialog_url_edit' => '/admin/dialog.php?m=main&table=' . $table,
+    'defMaxRow' => 300,
+    'isEdit' => 1,
+    'isCopy' => 1,
+    'isDel' => 1,
+    'isCheck' => 1,
+    'isNav' => 1,
+    'isSortbl' => 1,
+    'field_foto' => '',
+    'isDialog' => 1,
+    'path_foto' => '',
+    'nonSortblFields' => array('status'),
+    'actions_pannel' => array()
+);
 
 $tables['countries_by_order_id_show'] = array(
     'titles' => array('', 'countries'),
