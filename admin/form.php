@@ -62,7 +62,6 @@ $forms->__set('edit_id', $id);
 
 /* если без диалога включаем редактор */
 if (!$tables[$key . '_show']['isDialog']) {
-    echo $key.'dd';
     echo displayHeadlineAdm($tables[$key . '_show']['cap']);
     echo forms::back();
     include 'editor_tiny_mce_vars_new.html';
