@@ -2,50 +2,62 @@
 
 $admin_menu = array(
     array(
-        fold => false,
-        title => 'Меню',
-        href => 'index.php',
-        m => 'main',
-        action => 'show',
-        table => 'menu'
-    ),
-    array(
-        fold => false,
-        title => 'Странички',
-        href => 'index.php',
-        m => 'main',
-        action => 'show',
-        table => 'pages'
-    ),
-    array(
-        fold => true, title => 'Вопросы',
+        fold => true, title => 'Контент',
         childs => array(
             array(
                 fold => false,
-                title => 'Вопросы',
+                title => 'Меню',
                 href => 'index.php',
                 m => 'main',
                 action => 'show',
-                table => 'faq'
+                table => 'menu'
             ),
             array(
                 fold => false,
-                title => 'Группы',
+                title => 'Странички',
                 href => 'index.php',
                 m => 'main',
                 action => 'show',
-                table => 'faq_group', 
-             ), 
-         )  
-    ),
-
-    array(
-        fold => false,
-        title => 'Новости',
-        href => 'index.php',
-        m => 'main',
-        action => 'show',
-        table => 'news'
+                table => 'pages'
+            ),
+            array(
+                fold => false,
+                title => 'Странички,заказы',
+                href => 'index.php',
+                m => 'main',
+                action => 'show',
+                table => 'params_pages_ids'
+            ),
+            array(
+                fold => true, title => 'Вопросы',
+                childs => array(
+                    array(
+                        fold => false,
+                        title => 'Вопросы',
+                        href => 'index.php',
+                        m => 'main',
+                        action => 'show',
+                        table => 'faq'
+                    ),
+                    array(
+                        fold => false,
+                        title => 'Группы',
+                        href => 'index.php',
+                        m => 'main',
+                        action => 'show',
+                        table => 'faq_group',
+                    ),
+                )
+            ),
+            array(
+                fold => false,
+                title => 'Новости',
+                href => 'index.php',
+                m => 'main',
+                action => 'show',
+                table => 'news'
+            ),
+        ),
     ),
     array(
         fold => false,
@@ -55,7 +67,6 @@ $admin_menu = array(
         action => 'show',
         table => 'orders',
     ),
-
     array(
         fold => true, title => 'Пользователи',
         childs => array(
@@ -75,7 +86,7 @@ $admin_menu = array(
                 action => 'show',
                 table => 'user_groups'
             ),
-          ),
+        ),
     ),
     array(
         fold => true, title => 'Логи',
@@ -94,27 +105,26 @@ $admin_menu = array(
                 href => 'index.php',
                 m => 'main',
                 action => 'show',
-                table => 'log_mess', 
-             ), 
+                table => 'log_mess',
+            ),
             array(
                 fold => false,
                 title => 'Лог команд',
                 href => 'index.php',
                 m => 'main',
                 action => 'show',
-                table => 'log_lounch_script', 
-             ), 
+                table => 'log_lounch_script',
+            ),
             array(
                 fold => false,
                 title => 'Лог пользователей',
                 href => 'index.php',
                 m => 'main',
                 action => 'show',
-                table => 'activitylog', 
-             ), 
-         )  
-    ),  
-    
+                table => 'activitylog',
+            ),
+        )
+    ),
     array(
         fold => true, title => 'Справочники',
         childs => array(
@@ -124,16 +134,16 @@ $admin_menu = array(
                 href => 'index.php',
                 m => 'main',
                 action => 'show',
-                table => 'config_rules', 
-             ),
+                table => 'config_rules',
+            ),
             array(
                 fold => false,
                 title => 'Сообщения',
                 href => 'index.php',
                 m => 'main',
                 action => 'show',
-                table => 'user_messages', 
-             ),
+                table => 'user_messages',
+            ),
             array(
                 fold => false,
                 title => 'Команды',
@@ -190,7 +200,7 @@ $admin_menu = array(
                 action => 'show',
                 table => 'servers',
             ),
-           array(
+            array(
                 fold => false,
                 title => 'Список DNS',
                 href => 'index.php',

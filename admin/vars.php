@@ -1,6 +1,23 @@
 <?php
 
 $tables = array(
+    params_pages_ids => array(
+        array(form => 'select', caption => 'Тип VPN', first_val => 'no', status => 'X', name => 'type_id', value => '',
+            data => array('vars_db::__table', array('table' => 'types', 'order' => 'id'))),
+        array(form => 'select', caption => 'Протокол', first_val => 'no', status => 'X', name => 'protocol_id', value => '',
+            data => array('vars_db::__table', array('table' => 'protocols'))),
+        array(form => 'select_simple', caption => 'OS', status => '0', name => 'os', value => '', values => array('win' => 'Win', 'mac' => 'Mac')),
+        //array(form => 'select_simple', caption => 'Portable', status => '0', name => 'portable', value => '', values => array(0=>'',1 =>'isPortabl')),
+        array(form => 'checkbox', caption => 'is Portable', status => '0', name => 'portable', value => '1', checked => 1),
+        array(form => 'select',
+            caption => 'Страничка',
+            status => '0',
+            name => 'page_id',
+            first_val => '',
+            value => '',
+            data => array('vars_db::__table', array('table' => $pref . 'pages', 'order' => 'id'))
+        ),
+    ),
     orders_params => array(
         array(form => 'select', caption => 'Заказчик', first_val => 'no', status => '0', is_disabled => 1, name => 'user_id', value => '',
             data => array('vars_db::__table', array('table' => 'users'))),

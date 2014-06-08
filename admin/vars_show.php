@@ -1,4 +1,33 @@
 <?php
+$tables['params_pages_ids_show'] = array(
+    'titles' => array('ID', 'Тип VPN', 'Протокол', 'OS', 'is Portable', 'Страничка'),
+    'fields' => array('id', 'type',    'proto',    'os', 'portable',    'page'),
+    'fields_sql' => 'c.id,   t.name as type, p.name as proto,  c.os,   c.portable,  pa.name as page',
+    'table' => 'params_pages_ids',
+    'table_view' => $table_lang . ' c',
+    'where' => '
+        JOIN types t ON t.id = c.type_id
+        JOIN protocols p ON p.id = c.protocol_id 
+        LEFT JOIN ' . (($lang) ? $lang . '_pages' : 'pages') . ' pa ON pa.id=c.page_id
+        WHERE 1
+        ',
+    
+    'order' => isset($_SESSION[$table_lang]['order']) ? $_SESSION[$table_lang]['order'] : 'c.id',
+    'order_dir' => ($_SESSION[$table_lang]['order_dir']) ? 'desc' : '',
+    'dialog_url_edit' => '/admin/dialog.php?m=main&table=' . $table,
+    'defMaxRow' => 300,
+    'isEdit' => 1,
+    'isCopy' => 1,
+    'isDel' => 1,
+    'isCheck' => 1,
+    'isNav' => 1,
+    'isSortbl' => 1,
+    'isDialog' => 1,
+    'nonSortblFields' => array('status'),
+    'actions_pannel' => array()
+);
+
+
 $tables['user_groups_show'] = array(
     'titles' => array('ID', 'Название', 'Кол-во дней по начала рассылки', 'Способ отправки', 'Сообщение'),
     'fields' => array('id', 'name', 'note_period_days', 'note_method', 'mess_id'),
