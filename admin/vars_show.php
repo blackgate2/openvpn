@@ -505,6 +505,11 @@ $tables['orders_show'] = array(
     'dialog_url_edit' => '/admin/dialog.php?m=main&table=' . $table,
     'nonSortblFields' => array('status'),
     'actions_pannel' => array(
+        array('title' => 'Заблок.',
+            'url' => 'dialog.php?m=main&table=' . $table,
+            'action' => 'lock_orders',
+            'css' => 'link_group_dialog_modal ui-button-text-only',
+            'confirm' => ''),
         array('title' => 'Изменить',
             'url' => 'dialog.php?m=main&table=orders_params',
             'action' => 'edit',

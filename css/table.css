@@ -131,11 +131,11 @@ div.nav_filter{ font-size: 13px;
     font-family: "Trebuchet MS",Arial,Helvetica,Sans-serif;  float:left; margin: 0 }
 div.nav_rows{ font-size: 13px;    
     text-shadow: #F3F4E5 0px 1px 1px;
-    font-family: "Trebuchet MS",Arial,Helvetica,Sans-serif;  float:right; margin: 5px 0 0 20px;}
+    font-family: "Trebuchet MS",Arial,Helvetica,Sans-serif;  float:right; margin: 7px 0 0 20px;}
 div.nav_pages{ font-size: 13px;    
     text-shadow: #F3F4E5 0px 1px 1px;
     font-family: "Trebuchet MS",Arial,Helvetica,Sans-serif;  float:right; 
-    margin: 8px 20px 0 20px}
+     margin: 5px 0 0 20px;}
 
 
 hr{

@@ -29,7 +29,14 @@ if ($action == 'insert' && $table == 'orders'  && $_POST['is_lock_parent']) {
         $msg_alert = error('Error DB');
     }
 }
-
+/** ----------------------------- в лочим родительский заказ при копировании    ---------------------------------------- */
+if ($table == 'orders'  && $action=='lock_orders' && $objects_ids != '') {    
+    if ($a->lock_by_date_exp()) {
+        $msg_alert = ok('Заказы заблокируются через минуту');
+    } else {
+        $msg_alert = error('Error DB');
+    }
+}
 
 
 //exit("$action == 'ext_date_expire' && $table == 'orders' && $objects_ids");
