@@ -1,8 +1,8 @@
 <?php
 $tables['params_pages_ids_show'] = array(
-    'titles' => array('ID', 'Тип VPN', 'Протокол', 'OS', 'is Portable', 'Страничка'),
-    'fields' => array('id', 'type',    'proto',    'os', 'portable',    'page'),
-    'fields_sql' => 'c.id,   t.name as type, p.name as proto,  c.os,   c.portable,  pa.name as page',
+    'titles' => array('ID', 'Тип VPN', 'Протокол', 'OS', 'is Portable', 'Страничка','Якорь'),
+    'fields' => array('id', 'type',    'proto',    'os', 'portable',    'page','yakor'),
+    'fields_sql' => 'c.id,   t.name as type, p.name as proto,  c.os,   c.portable,  pa.name as page,c.yakor',
     'table' => 'params_pages_ids',
     'table_view' => $table_lang . ' c',
     'where' => '
