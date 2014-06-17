@@ -71,7 +71,7 @@ class accounts {
                 $v['command'] = 'full';
                 $v['action_id'] = 6;
             }
-            $this->logLaunchScript($v['command'], $sysStr, $retval,$pass, $v['order_id']);
+            $this->logLaunchScript($sysStr, $retval,$pass, $v);
             return $r;
         }
     }
@@ -229,24 +229,38 @@ class accounts {
         $this->q->query('Update orders Set action_id=' . $actionID . ' Where id=' . $order_id);
     }
 
-    private function logLaunchScript($action, $command_line, $retval,$pass, $order_id) {
-        if (!$this->q->query('Insert Into log_lounch_script (action,comman_line,return_val,pass,order_id)
-            Values ("' . $action . '","' . $command_line . '","' . $retval . '","' . $pass . '",' . $order_id . ')')) {
+    private function logLaunchScript($command_line, $retval,$pass, $v) {
+        if (!$this->q->query('Insert Into log_lounch_script 
+                   (command,                      comman_line,             return_val,        pass,               server,                order_id,                 type,                  datetime_begin,                  datetime_expire,                 num_order,                 user,                price,                portable,                  period,                 action,                protocol,                 account,                 os,                 date_create,                 datetime_edit,                user_update)
+            Values ("' . $v['command'] . '","' . $command_line . '", "' . $retval . '", "' . $pass . '", "' . $v['server'] . '", ' . $v['order_id'] . ',  "' . $v['type'] . '",  "' . $v['datetime_begin'] . '",  "' . $v['datetime_expire'] . '",  ' . $v['num_order'] . ',  "' . $v['user'] . '", ' . $v['price'] . ', "' . $v['portable'] . '",  "' . $v['period'] . '", "' . $v['action']. '", "' . $v['protocol'] . '", "' . $v['account'] . '", "' . $v['os'] . '", "' . $v['date_create'] . '", "' . $v['datetime_edit']. '", "' . $v['user_update']  . '")')) {
             throw new Exception;
         }
     }
 
     public function getOrdersData() {
 
-        $sql = 'SELECT ac.name as account,
+        $sql = 'SELECT 
                        ac.id as account_id,
                        o.id as order_id,
+                       o.datetime_begin,
+                       o.datetime_expire,
+                       o.num_order,
+                       u.name as user,
+                       o.price,
+                       o.ammount,
+                       o.portable,
+                       pi.name as period,
                        p.name as protocol,
                        pg.name as type,
-                       
-                       s.id as server_id,s.name as server,
+                       ac.name as account,
+                       o.os,
+                       s.id as server_id,
+                       s.name as server,
                        s.iddouble,
                        s.idmultidouble,
+                       o.date_create,
+                       o.datetime_edit,
+                       uu.name as user_update,
                        
                 (CASE
                     WHEN os.action="create" THEN "create"
@@ -272,6 +286,9 @@ class accounts {
                 Join order_server_ids osids On 
                         osids.orderID = o.id
                 Left Join accounts ac ON ac.id = o.account_id
+                Left JOIN users u ON u.id=o.user_id
+                Left JOIN users uu ON uu.id=o.user_update_id
+                Left JOIN periods pi ON pi.id=o.period_id
                 Join servers s On 
                         s.id = osids.serverID  
                         ' . (($this->hostname) ? 'and s.hostname = "' . $this->hostname . '"' : '') . '

@@ -496,13 +496,13 @@ $tables['log_mess_show'] = array(
 );
 
 $tables['log_lounch_script_show'] = array(
-    'titles' => array('ID', 'Действие', 'Команда', 'Return Value', 'Дата', 'Сервер', '#Орд.'),
-    'fields' => array('id', 'action', 'comman_line', 'return_val', 'datetime_exec', 'server', 'num_order'),
-    'fields_sql' => 'l.id, l.action, l.comman_line, l.return_val, l.datetime_exec, getServerActByOrder(l.order_id) as server, o.num_order',
+    'titles' => array('ID', 'Действие', 'Команда',     'Return Value', 'Дата',          'Сервер', '#Орд.',    '#ОрдID.',  'VPN', 'Дата начала',     'Дата конца',      'Заказчик', 'Цена', 'is Port',   'Период', 'action', 'Протокол', 'Аккоукт', 'OS', 'Дата создания', 'Дата редакции'),
+    'fields' => array('id', 'command',  'comman_line', 'return_val',   'datetime_exec', 'server', 'num_order','order_id', 'type', 'datetime_begin', 'datetime_expire', 'user',     'price', 'portable', 'period', 'action', 'protocol', 'account', 'os', 'date_create', 'datetime_edit', 'user_update'),
+    'fields_sql' => ' id,  command,    comman_line,   return_val,   datetime_exec, server,  num_order, order_id, type, datetime_begin, datetime_expire, user, price, portable, period, action, protocol, account, os, date_create, datetime_edit,user_update',
     'table' => 'log_lounch_script',
-    'table_view' => 'log_lounch_script l JOIN orders o ON o.id = l.order_id',
+    'table_view' => 'log_lounch_script  ',
     'where' => '',
-    'order' => 'l.id',
+    'order' => 'id',
     'order_dir' => 'desc',
     'limit' => '300',
     'cap' => 'Лог команд от серверов',
@@ -514,7 +514,7 @@ $tables['log_lounch_script_show'] = array(
     'isDel' => 0,
     'isCheck' => 0,
     'isNav' => 1,
-    'isSortbl' => 1,
+    'isSortbl' => 0,
 //   'field_title' => 'id',
 //    'path_foto' => '',
     'isDialog' => 0,
