@@ -15,15 +15,15 @@ if (isset($_POST['inv_filter__'])) {
 
 
         $q->begin();
-        $q->query("DROP TABLE IF EXISTS temp;");
-        $q->query("create table temp (name varchar(12), proto varchar(10), server varchar(10) ) Engine = Memory");
-        $q->query(" INSERT INTO temp (name,proto,server) VALUES $add_sql");
+        $q->query("DROP TABLE IF EXISTS after_invent;");
+        $q->query("create table after_invent (name varchar(12), proto varchar(10), server varchar(10) ) Engine = Memory");
+        $q->query(" INSERT INTO after_invent (name,proto,server) VALUES $add_sql");
         $q->commit();
 
         $activ_accounts_not_in_orders = $q->fetch_data_to_accoc_array('
                     Select CONCAT(t.name,\':\',t.proto,\':\',t.server) as name
 		
-                    From temp t 
+                    From after_invent t 
                     LEFT JOIN ( SELECT a.name as account, p.name as proto, s.name as server,
                                      o.account_id,o.protocol_id,os.serverID
                                 FROM orders o

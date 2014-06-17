@@ -233,7 +233,7 @@ $tables['countries_show'] = array(
     'defMaxRow' => 300,
     'isEdit' => 1,
     'isCopy' => 1,
-    'isDel' => 1,
+    'isDel' => 0,
     'isCheck' => 1,
     'isNav' => 1,
     'isSortbl' => 1,
@@ -255,7 +255,7 @@ $tables['protocols_show'] = array(
     'defMaxRow' => 300,
     'isEdit' => 1,
     'isCopy' => 1,
-    'isDel' => 1,
+    'isDel' => 0,
     'isCheck' => 1,
     'isNav' => 1,
     'isSortbl' => 1,
@@ -277,7 +277,7 @@ $tables['periods_show'] = array(
     'defMaxRow' => 300,
     'isEdit' => 1,
     'isCopy' => 1,
-    'isDel' => 1,
+    'isDel' => 0,
     'isCheck' => 1,
     'isNav' => 1,
     'isSortbl' => 1,
@@ -355,7 +355,7 @@ $tables['types_show'] = array(
     'defMaxRow' => 300,
     'isEdit' => 1,
     'isCopy' => 1,
-    'isDel' => 1,
+    'isDel' => 0,
     'isCheck' => 1,
     'isNav' => 1,
     'isSortbl' => 1,
@@ -375,7 +375,7 @@ $tables['actions_show'] = array(
     'defMaxRow' => 300,
     'isEdit' => 1,
     'isCopy' => 1,
-    'isDel' => 1,
+    'isDel' => 0,
     'isCheck' => 1,
     'isNav' => 1,
     'isSortbl' => 1,
@@ -395,7 +395,7 @@ $tables['dns_show'] = array(
     'defMaxRow' => 300,
     'isEdit' => 1,
     'isCopy' => 1,
-    'isDel' => 1,
+    'isDel' => 0,
     'isCheck' => 1,
     'isNav' => 1,
     'isSortbl' => 1,
@@ -473,143 +473,6 @@ $tables['orders_reponse_show'] = array(
     'isDialog' => 1,
     'nonSortblFields' => array(),
     'actions_pannel' => ''
-);
-$tables['orders_show'] = array(
-    'titles' => array('id','Опл.', 'Дата ред.', 'Акк/Конф','Акк в Откл.', 'Заказчик', '№ заказа', 'Дата начала', 'Дата конца', 'Период', 'VPN', 'в Плане', 'Отклик', 'Цена'),
-    'fields' => array('id','paymant', 'datetime_edit',  'account_conf','acc_res', 'user', 'name', 'datetime_begin', 'datetime_expire', 'period', 'type', 'server', 'reponse', 'price'),
-    'fields_sql' => 'DISTINCT o.id,  
-                    CONCAT(
-                        IF(oi.num_order IS NOT NULL, "paid", ""),
-                        IF(ext.orderID  IS NOT NULL, CONCAT("<br><small>ext</small>",ext.ext_num), "")
-                     ) as paymant,
-                    
-                    o.datetime_edit,
-                    aa.name as acc_res,
-                    IF(of.config!="" AND o.portable="1",
-                        CONCAT(a.name,\'<br/><a href="/downloadConfig.php/?hash=\',of.config,\'&portable=32">Config32</a><br/><a href="/downloadConfig.php/?hash=\',of.config,\'&portable=64">Config64</a>\') ,
-                            IF(of.config!="" AND o.portable="", 
-                               CONCAT(a.name,\'<br/><a href="/downloadConfig.php/?hash=\',of.config,\'">Config</a>\'), 
-                               a.name)  ) as account_conf,  
-                    CONCAT(\'<small>\',u.name,\'<br>\',u.email,\'<br>\',u.icq,\'<br>\',u.jabber,\'<br><span class="red">\',IFNULL(o.notes,\'\'),\'</small></span><br><span class="green">\',IFNULL(uu.name,\'\'),\'</span>\' ) as user, 
-                    o.num_order as name,
-                    o.datetime_begin,
-                    o.datetime_expire,
-                    pi.name as period,
-                    CONCAT(t.name,\'<br>\',p.name,\'<br>\',o.os,\'<br>\', IF(o.portable!="",\'portable\',\'\')) as type,
-                    p.name as protocol,
-                     CONCAT(\'<small>\',getServerByOrderID(o.id),\'</small>\') as server,
-                    IF(osids.orderID,"1","") as is_btn_respons,
-                    o.price,
-                    o.portable,  
-                    o.os,
-                    os.name as ostatus',
-    'table' => 'orders',
-    'table_view' => 'orders o',
-    
-    'where' => 'JOIN actions os ON os.id = o.action_id
-                Left JOIN users u ON u.id=o.user_id
-                Left JOIN periods pi ON pi.id=o.period_id
-                Left JOIN types t ON t.id = o.type_id
-                Left JOIN protocols p ON p.id = o.protocol_id
-                
-                Left JOIN accounts a ON a.id = o.account_id
-                Left JOIN order_configs of On of.order_id = o.id
-                Left JOIN order_invoices oi On oi.num_order = o.num_order
-                Left Join order_server_action_ids osids ON osids.orderID = o.id 
-                Left Join accounts aa ON aa.id = osids.accountID
-                Left JOIN orders_user_ext_ids ext ON ext.orderID = o.id
-                Left JOIN users uu ON uu.id=o.user_update_id
-                ',
-    'order' => isset($_SESSION[$table]['order']) ? $_SESSION[$table]['order'] : 'datetime_edit',
-    'order_dir' => (!isset($_SESSION[$table]['order_dir'])) ? 'desc' : $_SESSION[$table]['order_dir'],
-   // 'group'=>'id',
-    'defMaxRow' => 300,
-    'isEdit' => 1,
-    'isCopy' => 1,
-    'isDel' => 1,
-    'isCheck' => 1,
-    'isNav' => 1,
-    'isSortbl' => 1,
-    'isDialog' => 1,
-    'dialog_url_edit' => '/admin/dialog.php?m=main&table=' . $table,
-    'nonSortblFields' => array('status'),
-    'actions_pannel' => array(
-        array('title' => 'Заблок.',
-            'url' => 'dialog.php?m=main&table=' . $table,
-            'action' => 'lock_orders',
-            'css' => 'link_group_dialog_modal ui-button-text-only',
-            'confirm' => ''),
-        array('title' => 'Изменить',
-            'url' => 'dialog.php?m=main&table=orders_params',
-            'action' => 'edit',
-            'css' => 'link_group_dialog_modal ui-button-text-only',
-            'confirm' => ''),
-        array('title' => ' + 1мес к date_expire ',
-            'url' => 'index.php?m=main&table=' . $table,
-            'action' => 'ext_date_expire',
-            'css' => 'link_group_anythink ui-button-text-only',
-            'confirm' => 'Вы действительно хотите добавить ЦЕЛЫЙ месяц к date_expire?'),
-        array('title' => 'Удалить конфиги',
-            'url' => 'index.php?m=main&table=' . $table,
-            'action' => 'del_configs',
-            'css' => 'link_group_anythink ui-button-text-only',
-            'confirm' => 'Вы действительно хотите удалить конфиги?'),
-        array('title' => 'Удалить отклик',
-            'url' => 'index.php?m=main&table=' . $table,
-            'action' => 'del_response',
-            'css' => 'link_group_anythink ui-button-text-only',
-            'confirm' => 'Вы действительно хотите удалить отклик?'),
-        array('title' => 'Config filemanager',
-            'url' => '' ,
-            'action' => '',
-            'css' => 'openfilemanger ui-button-text-only',
-            'confirm' => ''),
-    ),
-    'add_collumn_reponse' => array(
-
-        'button1' =>
-        array(
-            'name'=>'btn_respons',
-            'url' => '/admin/dialog.php?m=main&table=orders_reponse',
-            'key_val'=>'',
-            'action'=>'show',
-            'hint' => 'Отклик в плане',
-            'title' => 'Отклик в плане',
-            'ico' => ' ui-icon-check',
-            'css' => 'link_alert button_row ui-button-icon-only  '
-        ),
-       
-    ),
-
-    'set_rows_colors' => array(
-        'order_row::rowColors' => array(
-            // Поступил
-            'enrolled' => array(
-                'odd' => 'odd_yellow',
-                'even' => 'even_yellow',
-            ),
-            // Поступил c сайта
-            'enrolled_site' => array(
-                'odd' => 'odd_blue',
-                'even' => 'even_blue',
-            ),
-            // work
-            'work' => array(
-                'odd' => 'odd_green',
-                'even' => 'even_green',
-            ),
-            // lock 
-            'lock' => array(
-                'odd' => 'odd_red',
-                'even' => 'even_red',
-            ),
-            // archive
-            'archive' => array(
-                'odd' => 'odd_gray',
-                'even' => 'even_gray',
-            ),
-        )
-    ),
 );
 
 $tables['log_mess_show'] = array(
@@ -831,3 +694,142 @@ $tables['user_messages_show'] = array(
     'nonSortblFields' => array('status'),
     'actions_pannel' => array()
 );
+
+$tables['orders_show'] = array(
+    'titles' => array('id','Опл.', 'Дата ред.', 'Акк/Конф','Акк в Откл.', 'Заказчик', '№ заказа', 'Дата начала', 'Дата конца', 'Период', 'VPN', 'в Плане', 'Отклик', 'Цена'),
+    'fields' => array('id','paymant', 'datetime_edit',  'account_conf','acc_res', 'user', 'name', 'datetime_begin', 'datetime_expire', 'period', 'type', 'server', 'reponse', 'price'),
+    'fields_sql' => 'DISTINCT o.id,  
+                    CONCAT(
+                        IF(oi.num_order IS NOT NULL, "paid", ""),
+                        IF(ext.orderID  IS NOT NULL, CONCAT("<br><small>ext</small>",ext.ext_num), "")
+                     ) as paymant,
+                    
+                    o.datetime_edit,
+                    aa.name as acc_res,
+                    IF(of.config!="" AND o.portable="1",
+                        CONCAT(a.name,\'<br/><a href="/downloadConfig.php/?hash=\',of.config,\'&portable=32">Config32</a><br/><a href="/downloadConfig.php/?hash=\',of.config,\'&portable=64">Config64</a>\') ,
+                            IF(of.config!="" AND o.portable="", 
+                               CONCAT(a.name,\'<br/><a href="/downloadConfig.php/?hash=\',of.config,\'">Config</a>\'), 
+                               a.name)  ) as account_conf,  
+                    CONCAT(\'<small>\',u.name,\'<br>\',u.email,\'<br>\',u.icq,\'<br>\',u.jabber,\'<br><span class="red">\',IFNULL(o.notes,\'\'),\'</small></span><br><span class="green">\',IFNULL(uu.name,\'\'),\'</span>\' ) as user, 
+                    o.num_order as name,
+                    o.datetime_begin,
+                    o.datetime_expire,
+                    pi.name as period,
+                    CONCAT(t.name,\'<br>\',p.name,\'<br>\',o.os,\'<br>\', IF(o.portable!="",\'portable\',\'\')) as type,
+                    p.name as protocol,
+                     CONCAT(\'<small>\',getServerByOrderID(o.id),\'</small>\') as server,
+                    IF(osids.orderID,"1","") as is_btn_respons,
+                    o.price,
+                    o.portable,  
+                    o.os,
+                    os.name as ostatus',
+    'table' => 'orders',
+    'table_view' => 'orders o',
+    
+    'where' => 'JOIN actions os ON os.id = o.action_id
+                Left JOIN users u ON u.id=o.user_id
+                Left JOIN periods pi ON pi.id=o.period_id
+                Left JOIN types t ON t.id = o.type_id
+                Left JOIN protocols p ON p.id = o.protocol_id
+                
+                Left JOIN accounts a ON a.id = o.account_id
+                Left JOIN order_configs of On of.order_id = o.id
+                Left JOIN order_invoices oi On oi.num_order = o.num_order
+                Left Join order_server_action_ids osids ON osids.orderID = o.id 
+                Left Join accounts aa ON aa.id = osids.accountID
+                Left JOIN orders_user_ext_ids ext ON ext.orderID = o.id
+                Left JOIN users uu ON uu.id=o.user_update_id
+                ',
+    'order' => isset($_SESSION[$table]['order']) ? $_SESSION[$table]['order'] : 'datetime_edit',
+    'order_dir' => (!isset($_SESSION[$table]['order_dir'])) ? 'desc' : $_SESSION[$table]['order_dir'],
+   // 'group'=>'id',
+    'defMaxRow' => 300,
+    'isEdit' => 1,
+    'isCopy' => 1,
+    'isDel' => 1,
+    'isCheck' => 1,
+    'isNav' => 1,
+    'isSortbl' => 1,
+    'isDialog' => 1,
+    'dialog_url_edit' => '/admin/dialog.php?m=main&table=' . $table,
+    'nonSortblFields' => array('status'),
+    'actions_pannel' => array(
+        array('title' => 'Заблок.',
+            'url' => 'dialog.php?m=main&table=' . $table,
+            'action' => 'lock_orders',
+            'css' => 'link_group_dialog_modal ui-button-text-only',
+            'confirm' => ''),
+        array('title' => 'Изменить',
+            'url' => 'dialog.php?m=main&table=orders_params',
+            'action' => 'edit',
+            'css' => 'link_group_dialog_modal ui-button-text-only',
+            'confirm' => ''),
+        array('title' => ' + 1мес к date_expire ',
+            'url' => 'index.php?m=main&table=' . $table,
+            'action' => 'ext_date_expire',
+            'css' => 'link_group_anythink ui-button-text-only',
+            'confirm' => 'Вы действительно хотите добавить ЦЕЛЫЙ месяц к date_expire?'),
+        array('title' => 'Удалить конфиги',
+            'url' => 'index.php?m=main&table=' . $table,
+            'action' => 'del_configs',
+            'css' => 'link_group_anythink ui-button-text-only',
+            'confirm' => 'Вы действительно хотите удалить конфиги?'),
+        array('title' => 'Удалить отклик',
+            'url' => 'index.php?m=main&table=' . $table,
+            'action' => 'del_response',
+            'css' => 'link_group_anythink ui-button-text-only',
+            'confirm' => 'Вы действительно хотите удалить отклик?'),
+        array('title' => 'Config filemanager',
+            'url' => '' ,
+            'action' => '',
+            'css' => 'openfilemanger ui-button-text-only',
+            'confirm' => ''),
+    ),
+    'add_collumn_reponse' => array(
+
+        'button1' =>
+        array(
+            'name'=>'btn_respons',
+            'url' => '/admin/dialog.php?m=main&table=orders_reponse',
+            'key_val'=>'',
+            'action'=>'show',
+            'hint' => 'Отклик в плане',
+            'title' => 'Отклик в плане',
+            'ico' => ' ui-icon-check',
+            'css' => 'link_alert button_row ui-button-icon-only  '
+        ),
+       
+    ),
+
+    'set_rows_colors' => array(
+        'order_row::rowColors' => array(
+            // Поступил
+            'enrolled' => array(
+                'odd' => 'odd_yellow',
+                'even' => 'even_yellow',
+            ),
+            // Поступил c сайта
+            'enrolled_site' => array(
+                'odd' => 'odd_blue',
+                'even' => 'even_blue',
+            ),
+            // work
+            'work' => array(
+                'odd' => 'odd_green',
+                'even' => 'even_green',
+            ),
+            // lock 
+            'lock' => array(
+                'odd' => 'odd_red',
+                'even' => 'even_red',
+            ),
+            // archive
+            'archive' => array(
+                'odd' => 'odd_gray',
+                'even' => 'even_gray',
+            ),
+        )
+    ),
+);
+
