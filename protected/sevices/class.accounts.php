@@ -71,7 +71,7 @@ class accounts {
                 $v['command'] = 'full';
                 $v['action_id'] = 6;
             }
-            $this->logLaunchScript($sysStr, $retval,$pass, $v);
+            $this->logLaunchScript($sysStr, $r,$pass, $v);
             return $r;
         }
     }

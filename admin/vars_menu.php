@@ -91,14 +91,7 @@ $admin_menu = array(
     array(
         fold => true, title => 'Логи',
         childs => array(
-            array(
-                fold => false,
-                title => 'Аккаунты',
-                href => 'index.php',
-                m => 'main',
-                action => 'show',
-                table => 'accounts'
-            ),
+
             array(
                 fold => false,
                 title => 'Лог рассылки',
@@ -128,6 +121,14 @@ $admin_menu = array(
     array(
         fold => true, title => 'Справочники',
         childs => array(
+            array(
+                fold => false,
+                title => 'Аккаунты',
+                href => 'index.php',
+                m => 'main',
+                action => 'show',
+                table => 'accounts'
+            ),
             array(
                 fold => false,
                 title => 'Правила создания Zip',
