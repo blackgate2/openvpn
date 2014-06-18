@@ -47,7 +47,7 @@ class accounts {
         }
     }
 
-    private function sysCommandLine($v, $command) {
+    protected function sysCommandLine($v, $command) {
 
 
         if (isset($command[$v['type']][$v['command']][$v['protocol']])) {
@@ -229,7 +229,7 @@ class accounts {
         $this->q->query('Update orders Set action_id=' . $actionID . ' Where id=' . $order_id);
     }
 
-    private function logLaunchScript($command_line, $retval,$pass, $v) {
+    protected function logLaunchScript($command_line, $retval,$pass, $v) {
         if (!$this->q->query('Insert Into log_lounch_script 
                    (command,                      comman_line,             return_val,        pass,               server,                order_id,                 type,                  datetime_begin,                  datetime_expire,                 num_order,                 user,                price,                portable,                  period,                 action,                protocol,                 account,                 os,                 date_create,                 datetime_edit,                user_update)
             Values ("' . $v['command'] . '","' . $command_line . '", "' . $retval . '", "' . $pass . '", "' . $v['server'] . '", ' . $v['order_id'] . ',  "' . $v['type'] . '",  "' . $v['datetime_begin'] . '",  "' . $v['datetime_expire'] . '",  ' . $v['num_order'] . ',  "' . $v['user'] . '", ' . $v['price'] . ', "' . $v['portable'] . '",  "' . $v['period'] . '", "' . $v['action']. '", "' . $v['protocol'] . '", "' . $v['account'] . '", "' . $v['os'] . '", "' . $v['date_create'] . '", "' . $v['datetime_edit']. '", "' . $v['user_update']  . '")')) {
@@ -294,9 +294,9 @@ class accounts {
                         ' . (($this->hostname) ? 'and s.hostname = "' . $this->hostname . '"' : '') . '
          
 
-                Where os.action = "create" or os.action = "unlock"  or os.action = "lock" 
-                and  NOT EXISTS (Select * From order_server_action_ids osa 
-                                  Where osa.orderID = o.id  and osa.serverID = s.id )
+                Where (os.action = "create" or os.action = "unlock"  or os.action = "lock")
+                and   NOT EXISTS(Select osa.orderID From order_server_action_ids osa 
+                                  Where osa.orderID = o.id  and osa.serverID = s.id and osa.actionID=o.action_id)
                 Having action IS NOT NULL
                 ';
         // echo $sql;
