@@ -68,6 +68,14 @@ $admin_menu = array(
         table => 'orders',
     ),
     array(
+        fold => false,
+        title => 'Инвентаризация',
+        href => 'index.php',
+        m => 'main',
+        action => 'show',
+        table => 'after_invent',
+    ),
+    array(
         fold => true, title => 'Пользователи',
         childs => array(
             array(

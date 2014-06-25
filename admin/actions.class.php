@@ -44,7 +44,6 @@ class actions {
 
     public function inc_date_exp() {
         $this->q->begin();
-        echo 'Update orders SET action_id = 3, datetime_expire = DATE_ADD(datetime_expire,INTERVAL 1 MONTH),user_update_id ='.$_SESSION['auth_user_id'].' Where id IN (' . $this->objects_ids . ')';
         $this->q->query('Call deleteOrdersServersActionsIds ("' . $this->objects_ids . '") ');
         $this->q->query('Update orders SET action_id = 3, datetime_expire = DATE_ADD(datetime_expire,INTERVAL 1 MONTH),user_update_id ='.$_SESSION['auth_user_id'].' Where id IN (' . $this->objects_ids . ')');
         return $this->q->commit();

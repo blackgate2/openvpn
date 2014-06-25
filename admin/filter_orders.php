@@ -13,7 +13,7 @@ $tables['orders_show']['where'].=' WHERE (o.datetime_expire BETWEEN \''.$date1.'
 
 
 if (isset($_POST['inv_filter'])){
-    include_once 'inv.php';
+    
     $tables['orders_show']['where'].=($inv_accounts)?' AND  a.name NOT IN (' .$inv_accounts.')':'';  
     
 }

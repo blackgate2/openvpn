@@ -1,6 +1,11 @@
 <?php
 
 $tables = array(
+    after_invent => array(//name,proto,server
+        array(form => 'text', caption => 'Аккоунт', status => 'X', name => 'name', value => ''),
+        array(form => 'text', caption => 'Протокол', status => 'X', name => 'proto', value => ''),
+        array(form => 'text', caption => 'Сервер', status => 'X', name => 'proto', value => ''),
+    ),
     params_pages_ids => array(
         array(form => 'select', caption => 'Тип VPN', first_val => 'no', status => 'X', name => 'type_id', value => '',
             data => array('vars_db::__table', array('table' => 'types', 'order' => 'id'))),

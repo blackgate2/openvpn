@@ -65,7 +65,8 @@ $tables['orders_filter'] = array(
     //array(form => 'select', caption => 'Сервер', status => '0', name => 'server_filter', value => array(), table => 'servers'),
     
     array(form => 'checkbox', caption => 'Инвентаризация', status => '0', name => 'inv_filter', value => 1, checked => 0),
-        array(form => 'autocomplete',
+    
+    array(form => 'autocomplete',
         placeholder => 'Заказчик',
         status => '0',
         edit_name => 'user_name_filter',
