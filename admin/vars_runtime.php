@@ -19,7 +19,9 @@ if ($_SESSION['lang'] == 'ru') {
 
 
 if ($lang == 'en' &&
-        !in_array($table, array('users', 'countries', 'periods', 'protocols', 'servers', 'prices', 'types', 'orders', 'actions', 'accounts', 'commads', 'dns', 'config_rules', 'log_mess', 'log_lounch_script', 'user_messages'))) {
+        !in_array($table, array('users', 'countries', 'periods', 'protocols', 'servers', 'prices',
+            'types', 'orders', 'actions', 'accounts', 'commads', 'dns', 
+            'config_rules', 'log_mess', 'log_lounch_script', 'user_messages','after_invent'))) {
     $pref = $lang . '_';
     $table_lang = $pref . $table;
 } else {
