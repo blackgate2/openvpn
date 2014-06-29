@@ -13,9 +13,7 @@
 class accounts {
 
     protected $q; /* class для работы с db */
-    protected $_accountPass; /* пара логин пароль создавшегося аккаунта который сгенерил sysCommandLine */
-    protected $server;
-    private $arrPass = array(); /* пароли для мульти аккаунтов */
+    protected $_accountPass; /* пара логин пароль создавшегося аккаунта который сгенерил sys_line */
     private $hostname;
 
     public function __construct($hostname) {
@@ -47,7 +45,7 @@ class accounts {
         }
     }
 
-    protected function sysCommandLine($v, $command) {
+    protected function sys_line($v, $command) {
 
 
         if (isset($command[$v['type']][$v['command']][$v['protocol']])) {
@@ -58,8 +56,8 @@ class accounts {
             $sysStr = str_replace('?account?', $v['account'], $sysStr);
             $sysStr = str_replace('?iddouble?', $v['iddouble'], $sysStr);
             $sysStr = str_replace('?idmultidouble?', $v['idmultidouble'], $sysStr);
-            if ($v['type'] == 'Multi' || $v['type'] == 'MultiDouble'){
-                $pass= $this->getPass($v['order_id']);
+            if ($v['type'] == 'Multi' || $v['type'] == 'MultiDouble') {
+                $pass = $this->getPass($v['order_id']);
                 $sysStr = str_replace('?pass?', $pass, $sysStr);
             }
             //echo $sysStr."\n";
@@ -71,20 +69,30 @@ class accounts {
                 $v['command'] = 'full';
                 $v['action_id'] = 6;
             }
-            $this->logLaunchScript($sysStr, $r,$pass, $v);
+            $this->logLaunchScript($sysStr, $r, $pass, $v);
             return $r;
         }
+    }
+
+    protected function sys_line_inv($v) {
+
+        $sysStr = '/usr/local/etc/bin/kb ' . $v['account'] . (($v['protocol'] == 'pptp') ? ' ' . $v['protocol'] : '');
+        $r = system($sysStr, $retval);
+        $this->logLaunchScript($sysStr, $r, '', $v);
     }
 
     public function startAction() {
         $this->checkServer();
 
+        /*
+         * действия для заказов
+         */
         $arrCommands = $this->getAllCommands();
-        foreach ($this->getOrdersData() as $v) {
+        foreach ($this->get_orders_data() as $v) {
             //print_r($v);
             //echo "\n";
             //exit();
-            $this->_accountPass = $this->sysCommandLine($v, $arrCommands);
+            $this->_accountPass = $this->sys_line($v, $arrCommands);
             //echo $this->_accountPass."\n\n";
             //exit();
 
@@ -98,8 +106,8 @@ class accounts {
 //                    $this->_accountPass = 'account' . $v['order_id'] . ':superpassssssss';
 //            }
             /* ------------------------------ */
-            if ($v['account_id']=='' && ($v['command'] == 'unlock' || $v['command'] == 'lock') ) {
-                continue; 
+            if ($v['account_id'] == '' && ($v['command'] == 'unlock' || $v['command'] == 'lock')) {
+                continue;
             }
             if ($v['order_id']) {
                 $this->q->begin();
@@ -119,6 +127,13 @@ class accounts {
                 }
                 $this->q->commit();
             }
+        }
+        /*
+         * действия для рузультата инвенторизации
+         */
+        foreach ($this->get_data_inv() as $v) {
+
+            $this->sys_line_inv($v);
         }
     }
 
@@ -229,15 +244,15 @@ class accounts {
         $this->q->query('Update orders Set action_id=' . $actionID . ' Where id=' . $order_id);
     }
 
-    protected function logLaunchScript($command_line, $retval,$pass, $v) {
+    protected function logLaunchScript($command_line, $retval, $pass, $v) {
         if (!$this->q->query('Insert Into log_lounch_script 
                    (command,                      comman_line,             return_val,        pass,               server,                order_id,                 type,                  datetime_begin,                  datetime_expire,                 num_order,                 user,                price,                portable,                  period,                 action,                protocol,                 account,                 os,                 date_create,                 datetime_edit,                user_update)
-            Values ("' . $v['command'] . '","' . $command_line . '", "' . $retval . '", "' . $pass . '", "' . $v['server'] . '", ' . $v['order_id'] . ',  "' . $v['type'] . '",  "' . $v['datetime_begin'] . '",  "' . $v['datetime_expire'] . '",  ' . $v['num_order'] . ',  "' . $v['user'] . '", ' . $v['price'] . ', "' . $v['portable'] . '",  "' . $v['period'] . '", "' . $v['action']. '", "' . $v['protocol'] . '", "' . $v['account'] . '", "' . $v['os'] . '", "' . $v['date_create'] . '", "' . $v['datetime_edit']. '", "' . $v['user_update']  . '")')) {
+            Values ("' . $v['command'] . '","' . $command_line . '", "' . $retval . '", "' . $pass . '", "' . $v['server'] . '", ' . $v['order_id'] . ',  "' . $v['type'] . '",  "' . $v['datetime_begin'] . '",  "' . $v['datetime_expire'] . '",  ' . $v['num_order'] . ',  "' . $v['user'] . '", ' . $v['price'] . ', "' . $v['portable'] . '",  "' . $v['period'] . '", "' . $v['action'] . '", "' . $v['protocol'] . '", "' . $v['account'] . '", "' . $v['os'] . '", "' . $v['date_create'] . '", "' . $v['datetime_edit'] . '", "' . $v['user_update'] . '")')) {
             throw new Exception;
         }
     }
 
-    public function getOrdersData() {
+    public function get_orders_data() {
 
         $sql = 'SELECT 
                        ac.id as account_id,
@@ -291,7 +306,7 @@ class accounts {
                 Left JOIN periods pi ON pi.id=o.period_id
                 Join servers s On 
                         s.id = osids.serverID  
-                        ' . (($this->hostname) ? 'and s.hostname = "' . $this->hostname . '"' : '') . '
+                        ' . (($this->hostname) ? 'and s.hostname = \'' . $this->hostname . '\'' : '') . '
          
 
                 Where (os.action = "create" or os.action = "unlock"  or os.action = "lock")
@@ -301,6 +316,28 @@ class accounts {
                 ';
         // echo $sql;
         return $this->q->fetch_data_to_array($sql);
+    }
+
+    public function get_data_inv() {
+
+        $sql = 'SELECT 
+                      i.`name` as account,
+                      i.`server` ,
+                      i.proto as protocol,
+                      \'lock\' as command
+                FROM after_invent_res i
+                JOIN servers s On 
+                        s.`name` = i.server
+                        ' . (($this->hostname) ? 'and s.hostname = \'' . $this->hostname . '\'' : '') . '
+                Where i.status =\'1\'
+                ';
+        $r = $this->q->fetch_data_to_array($sql);
+        $q->query("
+                Update  after_invent_res i SET i.status =\'\'
+                WHERE i.server IN 
+                    (SELECT s.name FROM servers s  ' . (($this->hostname) ? ' WHERE s.hostname = \'' . $this->hostname . '\'' : '') . '
+                 )");
+        return $r;
     }
 
 }
