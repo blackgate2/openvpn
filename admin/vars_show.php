@@ -17,6 +17,7 @@ $tables['after_invent_show'] = array(
     'isNav' => 0,
     'isSortbl' => 1,
     'isDialog' => 0,
+    'isDefaultActions'=>0,
     'nonSortblFields' => array('status'),
     'actions_pannel' => array(
         array('title' => 'Инвентаризация',
@@ -62,6 +63,7 @@ $tables['params_pages_ids_show'] = array(
     'isNav' => 1,
     'isSortbl' => 1,
     'isDialog' => 1,
+    'isDefaultActions'=>1,
     'nonSortblFields' => array('status'),
     'actions_pannel' => array()
 );
@@ -88,7 +90,8 @@ $tables['user_groups_show'] = array(
     'isDialog' => 1,
     'path_foto' => '',
     'nonSortblFields' => array('status'),
-    'actions_pannel' => array()
+    'actions_pannel' => array(),
+    'isDefaultActions'=>1,
 );
 
 $tables['countries_by_order_id_show'] = array(
@@ -123,7 +126,8 @@ $tables['pages_show'] = array(
     'field_foto' => '',
     'path_foto' => '',
     'nonSortblFields' => array('status'),
-    'actions_pannel' => array()
+    'actions_pannel' => array(),
+    'isDefaultActions'=>1,
 );
 
 
@@ -148,7 +152,8 @@ $tables['menu_show'] = array(
     'isDialog' => 1,
     'path_foto' => '',
     'nonSortblFields' => array('status'),
-    'actions_pannel' => array()
+    'actions_pannel' => array(),
+    'isDefaultActions'=>1,
 );
 $tables['news_show'] = array(
     'titles' => array('ID', 'Дата', 'Название', 'Картинка'),
@@ -170,7 +175,8 @@ $tables['news_show'] = array(
     'path_foto' => '../images/news/',
     'isDialog' => 0,
     'nonSortblFields' => array('status'),
-    'actions_pannel' => array()
+    'actions_pannel' => array(),
+    'isDefaultActions'=>1,
 );
 $tables['faq_show'] = array(
     'titles' => array('ID', 'Гуппа', 'Вопрос', 'Ответ', 'На главной', 'Вес', 'Статус'),
@@ -192,7 +198,8 @@ $tables['faq_show'] = array(
     'field_foto' => '',
     'path_foto' => '',
     'nonSortblFields' => array('status'),
-    'actions_pannel' => array()
+    'actions_pannel' => array(),
+    'isDefaultActions'=>1,
 );
 $tables['faq_group_show'] = array(
     'titles' => array('ID', 'Группа'),
@@ -214,7 +221,8 @@ $tables['faq_group_show'] = array(
     'path_foto' => '',
     'isDialog' => 1,
     'nonSortblFields' => array('status'),
-    'actions_pannel' => array()
+    'actions_pannel' => array(),
+    'isDefaultActions'=>1,
 );
 $tables['users_show'] = array(
     'titles' => array('ID', 'Login', 'Группа', 'ФИО', 'Email', 'ICQ', 'Jabber', 'Тип пользователя', 'Статус', 'Уведомлять по', 'Дата регистрации', 'Заметки'),
@@ -237,7 +245,8 @@ $tables['users_show'] = array(
     'path_foto' => '',
     'isDialog' => 1,
     'nonSortblFields' => array('status'),
-    'actions_pannel' => array()
+    'actions_pannel' => array(),
+    'isDefaultActions'=>1,
 );
 
 $tables['accounts_show'] = array(
@@ -280,7 +289,8 @@ $tables['countries_show'] = array(
     'path_foto' => '',
     'isDialog' => 1,
     'nonSortblFields' => array('status'),
-    'actions_pannel' => array()
+    'actions_pannel' => array(),
+    'isDefaultActions'=>1,
 );
 $tables['protocols_show'] = array(
     'titles' => array('ID', 'Название', 'Статус'),
@@ -324,7 +334,8 @@ $tables['periods_show'] = array(
     'path_foto' => '',
     'isDialog' => 1,
     'nonSortblFields' => array('status'),
-    'actions_pannel' => array()
+    'actions_pannel' => array(),
+    'isDefaultActions'=>1,
 );
 
 $tables['servers_show'] = array(
@@ -352,7 +363,8 @@ $tables['servers_show'] = array(
     'path_foto' => '',
     'isDialog' => 1,
     'nonSortblFields' => array('status'),
-    'actions_pannel' => array()
+    'actions_pannel' => array(),
+    'isDefaultActions'=>1,
 );
 $tables['prices_show'] = array(
     'titles' => array('ID', 'Период(месяцы)', 'Категория', 'Страна(ы)', 'Цена', 'Цена для portable', 'Статус'),
@@ -379,7 +391,8 @@ $tables['prices_show'] = array(
     'isSortbl' => 1,
     'isDialog' => 1,
     'nonSortblFields' => array('status'),
-    'actions_pannel' => array()
+    'actions_pannel' => array(),
+    'isDefaultActions'=>1,
 );
 $tables['types_show'] = array(
     'titles' => array('ID', 'Тип VPN', 'Протоколы'),
@@ -412,13 +425,13 @@ $tables['actions_show'] = array(
     'order_dir' => ($_SESSION['actions']['order_dir']) ? 'desc' : '',
     'dialog_url_edit' => '/admin/dialog.php?m=main&table=' . $table,
     'defMaxRow' => 300,
-    'isEdit' => 1,
-    'isCopy' => 1,
+    'isEdit' => 0,
+    'isCopy' => 0,
     'isDel' => 0,
-    'isCheck' => 1,
-    'isNav' => 1,
-    'isSortbl' => 1,
-    'isDialog' => 1,
+    'isCheck' => 0,
+    'isNav' => 0,
+    'isSortbl' => 0,
+    'isDialog' => 0,
     'nonSortblFields' => array('status'),
     'actions_pannel' => array()
 );
@@ -440,7 +453,8 @@ $tables['dns_show'] = array(
     'isSortbl' => 1,
     'isDialog' => 1,
     'nonSortblFields' => array('status'),
-    'actions_pannel' => array()
+    'actions_pannel' => array(),
+    'isDefaultActions'=>1,
 );
 $tables['commads_show'] = array(
     'titles' => array('ID', 'Тип openVPN', 'Действие', 'Команда', 'Протокол'),
@@ -465,7 +479,8 @@ $tables['commads_show'] = array(
     'isSortbl' => 0,
     'isDialog' => 1,
     'nonSortblFields' => array('status'),
-    'actions_pannel' => array()
+    'actions_pannel' => array(),
+    'isDefaultActions'=>1,
 );
 
 $tables['config_rules_show'] = array(
@@ -489,7 +504,8 @@ $tables['config_rules_show'] = array(
     'isSortbl' => 1,
     'isDialog' => 1,
     'nonSortblFields' => array('status'),
-    'actions_pannel' => array()
+    'actions_pannel' => array(),
+    'isDefaultActions'=>1,
 );
 
 $tables['orders_reponse_show'] = array(
@@ -793,6 +809,7 @@ $tables['orders_show'] = array(
     'isDialog' => 1,
     'dialog_url_edit' => '/admin/dialog.php?m=main&table=' . $table,
     'nonSortblFields' => array('status'),
+    'isDefaultActions'=>1,
     'actions_pannel' => array(
         array('title' => 'Заблок.',
             'url' => 'dialog.php?m=main&table=' . $table,

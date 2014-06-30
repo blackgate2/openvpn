@@ -26,7 +26,7 @@ $sql = 'Select ' . ((isset($show->obj['fields_sql'])) ? $show->obj['fields_sql']
 $show->dataAll = $q->fetch_data_to_array($sql);
 
 /* ------------- default action (add,del row) ------------ */
-if (is_array($show->obj['actions_pannel'])) {
+if (is_array($show->obj['actions_pannel']) && $show->obj['isDefaultActions']) {
     array_push($show->obj['actions_pannel'], array('title' => $msg['add'],
         'url' => (($show->obj['isDialog']) ? 'dialog.php?m=main' : 'index.php?m=main'),
         'table' => $table,
@@ -40,8 +40,8 @@ if (is_array($show->obj['actions_pannel'])) {
         'ico' => '',
         'css' => 'link_group_anythink ui-button-text-only',
         'confirm' => $msg['confirm_del']));
-
-    //$show->str_filters = '<div class="actions">' . $show->actions_buttons() . '</div>';
+}
+if (!empty($show->obj['actions_pannel'])){
     echo '<div class="actions">' . $show->actions_buttons() . '</div>';
 }
 
