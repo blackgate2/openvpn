@@ -78,7 +78,25 @@ class accounts {
 
         $sysStr = '/usr/local/etc/bin/kb ' . $v['account'] . (($v['protocol'] == 'pptp') ? ' ' . $v['protocol'] : '');
         $r = system($sysStr, $retval);
-        $this->logLaunchScript($sysStr, $r, '', $v);
+        $this->logLaunchScript($sysStr, $r, '', $v,true);
+    }
+
+    protected function logLaunchScript($command_line, $retval, $pass, $v, $is_inv = false) {
+        if (!$is_inv) {
+            if (!$this->q->query('Insert Into log_lounch_script 
+                       (command,                      comman_line,             return_val,        pass,               server,                order_id,                 type,                  datetime_begin,                  datetime_expire,                 num_order,                 user,                price,                portable,                  period,                 action,                protocol,                 account,                 os,                 date_create,                 datetime_edit,                user_update)
+                Values ("' . $v['command'] . '","' . $command_line . '", "' . $retval . '", "' . $pass . '", "' . $v['server'] . '", ' . $v['order_id'] . ',  "' . $v['type'] . '",  "' . $v['datetime_begin'] . '",  "' . $v['datetime_expire'] . '",  ' . $v['num_order'] . ',  "' . $v['user'] . '", ' . $v['price'] . ', "' . $v['portable'] . '",  "' . $v['period'] . '", "' . $v['action'] . '", "' . $v['protocol'] . '", "' . $v['account'] . '", "' . $v['os'] . '", "' . $v['date_create'] . '", "' . $v['datetime_edit'] . '", "' . $v['user_update'] . '")')) {
+                throw new Exception;
+            }
+        }else{
+            
+            
+            if (!$this->q->query('Insert Into log_lounch_script 
+                       (command,                      comman_line,             return_val,       server)
+                Values ("' . $v['command'] . '","' . $command_line . '", "' . $retval . '", "' . $v['server'] . '")')) {
+                throw new Exception;
+            }            
+        }
     }
 
     public function startAction() {
@@ -86,26 +104,14 @@ class accounts {
 
         /*
          * действия для заказов
-         */
+        */
         $arrCommands = $this->getAllCommands();
         foreach ($this->get_orders_data() as $v) {
             //print_r($v);
             //echo "\n";
             //exit();
             $this->_accountPass = $this->sys_line($v, $arrCommands);
-            //echo $this->_accountPass."\n\n";
-            //exit();
 
-
-
-            /* -- тест ------------------------- */
-//            if ($v['action'] == 'unlock') {
-//                if ($v['type'] == 'Multi' || $v['type'] == 'MultiDouble')
-//                    $this->_accountPass = 'CORP' . $v['order_id'] . ':superpassssssss';
-//                else
-//                    $this->_accountPass = 'account' . $v['order_id'] . ':superpassssssss';
-//            }
-            /* ------------------------------ */
             if ($v['account_id'] == '' && ($v['command'] == 'unlock' || $v['command'] == 'lock')) {
                 continue;
             }
@@ -127,7 +133,7 @@ class accounts {
                 }
                 $this->q->commit();
             }
-        }
+        } 
         /*
          * действия для рузультата инвенторизации
          */
@@ -227,29 +233,14 @@ class accounts {
     }
 
     private function setServerReponse($orderID, $serverID, $actionID, $accountID) {
-
-        $this->q->query('Select id From order_server_action_ids Where orderID=' . $orderID . ' and serverID=' . $serverID . ' and actionID=' . $actionID . '');
-
-        if (!$this->q->numrows()) {
-            if ($this->q->query('Insert Into order_server_action_ids Set orderID=' . $orderID . ',serverID=' . $serverID . ',actionID=' . $actionID . ',accountID=' . $accountID)) {
-                return $this->q->lastID();
-            } else {
-                throw new Exception('error  setServerReponse');
-            }
-        }
+        $this->q->query('Delete From order_server_action_ids Where orderID=' . $orderID . ' and serverID=' . $serverID . ' and accountID=' . $accountID);
+        $this->q->query('Insert Into order_server_action_ids Set orderID=' . $orderID . ',serverID=' . $serverID . ',actionID=' . $actionID . ',accountID=' . $accountID);
+        return $this->q->lastID();
     }
 
     protected function updateOrdersStatus($actionID, $order_id) {
         // echo 'Update orders Set action_id=' . $actionID . ' Where id=' . $order_id;
         $this->q->query('Update orders Set action_id=' . $actionID . ' Where id=' . $order_id);
-    }
-
-    protected function logLaunchScript($command_line, $retval, $pass, $v) {
-        if (!$this->q->query('Insert Into log_lounch_script 
-                   (command,                      comman_line,             return_val,        pass,               server,                order_id,                 type,                  datetime_begin,                  datetime_expire,                 num_order,                 user,                price,                portable,                  period,                 action,                protocol,                 account,                 os,                 date_create,                 datetime_edit,                user_update)
-            Values ("' . $v['command'] . '","' . $command_line . '", "' . $retval . '", "' . $pass . '", "' . $v['server'] . '", ' . $v['order_id'] . ',  "' . $v['type'] . '",  "' . $v['datetime_begin'] . '",  "' . $v['datetime_expire'] . '",  ' . $v['num_order'] . ',  "' . $v['user'] . '", ' . $v['price'] . ', "' . $v['portable'] . '",  "' . $v['period'] . '", "' . $v['action'] . '", "' . $v['protocol'] . '", "' . $v['account'] . '", "' . $v['os'] . '", "' . $v['date_create'] . '", "' . $v['datetime_edit'] . '", "' . $v['user_update'] . '")')) {
-            throw new Exception;
-        }
     }
 
     public function get_orders_data() {
@@ -310,8 +301,10 @@ class accounts {
          
 
                 Where (os.action = "create" or os.action = "unlock"  or os.action = "lock")
-                and   NOT EXISTS(Select osa.orderID From order_server_action_ids osa 
+                and  ( NOT EXISTS(Select osa.orderID From order_server_action_ids osa 
                                   Where osa.orderID = o.id  and osa.serverID = s.id and osa.actionID=o.action_id)
+                       or o.datetime_expire < now()
+                      )
                 Having action IS NOT NULL
                 ';
         // echo $sql;
@@ -332,11 +325,10 @@ class accounts {
                 Where i.status =\'1\'
                 ';
         $r = $this->q->fetch_data_to_array($sql);
-        $q->query("
-                Update  after_invent_res i SET i.status =\'\'
+        $this->q->query('Update  after_invent_res i SET i.status =\'\'
                 WHERE i.server IN 
-                    (SELECT s.name FROM servers s  ' . (($this->hostname) ? ' WHERE s.hostname = \'' . $this->hostname . '\'' : '') . '
-                 )");
+                    (SELECT s.name FROM servers s  ' . (($this->hostname) ? ' Where s.hostname = \'' . $this->hostname . '\'' : '') . ')');
+
         return $r;
     }
 
