@@ -2,15 +2,15 @@
 /*
    sshpass -p "xwjERUPf" rsync -avz  forbac@185.23.16.146:/home/forbac/www/test/protected/sevices/class.accounts.php /usr/local/etc/php_scripts_account/protected/class.accounts.php
  * 
-   scp class.accounts.php root@usa-il.openvpn.ru:/usr/local/etc/php_scripts_account/protected/class.accounts.php
-   scp class.accounts.php root@usa-wc-silver.openvpn.ru:/usr/local/etc/php_scripts_account/protected/class.accounts.php
-   scp class.accounts.php root@cz-cas.openvpn.ru:/usr/local/etc/php_scripts_account/protected/class.accounts.php
-   scp class.accounts.php root@de-gold.openvpn.ru:/usr/local/etc/php_scripts_account/protected/class.accounts.php
-   scp class.accounts.php root@prx.openvpn.ru:/usr/local/etc/php_scripts_account/protected/class.accounts.php
-   scp class.accounts.php root@bg-silver.openvpn.ru:/usr/local/etc/php_scripts_account/protected/class.accounts.php
-   scp class.accounts.php root@tr.openvpn.ru:/usr/local/etc/php_scripts_account/protected/class.accounts.php
-   scp class.accounts.php root@lux1.openvpn.ru:/usr/local/etc/php_scripts_account/protected/class.accounts.php
-   scp class.accounts.php root@uk-bronze.openvpn.ru:/usr/local/etc/php_scripts_account/protected/class.accounts.php
+   scp /home/forbac/www/test/protected/sevices/class.accounts.php root@usa-il.openvpn.ru:/usr/local/etc/php_scripts_account/protected/class.accounts.php
+   scp /home/forbac/www/test/protected/sevices/class.accounts.php root@usa-wc-silver.openvpn.ru:/usr/local/etc/php_scripts_account/protected/class.accounts.php
+   scp /home/forbac/www/test/protected/sevices/class.accounts.php root@cz-cas.openvpn.ru:/usr/local/etc/php_scripts_account/protected/class.accounts.php
+   scp /home/forbac/www/test/protected/sevices/class.accounts.php root@de-gold.openvpn.ru:/usr/local/etc/php_scripts_account/protected/class.accounts.php
+   scp /home/forbac/www/test/protected/sevices/class.accounts.php root@prx.openvpn.ru:/usr/local/etc/php_scripts_account/protected/class.accounts.php
+   scp /home/forbac/www/test/protected/sevices/class.accounts.php root@bg-silver.openvpn.ru:/usr/local/etc/php_scripts_account/protected/class.accounts.php
+   scp /home/forbac/www/test/protected/sevices/class.accounts.php root@tr.openvpn.ru:/usr/local/etc/php_scripts_account/protected/class.accounts.php
+   scp /home/forbac/www/test/protected/sevices/class.accounts.php root@lux1.openvpn.ru:/usr/local/etc/php_scripts_account/protected/class.accounts.php
+   scp /home/forbac/www/test/protected/sevices/class.accounts.php root@uk-bronze.openvpn.ru:/usr/local/etc/php_scripts_account/protected/class.accounts.php
  *  */
 
 ini_set("display_errors", "1");
