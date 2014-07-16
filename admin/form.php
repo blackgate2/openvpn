@@ -47,7 +47,7 @@ if ($tables[$table . '_df']['autosubmit']) {
 $def_hiddens = array(
     'action' => ($action == 'edit') ? 'update' : 'insert',
     'm' => $m,
-    'table' => $tables[$key . '_show']['table'],
+    'table' => $table,
     'order' => $tables[$key . '_show']['order'],
     'order_dir' => $tables[$key . '_show']['order_dir'],
     'objects_ids' => $objects_ids,
