@@ -305,7 +305,7 @@ class accounts {
                 Where (os.action = "create" or os.action = "unlock"  or os.action = "lock")
                 and  ( NOT EXISTS(Select osa.orderID From order_server_action_ids osa 
                                   Where osa.orderID = o.id  and osa.serverID = s.id)
-                       or (o.datetime_expire < now() and  os.action = "lock")
+                       or (o.datetime_expire < now() and  os.action = "unlock")
                       )
                 Having action IS NOT NULL
                 ';
