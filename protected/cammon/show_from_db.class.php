@@ -400,7 +400,7 @@ class show_from_db {
                     $str_html.= '<td align="center">' . $this->edit_button($data) . '</td>';
                 }
                 if ($this->obj['isCheck'] == 1)
-                    $str_html.= '<td class="checkbox_in_table">' . forms::checkbox(array('name' => 'names_ids[]','id'=>'checkbox_'. $data['id'], 'value' => $data['id'], 'css' => 'rows_checked')) . '</td>' . "\n";
+                    $str_html.= '<td class="checkbox_in_table">' . forms::checkbox(array('name' => 'names_ids[]', 'id' => 'checkbox_' . $data['id'], 'value' => $data['id'], 'css' => 'rows_checked')) . '</td>' . "\n";
                 elseif (preg_match('/::/', $this->obj['isCheck']))
                     $str_html.= '<td class="checkbox_in_table">' . call_user_func($this->obj['isCheck'], $data) . '</td>' . "\n";
 
@@ -416,12 +416,22 @@ class show_from_db {
                     }
                     $str_html.='<td class="' . $field . ' ' . $css_class . ' " id="' . $field . $data['id'] . '">';
                     if ($field == 'status') {
+                        if (isset($this->obj['status_titles'])) {
+                            $title = ((!$v) ? $this->obj['status_titles'][0] : $this->obj['status_titles'][1]);
+                        } else {
+                            $title = ((!$v) ? $this->msg['status_on'] : $this->msg['status_off']);
+                        }
+                        if (isset($this->obj['status_hints'])) {
+                            $hint = ((!$v) ? $this->obj['status_hints'][0] : $this->obj['status_hints'][1]) . ' :: ' . $data['name'];
+                        } else {
+                            $hint = ((!$v) ? $this->msg['status_on'] : $this->msg['status_off']) . ' :: ' . $data['name'];
+                        }
                         $str_html.= $this->rowButton(
                                 array(
                                     'url' => self::$url . '&statusNEW=' . ((!$v) ? 1 : 0),
                                     'action' => 'changestatus',
-                                    'title' => ((!$v) ? $this->msg['status_on'] : $this->msg['status_off']),
-                                    'hint' => ((!$v) ? $this->msg['status_on'] : $this->msg['status_off']) . ' :: ' . $data['name'],
+                                    'title' => $title,
+                                    'hint' => $hint,
                                     'css' => '  button_row button_status_' . ((!$v) ? 'on' : 'off') . '  link_go ui-button-text-only',
                                     //'ico' => ((!$v) ? 'ui-icon-circle-check' : 'ui-icon-circle-close' ),
                                     'data' => array('id' => $data['id'])
