@@ -120,7 +120,9 @@ $(document).ready(function() {
 
     $('.list_countries').click(function() {            
             $("#dialog_alert").dialog( {
-                title: 'Страны'
+                title: 'Страны',
+                width: 260,
+                height: 260
             } );
             $("#dialog_alert").html( $(this).attr("title"));
             $("#dialog_alert").dialog('open');

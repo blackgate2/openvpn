@@ -1,44 +1,36 @@
-<?
+<?php
 
-// регистрационная информация (пароль #2)
-// registration info (password #2)
-$mrh_pass2 = "rockcity21";
-
-//установка текущего времени
-//current date
-$tm=getdate(time()+9*3600);
-$date="$tm[year]-$tm[mon]-$tm[mday] $tm[hours]:$tm[minutes]:$tm[seconds]";
+if (isset($_REQUEST["InvId"]) && isset($_REQUEST["InvId"]) && isset($_REQUEST["shpItem"]) && isset($_REQUEST["SignatureValue"])) {
+    require commonConsts::path_modules . '/robokassa.params.php';
 
 // чтение параметров
 // read parameters
-$out_summ = $_REQUEST["OutSum"];
-$inv_id = $_REQUEST["InvId"];
-$shp_item = $_REQUEST["Shp_item"];
-$crc = $_REQUEST["SignatureValue"];
+    $out_summ = $_REQUEST["OutSum"];
+    $inv_id = $_REQUEST["InvId"];
+    $shp_item = $_REQUEST["shpItem"];
+    $crc = $_REQUEST["SignatureValue"];
 
-$crc = strtoupper($crc);
+    $crc = strtoupper($crc);
 
-$my_crc = strtoupper(md5("$out_summ:$inv_id:$mrh_pass2:Shp_item=$shp_item"));
+    $my_crc1 = strtoupper(md5("$out_summ:$inv_id:$mrh_pass1:shpItem=1"));
+    $my_crc_order_ext = strtoupper(md5("$out_summ:$inv_id:$mrh_pass1:shpItem=order_ext"));
+    if ($my_crc1 != $crc && $my_crc_order_ext != $crc) {
+        require(commonConsts::path_admin . '/vars_show.php');
+        require(commonConsts::path_cammon . '/strDate.class.php' );
+        require(commonConsts::path_cammon . '/forms.class.php' );
+        require(commonConsts::path_cammon . '/show_from_db.class.php' );
+        require(commonConsts::path_protect . '/class.user_row.php' );
+        require(commonConsts::path_admin . '/vars_db.class.php' );
+        require(commonConsts::path_cammon . '/class.common.php');
 
-// проверка корректности подписи
-// check signature
-if ($my_crc !=$crc)
-{
-  echo "bad sign\n";
-  exit();
+        include 'success_fix.php';
+        echo "OK$inv_id\n";
+    } else {
+
+        echo "bad sign\n";
+    }
+    exit();
 }
 
-// признак успешно проведенной операции
-// success
-echo "OK$inv_id\n";
-
-// запись в файл информации о прведенной операции
-// save order info to file
-$f=@fopen("order.txt","a+") or
-          die("error");
-fputs($f,"order_num :$inv_id;Summ :$out_summ;Date :$date\n");
-fclose($f);
-
-?>
 
 

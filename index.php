@@ -36,7 +36,7 @@ $is_right=$nav->getRightPart();
 
 /** доступные модули */
 $moules=array(
-    'user','user_sendpass','user_create','user_active','user_basket','success','fail',
+    'user','user_sendpass','user_create','user_active','user_basket','success','fail','result',
     'press','news','user','order','faq'
 );
 
