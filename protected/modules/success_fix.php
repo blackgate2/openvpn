@@ -33,7 +33,7 @@ if ($shp_item == 1) {
     $show->dataAll = $q->fetch_data_to_array($sql);
     $mail_body = $show->show();
     //echo $mail_body;
-    send_mail(commonConsts::admin_email, 'www', 'www', 'new order', $mail_body);
+    send_mail(commonConsts::admin_email, commonConsts::admin_email,  commonConsts::admin_name, 'new order', $mail_body);
     //common::urldirect('/user');
 /* --------------------------------------- подление ----------------------------  */
 } else {
@@ -88,7 +88,7 @@ if ($shp_item == 1) {
 
     $mail_body = $show->show();
 
-    send_mail(commonConsts::admin_email, 'www', 'www', 'order_ext', $mail_body);
+    send_mail(commonConsts::admin_email, commonConsts::admin_email, commonConsts::admin_name, 'order_ext', $mail_body);
     $msg_alert = $msg['order_ext_payment_ok'];
     //common::urldirect('/user');
 }
