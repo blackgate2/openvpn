@@ -88,13 +88,21 @@ $admin_menu = array(
             ),
             array(
                 fold => false,
-                title => 'Группы',
+                title => 'Группы рассылки',
                 href => 'index.php',
                 m => 'main',
                 action => 'show',
                 table => 'user_groups'
             ),
-        ),
+            array(
+                fold => false,
+                title => 'Скидки',
+                href => 'index.php',
+                m => 'main',
+                action => 'show',
+                table => 'user_groups_discount'
+            ),
+            ),
     ),
     array(
         fold => true, title => 'Логи',

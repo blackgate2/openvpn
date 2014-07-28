@@ -156,7 +156,9 @@ if ($action == 'update' || $action == 'insert') {
     }
     
      /** ----------------------------- связи  ---------------------------------------- */
-    
+    if ($table == 'user_groups_discount' && is_array($_POST['user_ids']) && is_numeric($id)) {
+        $q->query('Call insertUpdateUserGroupDiscount (' . $id . ', "' . implode(',', $_POST['user_ids']) . '") ');
+    }
     if ($table == 'prices' && is_array($_POST['price_country_ids']) && is_numeric($id)) {
         $q->query('Call insertUpdatePriceCountiesIds (' . $id . ', "' . implode(',', $_POST['price_country_ids']) . '") ');
     }

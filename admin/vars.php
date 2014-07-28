@@ -284,7 +284,21 @@ $tables = array(
             values => array('email' => 'email', 'jabber' => 'jabber', 'icq' => 'icq'), value =>''),
         array(form => 'select', caption => 'Сообщение', status => 'X', first_val => 'no', name => 'mess_id', value => '',
             data => array('vars_db::__table', array('table' => 'user_messages', 'order' => 'id'))),
-
+    ),
+    user_groups_discount => array(
+        array(form => 'text', caption => 'Название скидки', status => 'X', name => 'name', value => ''),
+        array(form => 'text', caption => 'Скидка(%)', status => 'X', name => 'discount', value => ''),
+        array(form => 'multy_checkbox',
+            caption => 'Пользователи',
+            status => '0',
+            first_val => 'no',
+            name => 'user_ids',
+            value => array(),
+            get_value => array('vars_db::__selected_ids', array('table' => 'user_gr_dis_ids', 'field' => 'userID', 'where' => (($id) ? 'gr_disID=' . $id : ''))),
+            data => array('vars_db::users'),
+            css => '', 
+            is_br => 1
+        ),
     ),
     user_messages => array(
         array(form => 'text', caption => 'Тема', status => 'X', name => 'name', value => ''),

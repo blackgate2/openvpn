@@ -96,6 +96,30 @@ $tables['user_groups_show'] = array(
     'actions_pannel' => array(),
     'isDefaultActions'=>1,
 );
+$tables['user_groups_discount_show'] = array(
+    'titles' => array('ID', 'Название', 'Скидка'),
+    'fields' => array('id', 'name', 'discount'),
+    'fields_sql' => 'ud.id, ud.name, ud.discount',
+    'table' => 'user_groups_discount',
+    'table_view' => 'user_groups_discount ud',
+    'where' => '',
+    'order' => 'ud.name',
+    'order_dir' => ($_SESSION[$table_lang]['order_dir']) ? 'desc' : '',
+    'dialog_url_edit' => '/admin/dialog.php?m=main&table=' . $table,
+    'defMaxRow' => 300,
+    'isEdit' => 1,
+    'isCopy' => 1,
+    'isDel' => 1,
+    'isCheck' => 1,
+    'isNav' => 1,
+    'isSortbl' => 1,
+    'field_foto' => '',
+    'isDialog' => 1,
+    'path_foto' => '',
+    'nonSortblFields' => array('status'),
+    'actions_pannel' => array(),
+    'isDefaultActions'=>1,
+);
 
 $tables['countries_by_order_id_show'] = array(
     'titles' => array('', 'countries'),

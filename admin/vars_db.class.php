@@ -45,6 +45,10 @@ class vars_db {
         $q = DB::Open();
         return $q->fetch_data_to_array('Select `name`, `hostname`,  `hoster`, `emails`, `payment`, `date_begin`, `date_expire`, `comments` From servers s Where s.status=\'1\' and iddouble =\'\' and idmultidouble=\'\'  '.$add_where);
     }
+    public function users() {
+        $q = DB::Open();
+        return $q->fetch_data_to_accoc_array('Select id, `name`From users Where status=\'1\' Order by name');
+    }
     public static function __table($p) {
         $q = DB::Open();
         if (!isset($p['fields']))

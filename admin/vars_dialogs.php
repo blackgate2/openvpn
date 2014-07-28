@@ -1,4 +1,16 @@
 <?php
+$tables['user_groups_discount_df'] = array(
+    'table' => 'user_groups_discount',
+    'dialog_name' => 'dialog_modal',
+    'dialog_title' => 'Скидки для пользователей',
+    'dialog_title_field'=>'type',
+    'dialog_is_modal'=>true,
+    'dialog_width' => '500',
+    'dialog_height' => '900',
+    'count_view_col'=>0,
+    'dialog_inc_modul'=>'',
+    'dialog_template_form' => '',
+);
 $tables['after_invent_df'] = array(
     'table' => 'after_invent',
     'dialog_name' => 'dialog_modal',
