@@ -61,7 +61,7 @@ div.forms{
     padding: 0;
 }
 div.submit_holder{
-    margin: 3px; float: left;
+    margin-top: 13px; float: left;
 }
 div.form .is_cheked{
     margin:   0 5px 5px 0;padding: 0;
@@ -112,7 +112,6 @@ button,a.page, select.maxRow{
     text-shadow:1px 1px 0px #fcbbbb;
 
 }
-
 .button_status_off:hover {
     background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f99d9d), color-stop(1, #ffaeae) );
     background:-moz-linear-gradient( center top, #f99d9d 5%, #ffaeae 100% );
@@ -124,6 +123,10 @@ button,a.page, select.maxRow{
 }
 .button_status_on span.ui-button-text,.button_status_off span.ui-button-text{
     font-size: 11px; 
+    padding: 3px;
+}
+.ui-button-text-only .ui-button-text {
+    padding: 0; 
 }
 #button_new_client{
     padding: 3px; margin-left: 0;

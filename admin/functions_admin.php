@@ -29,6 +29,7 @@ function displayHeaderAdmin($msg) {
     
         <script>
         $(function() {
+        
                 var timeout = ' . commonConsts::admin_refresh_page . ';
                 var timer;
                 timer = $.timer(timeout, function() {
@@ -42,6 +43,16 @@ function displayHeaderAdmin($msg) {
                      timer.reset(timeout);
                 });
                 
+
+function fixDiv() {
+      var $cache = $(\'#getFixed\'); 
+      if ($(window).scrollTop() > 100) 
+        $cache.css({\'position\': \'fixed\', \'top\': \'10px\'}); 
+      else
+        $cache.css({\'position\': \'relative\', \'top\': \'auto\'});
+    }
+    $(window).scroll(fixDiv);
+    fixDiv();
 
         });
         </script>
@@ -62,7 +73,7 @@ function displayHeadlineAdm($headline, $str_filters='', $str_navigation='') {
 
 		' . (($str_filters != '') ? '' . $str_filters . '' : '') . '
                 ' . (($str_navigation != '') ? '' . $str_navigation . '' : '') . '
-	</div><a href="#" id="button_toggle_filter" class="ui-state-default ui-corner-all">скрыть фильтры</a></br>' : '');
+                    </div><a href="#" id="button_toggle_filter" class="ui-state-default ui-corner-all">скрыть фильтры</a></br>' : '');
 }
 
 function displayFooterAdmin() {

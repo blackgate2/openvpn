@@ -8,7 +8,9 @@ $tables['orders_show']['where'].=($_SESSION[$_filter]['server_ids_filter'][0]) ?
 
 $date1 = ($_SESSION[$_filter]['min_datetime_expire_filter']) ? strDate::DateToSql($_SESSION[$_filter]['min_datetime_expire_filter']) : date('Y-m-d', strtotime('-3 month'));
 $date2 = ($_SESSION[$_filter]['max_datetime_expire_filter']) ? strDate::DateToSql($_SESSION[$_filter]['max_datetime_expire_filter']) : date('Y-m-d', strtotime('1 year'));
-$tables['orders_show']['where'].=' WHERE (o.datetime_expire BETWEEN \''.$date1.'\' AND \''.$date2.'\'  OR o.datetime_begin =\'0000-00-00 00:00:00\' OR o.datetime_expire =\'0000-00-00 00:00:00\')';
+
+$tables['orders_show']['where'].=' WHERE 1 ';
+$tables['orders_show']['where'].=' AND (o.datetime_expire BETWEEN \''.$date1.'\' AND \''.$date2.'\'  OR o.datetime_begin =\'0000-00-00 00:00:00\' OR o.datetime_expire =\'0000-00-00 00:00:00\')';
 
 
 
@@ -22,7 +24,10 @@ $tables['orders_show']['where'].=' WHERE (o.datetime_expire BETWEEN \''.$date1.'
 
 $tables['orders_show']['where'].=($_SESSION[$_filter]['user_id_filter'])? ' AND  o.user_id = '.$_SESSION[$_filter]['user_id_filter']: '';
 
-$tables['orders_show']['where'].=(is_array($_SESSION[$_filter]['num_order_filter'])&& $_SESSION[$_filter]['num_order_filter'][0]!='') ? ' AND  o.num_order IN (' .implode(',', $_SESSION[$_filter]['num_order_filter']) .')': '';
+$tables['orders_show']['where'].=($_SESSION[$_filter]['account_id_filter'][0]!='') ? ' AND  o.account_id = '. $_SESSION[$_filter]['account_id_filter']: '';
+
+$tables['orders_show']['where'].=($_SESSION[$_filter]['num_order_filter'][0]!='') ? ' AND  o.num_order = '. $_SESSION[$_filter]['num_order_filter']: '';
+
 $tables['orders_show']['where'].=(is_array($_SESSION[$_filter]['type_filter'])&& $_SESSION[$_filter]['type_filter'][0]!='') ? ' AND  o.type_id IN (' .implode(',', $_SESSION[$_filter]['type_filter']) .')': '';
 $tables['orders_show']['where'].=(is_array($_SESSION[$_filter]['period_filter'])&& $_SESSION[$_filter]['period_filter'][0]!='') ? ' AND  o.period_id IN (' .implode(',', $_SESSION[$_filter]['period_filter']) .')': '';
 
