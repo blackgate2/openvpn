@@ -8,8 +8,7 @@ if ( is_numeric($_GET['term'])){
     
    
     $term= trim($_GET['term']);
-    $term= str_replace('0', '\0', $term);
-    $term= str_replace('9', '\9', $term);
+   // echo $term; 
     $where =' num_order  REGEXP \'^'.$term.'\'';
     
    // $where =' and (UPPER(name) LIKE  UPPER(\'%'.$term.'%\')   )' ;
