@@ -1,6 +1,6 @@
 <?php
 // -----------------------------------  -----------------------------------
-function displayHeaderAdmin($msg) {
+function displayHeaderAdmin($msg,$table) {
     echo '
     <html>
     <head>
@@ -33,8 +33,8 @@ function displayHeaderAdmin($msg) {
                 var timeout = ' . commonConsts::admin_refresh_page . ';
                 var timer;
                 timer = $.timer(timeout, function() {
-                    window.location.href = window.location.href;
-                    window.location.reload();
+                    window.location = "/admin/index.php?m=main&action=show&table='.$table.'";
+                    
                 });
                 $("#dialog_modal").bind("dialogopen", function(event) {
                     timer.stop();

@@ -24,7 +24,7 @@ require( 'vars_runtime.php');
 
 
 
-echo displayHeaderAdmin($msg);
+echo displayHeaderAdmin($msg,$table);
 
 if ($m) {
     require "$m.php";
