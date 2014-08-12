@@ -57,6 +57,7 @@ class vars_db {
             $p['order']='name';
         if (isset($p['where']) && $p['where'])
             $p['where']='Where '.$p['where'];
+        
         return $q->fetch_data_to_array('Select '.$p['fields'].' From '.$p['table'].' '.$p['where'].' Order by '.$p['order']);
     }
     public static function __selected_ids($p) {

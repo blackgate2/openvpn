@@ -20,8 +20,8 @@ if ($_SESSION['lang'] == 'ru') {
 
 if ($lang == 'en' &&
         !in_array($table, array('users', 'countries', 'periods', 'protocols', 'servers', 'prices',
-            'types', 'orders', 'actions', 'accounts', 'commads', 'dns', 
-            'config_rules', 'log_mess', 'log_lounch_script', 'user_messages','after_invent'))) {
+            'types', 'orders', 'actions', 'accounts', 'commads', 'dns',
+            'config_rules', 'log_mess', 'log_lounch_script', 'user_messages', 'after_invent'))) {
     $pref = $lang . '_';
     $table_lang = $pref . $table;
 } else {
@@ -40,7 +40,7 @@ if (isset($_REQUEST['objects_ids']) && trim(trim($_REQUEST['objects_ids']), ',')
     $ids = array_merge($ids, array_unique(explode(',', trim(trim($_REQUEST['objects_ids']), ','))));
     $objects_ids = implode(',', $ids);
     //print_r($ids);
-   // exit($objects_ids);
+    // exit($objects_ids);
 }
 
 
@@ -90,6 +90,21 @@ if (isset($_POST['user_name_filter']) && trim($_POST['user_name_filter']) == '')
     $_SESSION[$_filter]['user_id_filter'] = '';
     $_SESSION[$_filter]['user_name_filter'] = '';
 } elseif (trim($_POST['user_name_filter'])) {
-    $_SESSION[$_filter]['user_name_filter'] = $_POST['user_name_filter'];
+    $_SESSION[$_filter]['user_name_filter'] = trim($_POST['user_name_filter']);
+}
+
+if (isset($_POST['account_name_filter']) && trim($_POST['account_name_filter']) == '') {
+    $_SESSION[$_filter]['account_id_filter'] = '';
+    $_SESSION[$_filter]['account_name_filter'] = '';
+} elseif (trim($_POST['account_name_filter'])) {
+    $_SESSION[$_filter]['account_name_filter'] = trim($_POST['account_name_filter']);
+}
+
+
+if (isset($_POST['num_order_name_filter']) && trim($_POST['num_order_name_filter']) == '') {
+    $_SESSION[$_filter]['num_order_filter'] = '';
+    $_SESSION[$_filter]['num_order_name_filter'] = '';
+} elseif (trim($_POST['num_order_name_filter'])) {
+    $_SESSION[$_filter]['num_order_name_filter'] = trim($_POST['num_order_name_filter']);
 }
 

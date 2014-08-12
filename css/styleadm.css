@@ -33,11 +33,15 @@ h4,h5{
 }
 #effect{
  padding: 0 10px;
- min-height: 200px
+ min-height: 200px;
+ 
 }
-select#os_filter{
-width: 60px    
+select#os_filter,select#is_respons{
+    width: 60px
 }
 #getFixed{
-    z-index: 999;
+   
+}
+#user_name_filter,#account_id_filter,#num_order_filter{
+     z-index: 100;
 }
