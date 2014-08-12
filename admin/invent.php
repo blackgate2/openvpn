@@ -47,9 +47,6 @@ if (is_array($inv_cont) && !empty($inv_cont)) {
                
                 ');
     $q->commit();
-    $activ_accounts_not_in_orders = $q->fetch_data_to_accoc_array('Select CONCAT(t.name,\':\',t.proto,\':\',t.server) as name From after_invent_res', '');
-    
-    $msg_alert = ok('Таких аккаунтов нет в заказах:') . error(implode('<br>', $activ_accounts_not_in_orders));
     $msg_alert .= '<br><br>' . ok('Заказы которых нет в активных аккаунтах:');
 } else {
     $msg_alert .= '<br><br>' . ok('ничего не найдено');

@@ -38,3 +38,6 @@ h4,h5{
 select#os_filter{
 width: 60px    
 }
+#getFixed{
+    z-index: 999;
+}

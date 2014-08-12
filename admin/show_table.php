@@ -42,7 +42,7 @@ if (is_array($show->obj['actions_pannel']) && $show->obj['isDefaultActions']) {
         'confirm' => $msg['confirm_del']));
 }
 if (!empty($show->obj['actions_pannel'])){
-    echo '<div class="actions">' . $show->actions_buttons() . '</div>';
+    echo '<div class="actions ui-widget-content ui-corner-all" id="getFixed">' . $show->actions_buttons() . '</div>';
 }
 
 
