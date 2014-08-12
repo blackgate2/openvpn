@@ -32,6 +32,7 @@ function displayHeaderAdmin($msg,$table) {
         
                 var timeout = ' . commonConsts::admin_refresh_page . ';
                 var timer;
+                '.(($table!='after_invent')?'
                 timer = $.timer(timeout, function() {
                     window.location = "/admin/index.php?m=main&action=show&table='.$table.'";
                     
@@ -42,7 +43,7 @@ function displayHeaderAdmin($msg,$table) {
                 $("#dialog_modal").bind("dialogclose", function(event) {
                      timer.reset(timeout);
                 });
-                
+                ':'').'
 
 function fixDiv() {
       var $cache = $(\'#getFixed\'); 

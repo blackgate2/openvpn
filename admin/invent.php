@@ -3,7 +3,9 @@
 //print_r($_POST);
 
 include_once 'inv.php';
-if (is_array($inv_cont) && !empty($inv_cont)) {
+
+if (is_array($inv_cont) && $inv_cont[0]) {
+    $add_sql='';
     for ($i = 0; $i < count($inv_cont); $i++) {
         $str = trim(str_replace(':V:', ':pptp:', trim($inv_cont[$i])));
         if ($str) {
@@ -13,7 +15,7 @@ if (is_array($inv_cont) && !empty($inv_cont)) {
     }
     $add_sql = trim($add_sql, ',');
 
-
+    
     $q->begin();
     $q->query("Delete from after_invent;");
     $q->query("Delete from after_invent_res;");
@@ -27,6 +29,7 @@ if (is_array($inv_cont) && !empty($inv_cont)) {
 //                 KEY `nps_ix` (`name`,`proto`,`server`)
 //                ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;) Engine = MyISAM");
     $q->query(" INSERT INTO after_invent (name,proto,server) VALUES $add_sql");
+//    echo " INSERT INTO after_invent (name,proto,server) VALUES $add_sql";
     $q->query('
                     INSERT INTO after_invent_res (name,proto,server)
                     SELECT t.name,t.proto,t.server
