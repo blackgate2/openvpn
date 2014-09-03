@@ -19,6 +19,22 @@ $tables['prices_filter'] = array(
           data => 'vars_db::types'),
     array(form => 'select', caption => 'Период', status => '0', name => 'period_filter', value => array(), data => 'vars_db::periods'),
 );
+$tables['params_pages_ids_filter'] = array(
+
+    array(form => 'select', 
+          caption => 'Тип VPN', 
+          status => '0', 
+          name => 'type_id_filter', 
+          value => (is_array($_SESSION[$_filter]['type_id_filter']))?$_SESSION[$_filter]['type_id_filter']:array(), 
+          data => 'vars_db::types'),
+    array(form => 'select', caption => 'Протокол',  status => '0', is_disabled => 1, 
+          name => 'protocol_id_filter',
+          value => (is_array($_SESSION[$_filter]['protocol_id_filter']))?$_SESSION[$_filter]['protocol_id_filter']:array(),
+            data => array('vars_db::__table', array('table' => 'protocols', 'order' => 'name desc'))),
+    array(form => 'select_simple', caption => 'OS', status => '0', name => 'os_filter', value => $_SESSION[$_filter]['os_filter'], values => array(''=>'', 'win'=>'Win', 'mac'=>'Mac')),
+    array(form => 'select_simple', caption => 'is Portable', status => '0', name => 'portable_filter', value => $_SESSION[$_filter]['portable_filter'], values => array('1'=>'Portable', ''=>'not Portable','all'=>'Все')),
+
+);
 $tables['orders_filter'] = array(
 
    // array(form => 'select', caption => 'Номер заказа', status => '0', name => 'num_order_filter', value => array(), sql => 'Select num_order as id,num_order as name From orders Group by num_order Order by num_order desc'),

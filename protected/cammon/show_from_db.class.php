@@ -22,8 +22,8 @@ class show_from_db {
     public static $url;
     public $is_filter; // присутсвие фильтров 
     public $str_filters;
-    private $msg;
-    private $db;
+    protected static $msg;
+    protected static $db;
     private $nav_place;
     private $is_nav;
     private $is_nav_rows;
@@ -55,8 +55,14 @@ class show_from_db {
 
     public function set_data() {
         //exit()
-        $this->dataAll = $this->db->select(
-                $this->obj['table_view'], (isset($this->obj['fields_sql'])) ? $this->obj['fields_sql'] : implode(',', $this->obj['fields']), $this->obj['where'], $this->obj['group'], $this->obj['order'] . ' ' . $this->obj['order_dir'], $this->obj['limit'], $this->obj['offset'], $this->obj['bind']);
+        if ($this->obj['fields_sql'])
+            $fields = $this->obj['fields_sql'];
+        elseif (is_array($this->obj['fields']))
+            $fields = implode(',', $this->obj['fields']);
+
+        if ($fields)
+            $this->dataAll = $this->db->select(
+                    $this->obj['table_view'], $fields, $this->obj['where'], $this->obj['group'], $this->obj['order'] . ' ' . $this->obj['order_dir'], $this->obj['limit'], $this->obj['offset'], $this->obj['bind']);
     }
 
     public function data_reindex() {
@@ -83,16 +89,17 @@ class show_from_db {
         self::$class_save = $v;
     }
 
-    private function set_msg($localize) {
+    protected function set_msg($localize) {
         if (is_array($localize)) {
             foreach ($localize as $key => $value) {
-                $this->msg[$key] = $value;
+                self::$msg[$key] = $value;
             }
         }
     }
 
     public function url_nav() {
-        return self::$url . (($_SESSION[$this->obj['table']]['maxRow']) ? '&maxRow=' . $_SESSION[$this->obj['table']]['maxRow'] : '') . (($_SESSION[$this->obj['table']]['p']) ? '&p=' . $_SESSION[$this->obj['table']]['p'] : '');
+        $first = (preg_match('/\?/', self::$url)) ? '?' : '&';
+        return self::$url . (($_SESSION[$this->obj['table']]['maxRow']) ? $first . 'maxRow=' . $_SESSION[$this->obj['table']]['maxRow'] : '') . (($_SESSION[$this->obj['table']]['p']) ? '&p=' . $_SESSION[$this->obj['table']]['p'] : '');
     }
 
     private function pages_nav() {
@@ -127,8 +134,8 @@ class show_from_db {
 
 
         //// -- ���������
-        $back = ($this->p > 1) ? '<a ' . $href_back . ' class="page ui-corner-all">' . $this->msg['back'] . "</a>" : "";
-        $next = ($this->p < $this->totalPages) ? '<a ' . $href_next . ' class="page ui-corner-all">' . $this->msg['forv'] . "</a>" : "";
+        $back = ($this->p > 1) ? '<a ' . $href_back . ' class="page ui-corner-all">' . self::$msg['back'] . "</a>" : "";
+        $next = ($this->p < $this->totalPages) ? '<a ' . $href_next . ' class="page ui-corner-all">' . self::$msg['forv'] . "</a>" : "";
 
         $max = ($this->totalPages < 10) ? $this->totalPages : 10;
         if ($this->p > $max && $this->p <= ($this->totalPages - $max)) {
@@ -148,14 +155,14 @@ class show_from_db {
             $str_numbers.= ( $this->p == $i ) ? '<span class="page_active">' . $i . '</span> ' : '<a ' . $href_numbers . ' class="page ui-corner-all">' . $i . '</a> ';
         }
 
-        $beg = ($this->p > 1) ? '<a ' . $href_begin . ' class="page ui-corner-all">' . $this->msg['beg'] . '</a>' : "";
-        $end = ($this->p < $this->totalPages) ? '<a ' . $href_end . ' class="page ui-corner-all">' . $this->msg['end'] . '</a>' : "";
+        $beg = ($this->p > 1) ? '<a ' . $href_begin . ' class="page ui-corner-all">' . self::$msg['beg'] . '</a>' : "";
+        $end = ($this->p < $this->totalPages) ? '<a ' . $href_end . ' class="page ui-corner-all">' . self::$msg['end'] . '</a>' : "";
         $srt_num_pages = $beg . ' ' . $back . ' ' . $str_numbers . ' ' . $next . ' ' . $end;
 
-        $html_select_rows = '<select class="maxRow ui-widget-content ui-corner-all" name=maxRow onchange="' . $select_maxRow_page . '"><!--option value=' . $this->totalRow . '>' . $this->msg['all_rec'] . '</option-->';
+        $html_select_rows = '<select class="maxRow ui-widget-content ui-corner-all" name=maxRow onchange="' . $select_maxRow_page . '"><!--option value=' . $this->totalRow . '>' . self::$msg['all_rec'] . '</option-->';
         $sel_val = '';
         $maxRowTotal = ($this->totalRow >= ($this->defMaxRow * $this->defMaxRow)) ? $this->defMaxRow * $this->defMaxRow : $this->totalRow;
-
+        $maxRowTotal+=$this->defMaxRow;
         for ($i = $this->defMaxRow; $i <= $maxRowTotal; $i+=$this->defMaxRow) {
             $sel_val = ($this->maxRow == $i ) ? "selected" : "";
             $html_select_rows.="<option value='$i' $sel_val>$i</option>";
@@ -174,10 +181,9 @@ class show_from_db {
     }
 
     private function setMaxRow() {
-//        if ($_SESSION[$this->obj['table']]['maxRow'])
-//            $this->maxRow = $_SESSION[$this->obj['table']]['maxRow'];
-//        else
-        if ($this->obj['defMaxRow']) {
+        if ($_SESSION[$this->obj['table']]['maxRow'])
+            $this->maxRow = $_SESSION[$this->obj['table']]['maxRow'];
+        elseif ($this->obj['defMaxRow']) {
             $this->maxRow = $this->obj['defMaxRow'];
         } else {
             $this->maxRow = 10;
@@ -210,7 +216,7 @@ class show_from_db {
         $this->setMaxRow();
         $this->setNumPage();
         $this->setDefMaxRow();
-        if (count($this->dataAll))
+        if (!empty($this->dataAll))
             list($str_rows, $str_pages, $str_num_pages) = $this->pages_nav();
         // echo '<pre>'.$this->maxRow.'-'.  $this->defMaxRow.'--'.'</pre>';
 //        $this->obj['limit'] = $this->maxRow;
@@ -218,10 +224,10 @@ class show_from_db {
         $nav_rows = ($this->is_nav_rows) ? '<div class="nav_rows" >' . $str_rows . ' </div> ' : '';
         $nav_pages = ($this->is_nav_pages) ? '<div class="nav_pages" >' . $str_num_pages . '</div>' : '';
         $ret = '<div class="nav_info">
-                ' . (($this->msg['total_pages']) ? $this->msg['total_pages'] . ':<strong>' . $this->totalPages . '</strong>&nbsp;&nbsp;' : '') . '
-                ' . (($this->msg['total_rec']) ? $this->msg['total_rec'] . ': <strong>' . $this->totalRow . ' </strong>' : '') . '
+                ' . ((self::$msg['total_pages']) ? self::$msg['total_pages'] . ':<strong>' . $this->totalPages . '</strong>&nbsp;&nbsp;' : '') . '
+                ' . ((self::$msg['total_rec']) ? self::$msg['total_rec'] . ': <strong>' . $this->totalRow . ' </strong>' : '') . '
                 </div>
-                ' . (($this->totalRow > $this->maxRow ) ? $nav_rows . '<div class="nav_pages" >' . $nav_pages . '</div>' : '');
+                ' . $nav_rows . (($this->totalRow > $this->maxRow ) ? '<div class="nav_pages" >' . $nav_pages . '</div>' : '');
         return ($this->is_nav) ? $ret : '';
     }
 
@@ -274,12 +280,12 @@ class show_from_db {
         $colspan = count($titles);
         $titles_table = array();
         if ($this->obj['isEdit']) {
-            array_push($titles_table, $this->msg['edit']);
+            array_push($titles_table, self::$msg['edit']);
             $colspan++;
         }
         if ($this->obj['isCheck']) {
-            $this->msg['checkAll'].=forms::checkbox(array('name' => 'maincheck'));
-            array_push($titles_table, $this->msg['checkAll']);
+            self::$msg['checkAll'].=forms::checkbox(array('name' => 'maincheck'));
+            array_push($titles_table, self::$msg['checkAll']);
             $colspan++;
         }
         for ($i = 0; $i < count($titles); $i++) {
@@ -310,11 +316,11 @@ class show_from_db {
             array_push($titles_table, $titles[$i]);
         }
         if ($this->obj['isCopy']) {
-            array_push($titles_table, $this->msg['copy']);
+            array_push($titles_table, self::$msg['copy']);
             $colspan++;
         }
         if ($this->obj['isDel']) {
-            array_push($titles_table, $this->msg['dell']);
+            array_push($titles_table, self::$msg['dell']);
             $colspan++;
         }
 
@@ -362,7 +368,7 @@ class show_from_db {
          * data rows
          */
         //echo $this->initialRow.' ----------'. $this->maxRow
-        $begin = $i = $this->initialRow - 1;
+        $begin = $i = $this->initialRow;
         $end = $this->initialRow + $this->maxRow;
         //echo $begin,' ',$end; 
         for ($i = $begin; $i < $end; $i++) {
@@ -419,12 +425,12 @@ class show_from_db {
                         if (isset($this->obj['status_titles'])) {
                             $title = ((!$v) ? $this->obj['status_titles'][0] : $this->obj['status_titles'][1]);
                         } else {
-                            $title = ((!$v) ? $this->msg['status_on'] : $this->msg['status_off']);
+                            $title = ((!$v) ? self::$msg['status_on'] : self::$msg['status_off']);
                         }
                         if (isset($this->obj['status_hints'])) {
                             $hint = ((!$v) ? $this->obj['status_hints'][0] : $this->obj['status_hints'][1]) . ' :: ' . $data['name'];
                         } else {
-                            $hint = ((!$v) ? $this->msg['status_on'] : $this->msg['status_off']) . ' :: ' . $data['name'];
+                            $hint = ((!$v) ? self::$msg['status_on'] : self::$msg['status_off']) . ' :: ' . $data['name'];
                         }
                         $str_html.= $this->rowButton(
                                 array(
@@ -472,8 +478,8 @@ class show_from_db {
                     $str_html.= '<td>' . $this->rowButton(
                                     array('url' => ($this->obj['dialog_url_edit']) ? $this->obj['dialog_url_edit'] : self::$url,
                                         'action' => 'copy',
-                                        'title' => $this->msg['copy'],
-                                        'hint' => $this->msg['copy'] . ' :: ' . $data['name'],
+                                        'title' => self::$msg['copy'],
+                                        'hint' => self::$msg['copy'] . ' :: ' . $data['name'],
                                         'css' => ' button_row ui-button-icon-only ' . (($this->obj['isDialog']) ? 'link_dialog_modal' : 'link_go'),
                                         'ico' => 'ui-icon-copy',
                                         'data' => array('id' => $data['id'])
@@ -483,11 +489,11 @@ class show_from_db {
                     $str_html.= '<td>' . $this->rowButton(
                                     array('url' => self::$url,
                                         'action' => 'del',
-                                        'title' => $this->msg['dell'],
-                                        'hint' => $this->msg['dell'] . ' :: ' . $data['name'],
+                                        'title' => self::$msg['dell'],
+                                        'hint' => self::$msg['dell'] . ' :: ' . $data['name'],
                                         'css' => ' button_row  link_confirm ui-button-icon-only ',
                                         'ico' => 'ui-icon-closethick',
-                                        'confirm' => $this->msg['confirm_del'],
+                                        'confirm' => self::$msg['confirm_del'],
                                         'data' => array('id' => $data['id'])
                             )) . '</td>';
 
@@ -560,8 +566,8 @@ class show_from_db {
                                 array(
                                     'url' => ($this->obj['dialog_url_edit']) ? $this->obj['dialog_url_edit'] : self::$url,
                                     'action' => 'edit',
-                                    'title' => $this->msg['edit'] . ' :: ' . $data['name'],
-                                    'hint' => $this->msg['edit'] . ' :: ' . $data['name'],
+                                    'title' => self::$msg['edit'] . ' :: ' . $data['name'],
+                                    'hint' => self::$msg['edit'] . ' :: ' . $data['name'],
                                     'css' => '  button_row  ui-button-icon-only ' . (($this->obj['isDialog']) ? 'link_dialog_modal' : 'link_go'),
                                     'ico' => 'ui-icon-pencil',
                                     'data' => array('id' => $data['id'])
@@ -570,6 +576,7 @@ class show_from_db {
 
     protected static function url($v, $url_pagams = array()) {
         $url = ($v['url']) ? $v['url'] : self::$url;
+        
         $url.= ($v['table']) ? '&table=' . $v['table'] : '';
         if (preg_match('/action\=show/', self::$url)) {
             $url = str_replace('action=show', '', $url);
@@ -597,7 +604,18 @@ class show_from_db {
         //echo $id;
         return ($is) ? forms::button($v) : '';
     }
+    protected function alink($v, $hint = '', $url_pagams = array('id')) {
 
+        
+        if ($v['name'])
+            $v['name'] = $v['name'] . $v['data']['id'];
+        if ($v['id'])
+            $v['id'] = $v['id'] . $v['data']['id'];
+
+        $v['url'] = self::url($v, $url_pagams);
+        
+        return forms::alink($v);
+    }
     protected function rowText($v, $value) {
         if ($v['name'])
             $v['name'] = $v['name'] . $v['data']['id'];

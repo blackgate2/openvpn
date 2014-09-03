@@ -1,15 +1,15 @@
-<?
+<?php
 
 class navigation {
 
     private $out;
     private $actpid;
     
-    private $q;
-    public $lang;
-    public $pre;
-    public $page;
-    public $str_lang;
+    protected $q;
+    public static $lang;
+    public static $pre;
+    public static $page;
+    public static $str_lang;
     private $right_part;
     private $str_main_menu;
     private $str_left_menu;
@@ -25,6 +25,7 @@ class navigation {
         $this->out = array();
         $this->get_vars();
         $this->get_data();
+        $this->set_data();
         $this->array_to_tree();
         $this->buildMenu($this->out);
         $this->is_add_dot_html_url=true;
@@ -66,11 +67,14 @@ class navigation {
         }
 
     }
-
-    private function get_data() {
+    
+    protected  function get_data() {
+        $this->q->qry('Select * From ?menu Where status = \'1\' Order by sort', $this->pre);
+    }
+    private function set_data() {
 
         $this->data = array();
-        $this->q->qry('Select * From ?menu Where status = \'1\' Order by sort', $this->pre);
+        
         while ($d = $this->q->getrow()) {
             $url = '';
 

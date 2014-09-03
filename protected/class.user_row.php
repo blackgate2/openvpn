@@ -17,11 +17,48 @@ class user_row extends show_from_db {
 
         $d = $a['data'];
 
+        /*
+          CONCAT(a.name,\'<br/><a href="/downloadConfig.php/?hash=\',of.config,\'&portable=32">Config32</a><br/><a href="/downloadConfig.php/?hash=\',of.config,\'&portable=64">Config64</a>\') ,
+          IF(of.config!="" AND o.portable="",
+          CONCAT(a.name,\'<br/><a href="/downloadConfig.php/?hash=\',of.config,\'">Config</a>\'),
+          a.name)  ) as account_conf,
+          CONCAT(\'<small>\',u.name,\'<br>\',u.email,\'<br>\',u.icq,\'<br>\',u.jabber,\'<br><span class="red">\',IFNULL(o.notes,\'\'),\'</small></span><br><span class="green">\',IFNULL(uu.name,\'\'),\'</span>\' ) as user,
+         */
+        $a[0]['url'].=$d['config_data'];
+        //$a[0]['name']=$d['account_name'];
+        $url = $a[0]['url'];
+        //print_r(parent::$msg);
+        $str = '';
+        $title = $a[0]['title'];
+        $a[0]['title'] .=' ' . $d['account_name'];
+        $title = $a[0]['title'];
+        if ($d['account_name'] && $d['config_data'] && $d['portable']) {
+            $a[0]['title'].=' 32bit';
+            $a[0]['url'] = $url . '&portable=32';
+            $str.=parent::rowButton($a[0], 'portable 32 bit');
+            $a[0]['title'] = $title . ' 64bit';
+            $a[0]['url'] = $url . '&portable=64';
+            $str.=parent::rowButton($a[0], 'portable 64 bit');
+        } elseif ($d['account_name'] && $d['config_data'] && !$d['portable']) {
+            $str.= parent::rowButton($a[0], '');
+        }
+        return $str;
+    }
 
-        if ($d['config_data'] && $d['portable'])
-            return parent::rowButton($a[0], $d['config_data'], 'hash');
-        if ($d['config_data'] && !$d['portable'])
-            return parent::rowButton($a[0], $d['config_data'], 'hash');
+    public static function alink_settings($a) {
+        $d = $a['data'];
+        if ($d['url_by_order_params']) {
+            $urls = explode('::', $d['url_by_order_params']);
+
+            $str.='';
+
+            foreach ($urls as $value) {
+
+                list($a[0]['url'], $a[0]['title']) = explode('||', $value);
+                $str.= parent::alink($a[0],'',array());
+            }
+            return $str;
+        }
     }
 
     public static function button_pay_account($a) {

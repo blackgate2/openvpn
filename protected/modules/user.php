@@ -9,14 +9,20 @@ require(commonConsts::path_protect . '/class.user_row.php' );
 require(commonConsts::path_admin . '/vars_db.class.php' );
 require(commonConsts::path_cammon . '/class.common.php');
 require commonConsts::path_modules . '/success.php';
+require(commonConsts::path_admin . '/vars_runtime.php');
+
+require(commonConsts::path_protect . '/class.alink.php');
+
+
+//$a = new alink($p);
 
 if ($is_login) {
 
 
     $msg['checkAll']='';
-    $show = new show_from_db($msg);
-    $show->obj = $tables['user_orders_show'];
-
+    $show = new show_from_db($msg,$tables['user_orders_show']);
+    
+    
     $sql = 'Select ' . $show->obj['fields_sql'] .
             ' From ' . $show->obj['table_view'] . '  
         ' . $show->obj['where'] . ' 

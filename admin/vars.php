@@ -22,7 +22,7 @@ $tables = array(
             value => '',
             data => array('vars_db::__table', array('table' => $pref . 'pages', 'order' => 'id'))
         ),
-        array(form => 'text', caption => 'Якорь', status => 'X', name => 'yakor', value => ''),
+        array(form => 'text', caption => 'Якорь', status => '0', name => 'yakor', value => ''),
     ),
     orders_params => array(
         array(form => 'select', caption => 'Заказчик', first_val => 'no', status => '0', is_disabled => 1, name => 'user_id', value => '',

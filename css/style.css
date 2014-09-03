@@ -71,14 +71,14 @@ div#middle{
 }
 div#content{
     margin:10px auto; 
-    width: 1000px;
+    width: 1050px;
     vertical-align: top;
     overflow: hidden;
     clear: both; 
 }
 div#left{
     margin:0px 10px 0 105px; 
-    width:515px ; background-color: #fff;
+    width:555px ; background-color: #fff;
     padding: 0 10px  0 0;
 
 }

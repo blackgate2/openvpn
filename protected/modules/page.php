@@ -1,4 +1,4 @@
-<?
+<?php
     if ($nav->page!=''){
         $sql = 'Select
                     p.title,

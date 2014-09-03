@@ -43,17 +43,15 @@ $msg = array(
     'valid_form_select' => 'In the \"" + f + "\" must be set at least one value.',
     'valid_form_date' => 'Fill out the field  \"" + n + "\" ',
     'valid_form_oneOrMore' => 'At least one form to be filled',
-    
-    /* ------- Date_time_form ------- */ 
-     'timeOnlyTitle' => 'Select the time',
-     'timeText' => 'Time',
-     'hourText' => 'Hours',
-     'minuteText' => 'Minutes',
-     'secondText' => 'Seconds',
-     'currentText' => 'Now',
-     'closeText' => 'Close',
-
-      /* ------- окна  ------- */
+    /* ------- Date_time_form ------- */
+    'timeOnlyTitle' => 'Select the time',
+    'timeText' => 'Time',
+    'hourText' => 'Hours',
+    'minuteText' => 'Minutes',
+    'secondText' => 'Seconds',
+    'currentText' => 'Now',
+    'closeText' => 'Close',
+    /* ------- окна  ------- */
     'dialog_title' => 'Title',
     'dialog_modal_title' => '',
     'dialog_confirm_title' => '',
@@ -62,7 +60,7 @@ $msg = array(
     'login_ok' => 'You have successfully logged in',
     'login_err' => 'Wrong login or password',
     //'logig_ok'=> 'You have logged in successfully!',
-    //'login_err'=> 'You have logged in successfully!',
+//'login_err'=> 'You have logged in successfully!',
     'login_field' => 'Login',
     'passwd_field' => 'Password',
     'button_ucreate' => 'Registration',
@@ -83,8 +81,6 @@ $msg = array(
     'user_sendpass' => 'Forgot your password?',
     'user_sendpass_submit' => 'Send me password',
     'user_sendpass_form_field' => 'Enter your email',
-    'user_prolong' => 'Extend',
-    'user_prolong_all' => 'Extend all orders',
     /* --------  Регистрация -------------- */
     'user_create' => 'Registration',
     'user_create_submit' => 'Sign up',
@@ -99,10 +95,16 @@ $msg = array(
     'logout' => 'Logout',
     'your_orders' => 'Your orders',
     /* --------  заказы пользователя -------------- */
-    'user_orders_tab' => array('Account/Zip', 'Num order', 'Start Date', 'End date', 'Type of VPN', ' Countries ', ' Price($)', 'Сhoose period', ''),
+    'user_orders_tab' => array('Account/Zip','Links to settings', 'Num order', 'Start Date', 'End date', 'Type of VPN', ' Countries ', ' Price($)', 'Сhoose period', ''),
     'user_orders' => 'Your orders',
     'user_no_orders' => 'No Orders',
     'user_all_counries' => 'All countries for multi-account',
+    'user_prolong' => 'Extend',
+    'user_prolong_all' => 'Extend all orders',
+    'button_config' => 'Config for ',
+    'button_config_hint' => 'Download configuration file',
+    'button_settings' => 'Settings',
+    'button_settings_hint' => 'How to set up',
     /* --------  Новый заказ -------------- */
     'order_countries' => 'Countries',
     'order_fields' => array('Type VPN', 'Country', 'Period(mon)', 'Portable', 'OS', 'Protocol', 'Amount', 'Price($)'),

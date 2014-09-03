@@ -620,6 +620,23 @@ class forms {
         ';
     }
 
+    public static function alink($field) {
+        return '
+       
+            <a 
+            id="' . (($field['id']) ? $field['id'] : $field['name']) . '"
+            name="' . $field['name'] . '"
+                
+            title="' . $field['hint'] . '"
+            ' . (($field['url']) ? 'href="' . $field['url'] . '"' : '') . '     
+            
+            class="' . $field['css'] . '">
+
+            ' . (($field['title']) ?  strip_tags($field['title']) : '') . ' 
+
+            </a>  
+';
+    }
     public static function button($field) {
         return '
        
@@ -640,7 +657,6 @@ class forms {
             </button>  
 ';
     }
-
     public static function date_time_form($field) {
         return '
         <script type="text/javascript">

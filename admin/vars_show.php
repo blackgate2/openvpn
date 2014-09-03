@@ -631,15 +631,20 @@ $tables['activitylog_show'] = array(
 );
 $tables['user_orders_show'] = array(
     'titles' => $msg['user_orders_tab'],
-    'fields' => array('accountconfig', 'name', 'datetime_begin', 'datetime_expire', 'type', 'country', 'price', 'select_period', 'button_pay_account'),
+    'fields' => array('button_get_config','alink_settings', 'name', 'datetime_begin', 'datetime_expire', 'type', 'country', 'price', 'select_period', 'button_pay_account'),
     'fields_sql' => 'o.id, 
-                    
-                    IF(of.config!="" AND o.portable="1",
-                        CONCAT(a.name, \'<br><a href="/downloadConfig.php/?hash=\',of.config,\'&portable=32" class="ui-state-default ui-corner-all">Config32</a><br/>
-                                 <a href="/downloadConfig.php/?hash=\',of.config,\'&portable=64" class="ui-state-default ui-corner-all">Config64</a>\') ,
-                            IF(of.config!="" AND o.portable="", 
-                               CONCAT(a.name, \'<br><a href="/downloadConfig.php/?hash=\',of.config,\'" class="ui-state-default ui-corner-all">Config</a>\'), 
-                               "")  ) as accountconfig, 
+                    -- CONCAT(
+                    -- IF(of.config!="" AND o.portable="1",
+                    --    CONCAT(a.name, \'<br><a href="/downloadConfig.php/?hash=\',of.config,\'&portable=32" class="ui-state-default ui-corner-all">Config32</a><br/>
+                    --             <a href="/downloadConfig.php/?hash=\',of.config,\'&portable=64" class="ui-state-default ui-corner-all">Config64</a>\') ,
+                    --        IF(of.config!="" AND o.portable="", 
+                    --           CONCAT(a.name, \'<br><a href="/downloadConfig.php/?hash=\',of.config,\'" class="ui-state-default ui-corner-all">Config</a>\'), 
+                    --           "")  ),
+                    --           
+                    --  \'<br><a href="\',IFNULL( get_url_by_order_params(o.type_id, o.protocol_id, o.portable, o.os),""),\'" class="ui-state-default ui-corner-all">settings</a>\'
+                    -- ,o.type_id, o.protocol_id, \'portable\',IFNULL(o.portable,\'0\'), o.os
+                    --  
+                    -- ) as accountconfig, 
                      o.num_order as name,
                      o.datetime_begin,
                      o.datetime_expire,
@@ -659,12 +664,13 @@ $tables['user_orders_show'] = array(
                      o.type_id,
                      o.action_id,
                      of.config as config_data,
-                     o.period_id
-                     
+                     o.period_id,
+                     a.name as account_name,
+                     IFNULL( '.$nav->pre.'get_url_by_order_params(o.type_id, o.protocol_id, o.portable, o.os),"") as url_by_order_params
                      -- ext.ext_num
                      
                     ',
-    'table' => 'orders',
+    'table' => 'user_orders',
     'table_view' => 'orders o',
     'where' => 'JOIN users u ON u.id=o.user_id
                 JOIN periods pi ON pi.id=o.period_id
@@ -679,10 +685,39 @@ $tables['user_orders_show'] = array(
                 ',
     'order' => 'o.id',
     'group' => 'o.id',
-    'defMaxRow' => 30,
+    'url'=>'/user/?table=user_orders',
+    'defMaxRow' => 10,
     'order_dir' => 'desc',
     'isCheck' => 1,
     'money_format' => array('price'),
+    'add_collumn_alink_settings' => array(
+        'user_row::alink_settings' => array(
+            array(
+                'url' => '',
+                'action' => '',
+                'hint' => $msg['button_settings_hint'],
+                'title' => $msg['button_settings'],
+                'ico' => '',
+                'css' => 'menu',
+                'confirm' => ''
+            )
+
+        ),
+    ),
+    'add_collumn_button_get_config' => array(
+        'user_row::button_get_config' => array(
+            array(
+                'url' => '/downloadConfig.php/?hash=',                
+                'action' => '',
+                'title' => $msg['button_config'],
+                'hint' => $msg['button_config_hint'],
+                'ico' => '',
+                'css' => 'link_go button_row ui-button-text-only',
+                'confirm' => ''
+            ),
+
+        ),
+    ),
     'add_collumn_select_period' => array(
         'user_row::select_period' => array(
             array(form => 'select', caption => 'Период', first_val => '', status => '0', name => '', 
