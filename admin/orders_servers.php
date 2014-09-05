@@ -7,7 +7,7 @@ if (is_numeric($_POST['typeID'])) {
     $q = new query();
     $forms = new forms();
     if ($_POST['typeID'] == 3)
-        $sql = 'SELECT s.id,s.name FROM servers s Where s.part_multi="1" and s.iddouble="" and s.idmultidouble=""';
+        $sql = 'SELECT s.id,s.name FROM servers s WHERE s.part_multi="1" and s.iddouble="" and s.idmultidouble=""';
     $d = array(form => 'select', caption => 'Сервера',
         first_val => 'no',
         status => 'X',
