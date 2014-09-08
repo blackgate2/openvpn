@@ -126,6 +126,14 @@ $admin_menu = array(
             ),
             array(
                 fold => false,
+                title => 'Лог заказов',
+                href => 'index.php',
+                m => 'main',
+                action => 'show',
+                table => 'log_orders_befor',
+            ),
+            array(
+                fold => false,
                 title => 'Лог пользователей',
                 href => 'index.php',
                 m => 'main',

@@ -949,5 +949,98 @@ $tables['orders_show'] = array(
             ),
         )
     ),
+
 );
 
+$tables['log_orders_befor_show'] = array(
+    'titles' => array('id','SQL действие','Опл.', 'Дата ред.', 'Акк/Конф','Акк в Откл.', 'Заказчик', '№ заказа', 'Дата начала', 'Дата конца', 'Период', 'VPN', 'в Плане', 'Отклик', 'Цена'),
+    'fields' => array('id','log_action','paymant', 'datetime_edit',  'account_conf','acc_res', 'user', 'name', 'datetime_begin', 'datetime_expire', 'period', 'type', 'server', 'reponse', 'price'),
+    'fields_sql' => 'DISTINCT o.id,  
+                    CONCAT(
+                        IF(oi.num_order IS NOT NULL, "paid", ""),
+                        IF(ext.orderID  IS NOT NULL, CONCAT("<br><small>ext</small>",ext.ext_num), "")
+                     ) as paymant,
+                    
+                    o.datetime_edit,
+                    aa.name as acc_res,
+                    IF(of.config!="" AND o.portable="1",
+                        CONCAT(a.name,\'<br/><a href="/downloadConfig.php/?hash=\',of.config,\'&portable=32">Config32</a><br/><a href="/downloadConfig.php/?hash=\',of.config,\'&portable=64">Config64</a>\') ,
+                            IF(of.config!="" AND o.portable="", 
+                               CONCAT(a.name,\'<br/><a href="/downloadConfig.php/?hash=\',of.config,\'">Config</a>\'), 
+                               a.name)  ) as account_conf,  
+                    CONCAT(\'<small>\',u.name,\'<br>\',u.email,\'<br>\',u.icq,\'<br>\',u.jabber,\'<br><span class="red">\',IFNULL(o.notes,\'\'),\'</small></span><br><span class="green">\',IFNULL(uu.name,\'\'),\'</span>\' ) as user, 
+                    o.num_order as name,
+                    o.datetime_begin,
+                    o.datetime_expire,
+                    pi.name as period,
+                    CONCAT(t.name,\'<br>\',p.name,\'<br>\',o.os,\'<br>\', IF(o.portable!="",\'portable\',\'\')) as type,
+                    p.name as protocol,
+                     CONCAT(\'<small>\',getServerByOrderID(o.id),\'</small>\') as server,
+                    IF(osids.orderID,"1","") as is_btn_respons,
+                    o.price,
+                    o.portable,  
+                    o.os,
+                    os.name as ostatus,
+                    o.log_action',
+    'table' => 'log_orders_befor',
+    'table_view' => 'log_orders_befor o',
+    
+    'where' => 'JOIN actions os ON os.id = o.action_id
+                Left JOIN users u ON u.id=o.user_id
+                Left JOIN periods pi ON pi.id=o.period_id
+                Left JOIN types t ON t.id = o.type_id
+                Left JOIN protocols p ON p.id = o.protocol_id
+                
+                Left JOIN accounts a ON a.id = o.account_id
+                Left JOIN order_configs of On of.order_id = o.id
+                Left JOIN order_invoices oi On oi.num_order = o.num_order
+                Left JOIN order_server_action_ids osids ON osids.orderID = o.id 
+                Left JOIN accounts aa ON aa.id = osids.accountID
+                Left JOIN orders_user_ext_ids ext ON ext.orderID = o.id
+                Left JOIN users uu ON uu.id=o.user_update_id
+                ',
+    'order' => isset($_SESSION[$table]['order']) ? $_SESSION[$table]['order'] : 'datetime_edit',
+    'order_dir' => (!isset($_SESSION[$table]['order_dir'])) ? 'desc' : $_SESSION[$table]['order_dir'],
+   // 'group'=>'id',
+    'defMaxRow' => 300,
+    'isEdit' => 0,
+    'isCopy' => 0,
+    'isDel' => 0,
+    'isCheck' => 0,
+    'isNav' => 0,
+    'isSortbl' => 1,
+    'isDialog' => 0,
+    'dialog_url_edit' => '' ,
+    'nonSortblFields' => array('status'),
+    'isDefaultActions'=>0,
+    'actions_pannel' => array(),
+    'set_rows_colors' => array(
+        'order_row::rowColors' => array(
+            // Поступил
+            'enrolled' => array(
+                'odd' => 'odd_yellow',
+                'even' => 'even_yellow',
+            ),
+            // Поступил c сайта
+            'enrolled_site' => array(
+                'odd' => 'odd_blue',
+                'even' => 'even_blue',
+            ),
+            // work
+            'work' => array(
+                'odd' => 'odd_green',
+                'even' => 'even_green',
+            ),
+            // lock 
+            'lock' => array(
+                'odd' => 'odd_red',
+                'even' => 'even_red',
+            ),
+            // archive
+            'archive' => array(
+                'odd' => 'odd_gray',
+                'even' => 'even_gray',
+            ),
+        )
+    ),
+   );
