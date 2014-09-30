@@ -43,7 +43,7 @@ if ($_POST['post'] == 'writing') {
         send_mail($_POST['email'],  commonConsts::admin_email, commonConsts::admin_name, $msg['reg_email_suject'], $body_mail);
 
         /** пишем регистрационные данные */
-        $q->qry('Insert Into users (login,passwd,name,email,icq,bilet) Values("?","?","?","?","?","?")', $_POST['login'], $passwd, $_POST['name'], $_POST['email'], $_POST['icq'], $activ_cod);
+        $q->qry('Insert Into users (login,passwd,name,email,icq,bilet,status) Values("?","?","?","?","?","?","")', $_POST['login'], $passwd, $_POST['name'], $_POST['email'], $_POST['icq'], $activ_cod);
 
         /** редиректим страничку */
         $url = commonConsts::url.'/user_create/'.$nav->lang.'/?postis=1';
