@@ -48,9 +48,9 @@ class user_row extends show_from_db {
     public static function alink_settings($a) {
         $d = $a['data'];
         if ($d['url_by_order_params']) {
-            $urls = explode('::', $d['url_by_order_params']);
+            $urls = array_unique(explode('::', $d['url_by_order_params']));
 
-            $str.='';
+            $str='';
 
             foreach ($urls as $value) {
 

@@ -79,7 +79,7 @@ if ($action == 'del_configs' && $table == 'orders' && $objects_ids != '') {
 /** ----------------------------- смена статуса  ---------------------------------------- */
 if ($action == 'changestatus' && isset($statusNEW) && $table && ($id || $objects_ids)) {
 
-    if ($table == 'users' && $id)
+    if ($table == 'orders' && $id)
         $q->qry('Update ? SET status=\'?\', user_update_id =' . $_SESSION['auth_user_id'] . ' Where id=?', $tables[$table . '_show']['table_view'], $statusNEW, $id);
     elseif ($table && $id)
         $q->qry('Update ? SET status=\'?\' Where id=?', $tables[$table . '_show']['table_view'], $statusNEW, $id);

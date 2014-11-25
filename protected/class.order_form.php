@@ -55,7 +55,7 @@ class order_form {
                 On ps.id= ipp.protocolID
            Join periods pi
                 On pi.id= p.period_id
-           Where p.status="1"
+           Where p.status<>"1"
            Order by p.id ');
 
         while ($d = $this->q->getrow()) {

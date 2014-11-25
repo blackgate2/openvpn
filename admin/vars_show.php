@@ -1,4 +1,6 @@
 <?php
+
+
 $tables['after_invent_show'] = array(
     'titles' => array('id','Аккаунт', 'Протокол', 'Сервер','Статус'),
     'fields' => array('id','name',    'proto',    'server','status'),
@@ -665,6 +667,7 @@ $tables['user_orders_show'] = array(
                      o.action_id,
                      of.config as config_data,
                      o.period_id,
+                     o.protocol_id,
                      a.name as account_name,
                      IFNULL( '.$nav->pre.'get_url_by_order_params(o.type_id, o.protocol_id, o.portable, o.os),"") as url_by_order_params
                      -- ext.ext_num

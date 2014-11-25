@@ -50,6 +50,7 @@ if (in_array($nav->page, $moules)) {
     include (commonConsts::path_modules.'/page.php');
 }
 if ($is_right){
+    include (commonConsts::path_modules.'/front_news.php');
     include (commonConsts::path_modules.'/front_faq.php');
 }
 
