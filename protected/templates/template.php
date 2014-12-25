@@ -80,9 +80,14 @@
         
         <? if ($is_right){?>
         <div id="right">
+            <div  class="block2">
+                        <?= $content['content_front_news'] ?>
+            </div>
+            <br>
             <div class="block1  plashka">
-                <h3><?=($nav->lang=='ru')?'Мы атестованы':'We accept' ?></h3>
-                   <div>
+               
+               <h3><?=($nav->lang=='ru')?'Мы атестованы':'We accept' ?></h3>
+               <div>
                    <a href="https://passport.webmoney.ru/asp/certview.asp?wmid=933039972653" mce_href="https://passport.webmoney.ru/asp/certview.asp?wmid=933039972653" target="_blank">
                        <img src="http://www.webmoney.ru/img/icons/88x31_wm_v_blue_on_white_ru.png" mce_src="http://www.webmoney.ru/img/icons/88x31_wm_v_blue_on_white_ru.png" title="Здесь находится аттестат нашего WM идентификатора 933039972653" border="0">
                    </a> 
@@ -95,11 +100,10 @@
                     <a href="#" onclick="psf1zsow(); return false;"><img name="psf1zsimage" src="http://www.providesupport.com/resource/cp6x59/default/company/image/chat-icon/1/chat-icon-1-online-en.gif" border="0"></a>
                  </div>
             </div>
-            <div class="block2">
-            
+            <div class="block2">            
             <?= $content['content_front_faq'] ?>
-
             </div>
+            
         </div>
         <? }?>
         <div id="left">

@@ -11,7 +11,7 @@ require(commonConsts::path_cammon . '/class.common.php');
 require commonConsts::path_modules . '/success.php';
 require(commonConsts::path_admin . '/vars_runtime.php');
 
-require(commonConsts::path_protect . '/class.alink.php');
+//require(commonConsts::path_protect . '/class.alink.php');
 
 
 //$a = new alink($p);

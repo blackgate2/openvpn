@@ -23,7 +23,7 @@ class navigation {
     public function __construct() {
         $this->q = DB::Open();
         $this->out = array();
-        $this->get_vars();
+        $this->init_vars();
         $this->get_data();
         $this->set_data();
         $this->array_to_tree();
@@ -31,7 +31,7 @@ class navigation {
         $this->is_add_dot_html_url=true;
     }
 
-    private function get_vars() {
+    private function init_vars() {
         $url_arr = $this->ParseUrl($_SERVER['REQUEST_URI']);
         
        

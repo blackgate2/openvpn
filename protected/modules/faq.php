@@ -1,4 +1,4 @@
-<?
+<?php
 require(commonConsts::path_cammon.'/forms.class.php');
 require(commonConsts::path_cammon.'/class.alert.php');
 require(commonConsts::path_protect.'/functions_site.php');

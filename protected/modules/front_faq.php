@@ -1,4 +1,4 @@
-<?
+<?php
 $content['content_front_faq'] = '<h4>' . (($nav->lang == 'en') ? 'FAQ' : 'Вопросы') . ':</h4><ul>';
 $url = "/faq/$nav->lang/?";
 
