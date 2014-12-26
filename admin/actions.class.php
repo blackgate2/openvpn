@@ -52,7 +52,7 @@ class actions {
     public function lock_by_date_exp() {
         //echo 'Update orders SET action_id = 2, datetime_expire = DATE_ADD(now(),INTERVAL -1 day) Where id IN (' . $this->objects_ids . ')';
         $this->q->begin();
-        $this->q->query('Update orders SET action_id = 2,   datetime_edit=CURRENT_TIMESTAMP, datetime_expire = DATE_ADD(now(),INTERVAL -1 day) Where id IN (' . $this->objects_ids . ')');
+        $this->q->query('Update orders SET action_id = 2, datetime_expire = DATE_ADD(now(),INTERVAL -1 day) Where id IN (' . $this->objects_ids . ')');
         return $this->q->commit();
     }
     
