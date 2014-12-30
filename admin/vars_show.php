@@ -382,7 +382,7 @@ $tables['servers_show'] = array(
     'order_dir' => ($_SESSION['servers']['order_dir']) ? 'desc' : '',
     'dialog_url_edit' => '/admin/dialog.php?m=main&table=' . $table,
     'defMaxRow' => 300,
-    'isEdit' => 0,
+    'isEdit' => 1,
     'isCopy' => 0,
     'isDel' => 0,
     'isCheck' => 1,
