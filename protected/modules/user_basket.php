@@ -13,10 +13,10 @@ if ($is_login) {
         'fields' => array('type', 'country','period',    'portable','os','protocol','amount', 'price'),
         'defMaxRow' => 30,
         'isDel' => '',
+        'isSortbl' => 0,
         'money_format'=>array('price'),
         'total_row'=>array('price'),
     );
-
     $basket = array();
     $p = array('period', 'type', 'protocol', 'country');
     foreach ($p as $v) {
@@ -43,7 +43,7 @@ if ($is_login) {
                         ' . (($v['portable']) ? ' IF(p.portable_price <> 0, p.portable_price,p.name)' : 'p.name') . '  as price
                     From prices p
                     ' . (($v['type_id'] == 1) ? 'Join price_country_ids i On i.priceID=p.id and i.countryID=' . $v['country_id'] : '') . '
-                    Where p.status<>\'\' AND p.type_id=' . $v['type_id'] . ' and p.period_id=' . $v['period_id'] . '
+                    Where p.type_id=' . $v['type_id'] . ' and p.period_id=' . $v['period_id'] . '
                     Limit 1 ');
         $total+=$d['price'];
         $basket[$i]['price'] = $d['price'];       
