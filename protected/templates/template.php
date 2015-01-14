@@ -39,41 +39,43 @@
 </head>
 
 <body>
-    <div id="top" class="plashka"> 
-            <div id="content_top">
-                <div id="lang">
-                    <?= $nav->str_lang?>
-                </div>
-                <div id="auth">
-                    <?= $str_login ?>
-                </div>
+     <div id="header">
+        <div id="top" class="plashka"> 
+                <div id="content_top">
+                    <div id="lang">
+                        <?= $nav->str_lang?>
+                    </div>
+                    <div id="auth">
+                        <?= $str_login ?>
+                    </div>
 
-                <div id="logo"><a href="/"> <img src="/images/<?=$nav->pre?>logo.png"></a></div>
+                    <div id="logo"><a href="/"> <img src="/images/<?=$nav->pre?>logo.png"></a></div>
 
-                <div id="menu" <?= ($is_login)?'':'' ?>>
-                    <ul class="myMenu">
-                         <?= $str_main_menu ?>
-                    </ul>
+                    <div id="menu" <?= ($is_login)?'':'' ?>>
+                        <ul class="myMenu">
+                             <?= $str_main_menu ?>
+                        </ul>
 
+                    </div>
                 </div>
+        </div>
+
+        <div id="<?=(!$nav->page)?'middle_bg':'middle_bg_20'?>">
+
+            <? if (!$nav->page){?>
+            <div id="middle">
+            <div id="contact_top" class="plashka opa">
+                    <h3><?=($nav->lang=='ru')?'Контакты':'Contacts' ?></h3>
+                    <table>
+                    <tr><td><img src="http://status.icq.com/online.gif?icq=244436&img=5" class="icq_shadow"></td><td>244-436</td></tr>
+                    <tr><td><img src="http://status.icq.com/online.gif?icq=586534216&img=5"  class="icq_shadow"></td><td>586-534-216</td></tr>
+                    <tr><td><img alt="jabber" src="/images/jabber.png"></td><td> openvpn@jabber.ru</td></tr>
+                    <tr><td><img alt="jabber" src="/images/email.png"></td><td> <a href="mailto:support@openvpn.ru">support@openvpn.ru</a></td></tr>
+                    </table>
             </div>
-    </div>
-    
-    <div id="<?=(!$nav->page)?'middle_bg':'middle_bg_20'?>">
-    
-        <? if (!$nav->page){?>
-        <div id="middle">
-        <div id="contact_top" class="plashka opa">
-                <h3><?=($nav->lang=='ru')?'Контакты':'Contacts' ?></h3>
-                <table>
-                <tr><td><img src="http://status.icq.com/online.gif?icq=244436&img=5" class="icq_shadow"></td><td>244-436</td></tr>
-                <tr><td><img src="http://status.icq.com/online.gif?icq=586534216&img=5"  class="icq_shadow"></td><td>586-534-216</td></tr>
-                <tr><td><img alt="jabber" src="/images/jabber.png"></td><td> openvpn@jabber.ru</td></tr>
-                <tr><td><img alt="jabber" src="/images/email.png"></td><td> <a href="mailto:support@openvpn.ru">support@openvpn.ru</a></td></tr>
-                </table>
+            </div>
+            <? }?>
         </div>
-        </div>
-        <? }?>
     </div>
     
     <div id="content">

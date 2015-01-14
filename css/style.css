@@ -1,8 +1,28 @@
 /*//@import url(http://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise|Open+Sans:300&subset=latin,cyrillic-ext);*/
-
+html {
+    position: relative;
+    min-height: 100%;
+}
 body,div,p{
     margin: 0; 
 }
+#container {
+   min-height:100%;
+   position:relative;
+}
+
+
+div#content{
+    margin:10px auto; 
+    padding-bottom: 300px;
+    width: 1050px;
+    vertical-align: top;
+    height: 100%;
+    overflow: hidden;
+    clear: both; 
+    
+}
+
 div#logo{margin:0 0 0 -52px; float: left;}
 div#menu{position: relative;  
          top:12px; left:10px;width: 960px; vertical-align: middle;
@@ -69,13 +89,7 @@ div#middle{
     height: 319px;
     width: 1000px;
 }
-div#content{
-    margin:10px auto; 
-    width: 1050px;
-    vertical-align: top;
-    overflow: hidden;
-    clear: both; 
-}
+
 div#left{
     margin:0px 10px 0 105px; 
     width:555px ; background-color: #fff;
@@ -88,6 +102,9 @@ div#right{
     float: right;
 }
 div#bottom{
+       position:absolute;
+   bottom:0;
+    
     /*    position: absolute;
         bottom: 0;*/
     width: 100%;
