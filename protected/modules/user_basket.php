@@ -76,7 +76,7 @@ if ($is_login) {
     $forms = new forms($msg);
     $forms->__set('is_form_In_dialog', 0);
     $forms->nameform = 'form_paymant';
-    $forms->url = $url;
+    $forms->url = $url_post;
     $forms->hiddens = array(
         'MerchantLogin' => $mrh_login,
         'OutSum' => $out_summ,
