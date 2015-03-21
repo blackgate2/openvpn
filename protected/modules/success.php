@@ -24,5 +24,6 @@ if (isset($_REQUEST["InvId"]) && isset($_REQUEST["InvId"]) && isset($_REQUEST["s
     } else {
         include 'success_fix.php';
     }
+    
 }
 

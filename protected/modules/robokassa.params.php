@@ -3,14 +3,16 @@
 // регистрационная информация (логин, пароль #1)
 // registration info (login, password #1)
 
-//$url = 'http://test.robokassa.ru/Index.aspx';
-//$mrh_login = "riflemag";
-//$mrh_pass1 = "rockcity12";
+$url = 'http://test.robokassa.ru/Index.aspx';
+$url_post = 'http://test.robokassa.ru/Index.aspx';
+$mrh_login = "riflemag";
+$mrh_pass1 = "rockcity12";
+/*
 $url = 'https://auth.robokassa.ru/Merchant/Index.aspx';
 $url_post = 'https://auth.robokassa.ru/Merchant/Index.aspx';
 $mrh_login = "openvpn-sale";
 $mrh_pass1 = "Lvbnhbq10291";
-
+*/
 // номер заказа
 // number of order
 $inv_id = 0;

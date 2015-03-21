@@ -13,16 +13,18 @@ require(commonConsts::path_admin . '/vars_runtime.php');
 
 //require(commonConsts::path_protect . '/class.alink.php');
 
-
+if (is_numeric($_GET['InvId'])) {
+    redirect('/user');
+}
 //$a = new alink($p);
 
 if ($is_login) {
 
 
-    $msg['checkAll']='';
-    $show = new show_from_db($msg,$tables['user_orders_show']);
-    
-    
+    $msg['checkAll'] = '';
+    $show = new show_from_db($msg, $tables['user_orders_show']);
+
+
     $sql = 'Select ' . $show->obj['fields_sql'] .
             ' From ' . $show->obj['table_view'] . '  
         ' . $show->obj['where'] . ' 
@@ -40,29 +42,28 @@ if ($is_login) {
     $content['css'] = '
         <link type="text/css" href="/css/table.css" rel="stylesheet" /> 
         <link type="text/css" href="/css/users.css" rel="stylesheet" />';
-    
+
     $content['name'] = $msg['user_orders'];
+
     if (!empty($show->dataAll)) {
-        if (is_numeric($_GET['InvId'])) {
-            $show->setEditID(array($_GET['InvId']));
-        }
-        $content['content_page'].=($msg_alert)?'<script>
+
+        $content['content_page'].=($msg_alert) ? '<script>
             $("#dialog_alert").dialog({
                 title: "!",
                 height: 100
             });
-            $("#dialog_alert").html("<p>'.$msg_alert.'</p>");
+            $("#dialog_alert").html("<p>' . $msg_alert . '</p>");
             $("#dialog_alert").dialog(\'open\');
             setTimeout(function() {
             window.location = "/user"
             }, 1500);
-            </script>':'';
+            </script>' : '';
         $content['content_page'].='<p class="alert" ></p><div class="actions">' . $show->actions_buttons() . '</div>';
         $content['content_page'].=$show->show();
     } else {
         $content['content_page'].=$msg['user_no_orders'];
     }
-        $content['content_page'].='
+    $content['content_page'].='
     <div id="dialog_modal" title=""></div>
     <div id="dialog_alert" title=""></div>
     <script>
@@ -326,6 +327,5 @@ if ($is_login) {
 
     </script>
     ';
-
 }
 ?>

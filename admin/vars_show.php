@@ -558,7 +558,35 @@ $tables['orders_reponse_show'] = array(
     'nonSortblFields' => array(),
     'actions_pannel' => ''
 );
-
+$tables['orders_user_ext_show'] = array(
+    'titles' => array('ext_num','period','user_name','date_create','price'),
+    'fields' => array('ext_num','period','user_name','date_create','price'),
+    'fields_sql'=>'
+        e.ext_num,
+        p.name as period,
+        u.name as user_name,
+        e.date_create,
+        e.price',
+    
+    'table' => 'orders_user_ext',
+    'table_view' => 'orders_user_ext_ids e'
+    . ' Join users u ON u.id = e.userID '
+    . ' Join periods p ON p.id = e.periodID ',
+    'where' => 'where e.orderID = '.$id,
+    'order' =>  'orderID',
+    'order_dir' => 'DESC',
+    'dialog_url_edit' => '',
+    'defMaxRow' => 300,
+    'isEdit' => 0,
+    'isCopy' => 0,
+    'isDel' => 0,
+    'isCheck' => 0,
+    'isNav' => 0,
+    'isSortbl' => 0,
+    'isDialog' => 1,
+    'nonSortblFields' => array(),
+    'actions_pannel' => ''
+);
 $tables['log_mess_show'] = array(
     'titles' => array('ID', 'Тип', 'Invoice number', 'Return Value', 'Сообщение', 'Дата отправки'),
     'fields' => array('id', 'note_method', 'invoice_numbers', 'return_val', 'mess', 'datetime_exec'),
@@ -816,14 +844,12 @@ $tables['user_messages_show'] = array(
 );
 
 $tables['orders_show'] = array(
-    'titles' => array('id','Опл.', 'Дата ред.', 'Акк/Конф','Акк в Откл.', 'Заказчик', '№ заказа', 'Дата начала', 'Дата конца', 'Период', 'VPN', 'в Плане', 'Отклик', 'Цена'),
-    'fields' => array('id','paymant', 'datetime_edit',  'account_conf','acc_res', 'user', 'name', 'datetime_begin', 'datetime_expire', 'period', 'type', 'server', 'reponse', 'price'),
+    'titles' => array('id','Дата прод.','Дата ред.', 'Акк/Конф','Акк в Откл.', 'Заказчик', '№ заказа', 'Дата начала', 'Дата конца', 'Период', 'VPN', 'в Плане', 'Откл./Опл.', 'Цена'),
+    'fields' => array('id','ext_date','datetime_edit',  'account_conf','acc_res', 'user', 'name', 'datetime_begin', 'datetime_expire', 'period', 'type', 'server', 'reponse', 'price'),
     'fields_sql' => 'DISTINCT o.id,  
-                    CONCAT(
-                        IF(oi.num_order IS NOT NULL, "paid", ""),
-                        IF(ext.orderID  IS NOT NULL, CONCAT("<br><small>ext</small>",ext.ext_num), "")
-                     ) as paymant,
                     
+                    ext.date_create as ext_date,                    
+                    IF(ext.orderID  IS NOT NULL, 1 ,"") as is_ext,
                     o.datetime_edit,
                     aa.name as acc_res,
                     IF(of.config!="" AND o.portable="1",
@@ -915,9 +941,22 @@ $tables['orders_show'] = array(
             'url' => '/admin/dialog.php?m=main&table=orders_reponse',
             'key_val'=>'',
             'action'=>'show',
-            'hint' => 'Отклик в плане',
-            'title' => 'Отклик в плане',
+            'hint' => 'Отклик от серверов по данному заказу',
+            'title' => 'Отклик',
             'ico' => ' ui-icon-check',
+            'css' => 'link_alert button_row ui-button-icon-only  '
+        ),
+        'button2' =>
+        array(
+            'name'=>'btn_respons',
+            'url' => '/admin/dialog.php?m=main&table=orders_user_ext',
+            'key_val'=>'',
+            'name'=>'ext',
+            'action'=>'show',
+            'hint' => 'Все продления по этому заказу',
+            'title' => 'Продление заказа',
+
+            'ico' => ' ui-icon-cart',
             'css' => 'link_alert button_row ui-button-icon-only  '
         ),
        
@@ -956,14 +995,13 @@ $tables['orders_show'] = array(
 );
 
 $tables['log_orders_befor_show'] = array(
-    'titles' => array('id','SQL действие','Опл.', 'Дата ред.', 'Акк/Конф','Акк в Откл.', 'Заказчик', '№ заказа', 'Дата начала', 'Дата конца', 'Период', 'VPN', 'в Плане', 'Отклик', 'Цена'),
-    'fields' => array('id','log_action','paymant', 'datetime_edit',  'account_conf','acc_res', 'user', 'name', 'datetime_begin', 'datetime_expire', 'period', 'type', 'server', 'reponse', 'price'),
+    'titles' => array('id','SQL действие','Дата прод.', 'Дата ред.', 'Акк/Конф','Акк в Откл.', 'Заказчик', '№ заказа', 'Дата начала', 'Дата конца', 'Период', 'VPN', 'в Плане', 'Отклик', 'Цена'),
+    'fields' => array('id','log_action','ext_date','datetime_edit',  'account_conf','acc_res', 'user', 'name', 'datetime_begin', 'datetime_expire', 'period', 'type', 'server', 'reponse', 'price'),
     'fields_sql' => 'DISTINCT o.id,  
-                    CONCAT(
-                        IF(oi.num_order IS NOT NULL, "paid", ""),
-                        IF(ext.orderID  IS NOT NULL, CONCAT("<br><small>ext</small>",ext.ext_num), "")
-                     ) as paymant,
                     
+                    ext.date_create as ext_date,                    
+                    IF(ext.orderID  IS NOT NULL, 1 ,"") as is_ext,
+                     
                     o.datetime_edit,
                     aa.name as acc_res,
                     IF(of.config!="" AND o.portable="1",
