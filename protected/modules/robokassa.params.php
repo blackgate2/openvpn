@@ -6,7 +6,7 @@
 //$url = 'http://test.robokassa.ru/Index.aspx';
 //$mrh_login = "riflemag";
 //$mrh_pass1 = "rockcity12";
-$url = 'https://merchant.roboxchange.com/Index.aspx';
+$url = 'https://auth.robokassa.ru/Merchant/Index.aspx';
 $url_post = 'https://auth.robokassa.ru/Merchant/Index.aspx';
 $mrh_login = "openvpn-sale";
 $mrh_pass1 = "Lvbnhbq10291";

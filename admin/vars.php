@@ -42,7 +42,7 @@ $tables = array(
             sel_field => 'id, name',
             name => 'order_server_ids', value => array(),
             get_value => array('vars_db::__selected_ids', array('table' => 'order_server_ids', 'field' => 'serverID', 'where' => (($id) ? 'orderID=' . $id : ''))),
-            data => array('vars_db::__table', array('table' => 'servers', 'where' => ($action == 'add') ? ' idmultidouble="" and iddouble=""' : ''))),
+            data => array('vars_db::__table', array('table' => 'servers', 'where' => ' status="1"  '.(($action == 'add') ? ' AND idmultidouble="" and iddouble=""' : '')))),
         array(form => 'select', caption => 'Статус', status => '0', first_val => 'no', is_disabled => 1, name => 'action_id', value => '',
             data => array('vars_db::__table', array('table' => 'actions', 'order' => 'id'))),
         array(form => 'text', caption => 'Цена($)', status => '0', is_disabled => 1, name => 'price', value => ''),
@@ -148,7 +148,13 @@ $tables = array(
     ),
     countries => array(
         array(form => 'text', caption => 'Название', status => 'X', name => 'name', value => ''),
-        array(form => 'text', caption => 'Сокращение', status => 'X', name => 'shot_name', value => ''),
+        //array(form => 'text', caption => 'Сокращение', status => 'X', name => 'shot_name', value => ''),
+
+                array(form => 'select', caption => 'Сервер', first_val => '', status => '0',  name => 'shot_name', value => '',
+            data => array('vars_db::__table', array('table' => 'servers','fields'=>'name as id, name', 'order' => 'name','where' => ' status="1"  '))),
+        
+
+
         array(form => 'checkbox', caption => 'Статус', status => '0', name => 'status', value => 1, checked => 1),
     ),
     protocols => array(
@@ -274,7 +280,7 @@ $tables = array(
             sel_field => 'id, name',
             name => 'order_server_ids', value => array(),
             get_value => array('vars_db::__selected_ids', array('table' => 'order_server_ids', 'field' => 'serverID', 'where' => (($id) ? 'orderID=' . $id : ''))),
-            data => array('vars_db::__table', array('table' => 'servers', 'where' => ($action == 'add') ? ' idmultidouble="" and iddouble=""' : ''))),
+            data => array('vars_db::__table', array('table' => 'servers', 'where' => ' status="1" '.(($action == 'add') ? ' AND idmultidouble="" AND iddouble=""' : '')))),
         array(form => 'select', caption => 'Статус', status => 'X', first_val => 'no', name => 'action_id', value => '',
             data => array('vars_db::__table', array('table' => 'actions', 'order' => 'id'))),
         array(form => 'text', caption => 'Цена($)', status => 'X', name => 'price', value => ''),

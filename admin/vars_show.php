@@ -831,7 +831,7 @@ $tables['orders_show'] = array(
                             IF(of.config!="" AND o.portable="", 
                                CONCAT(a.name,\'<br/><a href="/downloadConfig.php/?hash=\',of.config,\'">Config</a>\'), 
                                a.name)  ) as account_conf,  
-                    CONCAT(\'<small>\',u.name,\'<br>\',u.email,\'<br>\',u.icq,\'<br>\',u.jabber,\'<br><span class="red">\',IFNULL(o.notes,\'\'),\'</small></span><br><span class="green">\',IFNULL(uu.name,\'\'),\'</span>\' ) as user, 
+                    CONCAT(\'<small>\',u.name,\'<br>\',u.email,\'<br>\',u.icq,\'<br>\',u.jabber,\'<br><span class="red">\',IFNULL(o.notes,\'\'),\'</small></span><br>_________<br><span class="green">\',IFNULL(uu.name,\'\'),\'</span>\' ) as user, 
                     o.num_order as name,
                     o.datetime_begin,
                     o.datetime_expire,

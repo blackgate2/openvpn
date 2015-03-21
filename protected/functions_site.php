@@ -1,4 +1,5 @@
-<?php
+<?
+
 //----------------
 function log_err($msg) {
     return '<div class="log_form_info"><span class="log_error">' . $msg . '</span></div>';

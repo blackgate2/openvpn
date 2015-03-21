@@ -88,7 +88,7 @@ $(document).ready(function() {
                 if (key != 'url') {
                     url += '&' + key + '=' + val;
                 } else {
-                    url += val + '/?';
+                    url += val + '?';
                 }
             });
             window.location = url;
