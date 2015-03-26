@@ -6,19 +6,47 @@
 
 class invent {
 
+    /* old
     private $url;
     private $content;
+     * 
+     */
     private $inv_cont;
+    private $hosts;
     private $q;
     public $ok;
 
-    public function __construct() {
+    public function __construct($comand,$usr,$pass) {
         $this->q = DB::Open();
-        $this->url = 'http://support:Tp0VkeSc4@confs3.openvpn.ru/create/inv.php?r=1';
-        $this->get_content();
-        $this->pars_content();
+        $this->inv_cont=array();
+        
+        $this->comand=$comand;
+        $this->usr=$usr;
+        $this->pass='V1ufP2ob5$';
+        $this->hosts = vars_db::get_hosts('',$this->q);
+
+        $this->get_inv();
+        //print_r($this->inv_cont);
+        //echo $this->inv_cont;
         $this->sql();
     }
+
+    private function get_inv() {
+        foreach ($this->hosts as $h) {
+            $connection = ssh2_connect($h['hostname'], 22);
+            ssh2_auth_password($connection, 'root', 'V1ufP2ob5$');
+
+            $stream = ssh2_exec($connection, '/usr/local/etc/bin/inv_oleg 1');
+            stream_set_blocking($stream, true);
+            $tmp= explode("\n", stream_get_contents($stream));
+            $this->inv_cont=array_merge($this->inv_cont,$tmp);
+            $this->inv_cont = array_diff($this->inv_cont, array('',0, null));
+            fclose($stream);
+        }
+    }
+
+    /* old 
+     */
 
     private function get_content() {
         $ch = curl_init();
@@ -35,6 +63,9 @@ class invent {
         ob_end_clean();
     }
 
+    /* old
+     */
+
     private function pars_content() {
         $this->inv_cont = explode("<br>", $this->content); //create array separate by new line
     }
@@ -45,7 +76,8 @@ class invent {
             for ($i = 0; $i < count($this->inv_cont); $i++) {
                 $str = trim(str_replace(':V:', ':pptp:', trim($this->inv_cont[$i])));
                 if ($str) {
-
+                    $str=trim(trim($str,':'));
+                    
                     $add_sql .= '("' . str_replace(':', '","', $str) . '"),';
                 }
             }
@@ -62,8 +94,9 @@ class invent {
 //                 PRIMARY KEY (`id`),
 //                 KEY `nps_ix` (`name`,`proto`,`server`)
 //                ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;) Engine = MyISAM");
+           //  echo " INSERT INTO after_invent (name,proto,server) VALUES $add_sql";
             $this->q->query(" INSERT INTO after_invent (name,proto,server) VALUES $add_sql");
-//    echo " INSERT INTO after_invent (name,proto,server) VALUES $add_sql";
+   
             $this->q->query('
                     INSERT INTO after_invent_res (name,proto,server)
                     SELECT t.name,t.proto,t.server
@@ -84,9 +117,9 @@ class invent {
                
                 ');
             $this->q->commit();
-            $this->ok= true;
+            $this->ok = true;
         } else {
-            $this->ok=false;
+            $this->ok = false;
         }
     }
 

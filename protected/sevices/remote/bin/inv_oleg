@@ -1,0 +1,7 @@
+#!/usr/bin/perl
+
+system('grep -v "^#" /etc/ppp/chap-secrets| awk {\'printf($1.":V:usa4\n")\'}');
+#system('grep -v ":L" /usr/local/etc/openvpn/password |cut -f 1 -d : | awk {\'printf($1.":udp:usa4\n")\'}');
+#system('grep -v ":L" /usr/local/etc/tcp/password |cut -f 1 -d : | awk {\'printf($1.":tcp:usa4\n")\'}');
+system('grep -v ":L" /usr/local/etc/openvpn-n/password |cut -f 1 -d : | awk {\'printf($1.":udp:usa4\n")\'}');
+system('grep -v ":L" /usr/local/etc/tcp-n/password |cut -f 1 -d : | awk {\'printf($1.":tcp:usa4\n")\'}');

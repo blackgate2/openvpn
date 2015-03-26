@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+print "# ";
+chomp($cmd=<STDIN>);
+if ($cmd=~/^rekb (.*)/) { system("/usr/local/etc/bin/rekb $1") }
+if ($cmd=~/^multipass (.*)/) { system("/usr/local/etc/bin/multipass $1"); }
+if ($cmd=~/^agen (.*)/) { system("/usr/local/etc/bin/agen $1") }
+if ($cmd=~/^inv/) { system("/usr/local/etc/bin/inv") }
+if ($cmd=~/^kb (.*)/) { system("/usr/local/etc/bin/kb $1") }
+if ($cmd=~/^ukb (.*)/) { system("/usr/local/etc/bin/ukb $1") }
+if ($cmd=~/^pagen (.*)/) { system("/usr/local/etc/bin/pagen $1") }
+if ($cmd=~/^mchange (.*)/) { system("/usr/local/etc/bin/mchange $1") }
+if ($cmd=~/^mgen (.*)/) { system("/usr/local/etc/bin/mgen $1") }
+exit

@@ -1,0 +1,4 @@
+#!/bin/sh
+openvpn --config /usr/local/etc/openvpn-n/openvpn.conf --daemon
+openvpn --config /usr/local/etc/tcp-n/openvpn.conf --daemon
+pptpd

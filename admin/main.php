@@ -24,7 +24,7 @@ if ($table == 'orders')
 if ($action == 'invent') {
     require_once commonConsts::path_protect . '/class.invent.php';
 
-    $i = new invent();
+    $i = new invent('/usr/local/etc/bin/inv_oleg 1','root', 'V1ufP2ob5$');
     if ($i->ok) {
         $msg_alert .= '<br><br>' . ok('Заказы которых нет в активных аккаунтах:');
     } else {

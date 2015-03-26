@@ -1,0 +1,51 @@
+#!/usr/bin/perl
+
+use Digest::MD5 qw(md5_hex);
+
+$base=shift;
+$pass=shift;
+chomp $pass;
+$base="/usr/local/etc/$base/password";
+    open (BASE,$base);
+    $log = $_ while <BASE>;
+    ($clog,$salt)=split(':',$log);
+    $pref='CORP',$middle=1;
+    if ($base=~/double/) {
+        if ($base=~/tcp/) {
+            $pref='CORPD',$middle=1;
+        } else {
+            $pref='CORPD',$middle=0;
+        }
+    } else {
+        if ($base=~/tcp/) {
+        $pref='CORP',$middle=1;
+        } else {
+        $pref='CORP',$middle=0;
+    }}
+
+    if ($middle == 0) {
+        ($match,$num)=split($pref,$clog);
+        if ($match ne '') { exit print "full\n"; }
+        $newcorp=++$num;
+        $login="$pref$newcorp";
+    } else {
+        ($match,$num)=split($pref,$clog);
+        $num=~s/T//g;
+        if ($match ne '') { exit print "full\n"; }
+        $newcorp=++$num;
+        $login="$pref$newcorp"."T";
+    }
+
+    ($pass,$salt)=split(/:/,genpass());
+    $line="$login:$salt";
+    close(BASE);
+    open(BASE,">>$base");
+    print BASE "$line\n";
+    close(BASE);
+    print "$login:$pass\n";
+
+
+sub genpass {
+    $md5passwd=md5_hex($pass);
+    return "$pass:$md5passwd";
+}

@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+
+open(BASE,"/etc/ppp/chap-secrets");
+open(TMP,">/tmp/chap");
+while(<BASE>) {
+    ($l,$t,$p,$i)=split(/\s+/);
+    if ($i) {
+    print TMP "$l\t\t$t\t$p\t\t$i\n";
+    } else {
+    print TMP $_;
+}
+}
+system("mv /tmp/chap /etc/ppp/chap-secrets");

@@ -1,0 +1,64 @@
+#!/usr/bin/expect
+stty -echo
+set cmd [lindex $argv 0]
+set acc [lindex $argv 1]
+set crit [string range $acc 4 4]
+
+set env(TERM) vt100
+send_user "Password: "
+expect_user -re "(.*)\n"
+stty echo
+send_user "\n"
+set pass $expect_out(1,string)
+
+if { [string compare $crit D] == 0 } {
+spawn /usr/bin/ssh root@uk-bronze.openvpn.ru /usr/local/etc/bin/$cmd $acc
+expect "password:*"
+send "$pass\r"
+expect "*!*"
+spawn /usr/bin/ssh -p 3322 root@bg-gold.openvpn.ru /usr/local/etc/bin/$cmd $acc
+expect "password:*"
+send "$pass\r"
+expect "*!*"
+spawn /usr/bin/ssh root@tr.openvpn.ru /usr/local/etc/bin/$cmd $acc
+expect "password:*"
+send "$pass\r"
+expect "*!*"
+spawn /usr/bin/ssh root@213.163.91.85 /usr/local/etc/bin/$cmd $acc
+expect "password:*"
+send "$pass\r"
+expect "*!*"
+spawn /usr/bin/ssh root@cz-cas.openvpn.ru /usr/local/etc/bin/$cmd $acc
+expect "password:*"
+send "$pass\r"
+expect "*!*"
+
+} else {
+
+
+
+spawn /usr/bin/ssh root@dedi-uk1.openvpn.ru /usr/local/etc/bin/$cmd $acc
+expect "password:*"
+send "$pass\r"
+expect "*!*"
+spawn /usr/bin/ssh root@bg-bronze.openvpn.ru /usr/local/etc/bin/$cmd $acc
+expect "password:*"
+send "$pass\r"
+expect "*!*"
+spawn /usr/bin/ssh root@tr.openvpn.ru /usr/local/etc/bin/$cmd $acc
+expect "password:*"
+send "$pass\r"
+expect "*!*"
+spawn /usr/bin/ssh -p 3322 root@usa-nj.openvpn.ru /usr/local/etc/bin/$cmd $acc
+expect "password:*"
+send "$pass\r"
+expect "*!*"
+spawn /usr/bin/ssh root@cz-cas.openvpn.ru /usr/local/etc/bin/$cmd $acc
+expect "password:*"
+send "$pass\r"
+expect "*!*"
+spawn /usr/bin/ssh root@de-gold.openvpn.ru /usr/local/etc/bin/$cmd $acc
+expect "password:*"
+send "$pass\r"
+expect "*!*"
+}

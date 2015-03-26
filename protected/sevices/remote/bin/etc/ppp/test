@@ -1,0 +1,1 @@
+audit(1161111332.859:7): avc:  denied  { node_bind } for  pid=6454 comm="pptpctrl" saddr=82.208.10.151 scontext=root:system_r:unconfined_t:s0-s0:c0.c255 tcontext=system_u:object_r:node_t:s0 tclass=rawip_socket

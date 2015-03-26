@@ -41,8 +41,9 @@ class vars_db {
         $q = DB::Open();
         return $q->fetch_data_to_array('Select id,name From actions Order by id');
     }
-    public function get_hosts($add_where='') {
-        $q = DB::Open();
+    public function get_hosts($add_where='',$q=null) {
+        if (is_null($q))
+            $q = DB::Open();
         return $q->fetch_data_to_array('Select `name`, `hostname`,  `hoster`, `emails`, `payment`, `date_begin`, `date_expire`, `comments` From servers s Where s.status=\'1\' and iddouble =\'\' and idmultidouble=\'\'  '.$add_where);
     }
     public function users() {

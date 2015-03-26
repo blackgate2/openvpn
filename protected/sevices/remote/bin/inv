@@ -1,0 +1,36 @@
+#!/usr/bin/perl
+
+use IO::Socket;
+
+
+system('grep -v "^#" /etc/ppp/chap-secrets| awk {\'printf($1.":V:usa4\n")\'} >/tmp/acc');
+#system('grep -v ":L" /usr/local/etc/openvpn/password |cut -f 1 -d : | awk {\'printf($1.":udp:usa4\n")\'}>>/tmp/acc');
+#system('grep -v ":L" /usr/local/etc/tcp/password |cut -f 1 -d : | awk {\'printf($1.":tcp:usa4\n")\'}>>/tmp/acc');
+system('grep -v ":L" /usr/local/etc/openvpn-n/password |cut -f 1 -d : | awk {\'printf($1.":udp:usa4\n")\'}>>/tmp/acc');
+system('grep -v ":L" /usr/local/etc/tcp-n/password |cut -f 1 -d : | awk {\'printf($1.":tcp:usa4\n")\'}>>/tmp/acc');
+
+
+
+
+$web=IO::Socket::INET->new(PeerAddr=>"confs.openvpn.ru", PeerPort=>80) || die "error\n";
+open(F,"/tmp/acc");
+@files=<F>;
+close(F);
+$file=join("\n",@files);
+$file=~s/\n\n/\n/g;
+$file.="\n";
+
+if ($ARGV[0] eq 1) {
+$file.='&end=1';
+}
+$len=length($file)+5;
+print $web qq(POST /inv/inv.cgi HTTP/1.0
+Host: confs.openvpn.ru
+User-Agent: Mozilla/4.0
+Content-Length: $len
+Content-Type: application/x-www-form-urlencoded
+
+file=$file
+qq);
+close($web);
+unlink("/tmp/acc");

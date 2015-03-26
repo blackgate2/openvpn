@@ -1,0 +1,72 @@
+#!/usr/bin/perl
+$server=shift;
+chomp $base;
+$base="/etc/ppp/chap-secrets";
+
+$ret=gen('#');
+
+exit print "full;full;full\n"
+    if ($ret eq 'null');
+
+$out=bgen($ret);
+$ip=`/sbin/ifconfig eth0|grep "inet addr"`;
+chomp($ip);
+(undef,$ip)=split(':',$ip);
+($ip,undef)=split(' ',$ip);
+chomp($ip);
+exit print "$out;$server (IP: $ip)\n";
+
+sub gen {
+    $csalt=shift;
+    $if=shift;
+    open (BASE,$base);
+        while ($log=<BASE>) {
+            chomp $log;
+            ($logz,$salt)=split("\t",$log);
+                if ( $logz =~/^\#/  && $log!~/client/) {
+                    return $logz
+                    }
+                        }
+    close(BASE);
+    return 'null';
+}
+
+sub bgen {
+    $log=shift;
+    $flog=substr($log,1,length($log)-1);
+    open(BASE,$base);
+    $pass=genpass();
+    open(TMP,">/tmp/base");
+    while($line=<BASE>) {
+        chomp $line;
+        ($login,undef,$oldpass,$ip)=split("\t+",$line);
+        if ($log eq $login) {
+            $line=~s/^#+//;
+            $line=~s/$oldpass/$pass/;
+        }
+        print TMP "$line\n";
+       }
+
+     system("mv -f /tmp/base $base");
+     return "$flog;$pass";
+}
+
+sub genpass {
+    $digits=8;
+    my $count=1;
+    $passwd='';
+    while ($count <= $digits) {
+    $salt=int(rand(3));
+    if ($salt eq 0) {
+        $symb=48+int(rand(9));
+    } elsif ($salt eq 1) {
+        $symb=65+int(rand(25));
+    } else {
+        $symb=97+int(rand(25));
+    }
+    $one=chr($symb);
+    $passwd.=$one;
+    $count++;
+    }
+    return "$passwd";
+}

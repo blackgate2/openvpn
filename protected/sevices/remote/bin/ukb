@@ -1,0 +1,66 @@
+#!/usr/bin/perl
+
+$account=shift;
+$type=shift;
+exit print "Parameters?\n" unless $account;
+$|++;
+unless ($type) {
+    @variants=`find /usr/local/etc -name \'password\'`;
+    foreach $var (@variants) {
+        chomp $var;
+        open (BASE,$var);
+            while ($log=<BASE>) {
+                $true=$log;
+                chomp $log;
+                ($log,$salt)=split(':',$log);
+                if ($log eq $account) {
+                        if ($salt=~/LOCK/) {
+                        close(BASE);
+                        open(BASE,$var);
+                        open(TMP,">/tmp/base");
+                        while($line=<BASE>) {
+                        if ($line ne $true) {
+                        print TMP $line;
+                        } else {
+                        $salt=~s/LOCK//;
+                        print TMP "$log:$salt\n";
+                        }
+                        }
+                        system("mv /tmp/base $var");
+                        print "Unlocked in $var\n";
+                        exit;
+                } else {
+		exit print "Account isn\'t locked!\n"; }
+				 
+            }
+    }
+    }
+ print "Account not found!\n";
+} else {
+    $var='/etc/ppp/chap-secrets';
+    open(BASE,$var);
+    $account="#".$account;
+    while($line=<BASE>) {
+        ($login,undef,undef,$ip)=split("\t+",$line);
+        ($ip,undef)=split(" ",$ip);
+        if ($login eq $account) {
+            close(BASE);
+            open(BASE,$var);
+            open(TMP,">/tmp/base");
+            while($line=<BASE>) {
+            ($login,undef,undef,$ip)=split("\t+",$line);
+                if ($login eq $account) {
+                $line=~s/^\#//;
+                print TMP "$line";
+                } else {
+                print TMP "$line";
+                }
+                }
+            close(TMP);
+            close(BASE);
+            system("mv /tmp/base /etc/ppp/chap-secrets");
+            print "Unlocked pptp account in base\n";
+            exit;
+        }
+        }
+}

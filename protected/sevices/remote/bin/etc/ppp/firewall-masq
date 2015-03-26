@@ -1,0 +1,38 @@
+#!/bin/sh
+#
+# firewall-masq		This script sets up firewall rules for a machine
+#                       acting as a masquerading gateway
+#
+# Copyright (C) 2000 Roaring Penguin Software Inc.  This software may
+# be distributed under the terms of the GNU General Public License, version
+# 2 or any later version.
+# LIC: GPL
+
+# Interface to Internet
+EXTIF=ppp+
+
+ANY=0.0.0.0/0
+
+iptables -P INPUT ACCEPT
+iptables -P OUTPUT ACCEPT
+iptables -P FORWARD DROP
+
+iptables -F FORWARD
+iptables -F INPUT
+iptables -F OUTPUT
+iptables -F -t nat
+
+# Deny TCP and UDP packets to privileged ports
+iptables -A INPUT -i $EXTIF -d $ANY -p tcp --dport 0:1023 -j DROP
+iptables -A INPUT -i $EXTIF -d $ANY -p udp --dport 0:1023 -j DROP
+
+# Deny TCP connection attempts
+iptables -A INPUT -i $EXTIF -p tcp --syn -j DROP
+
+# Deny ICMP echo-requests
+iptables -A INPUT -i $EXTIF -s $ANY -p icmp --icmp-type echo-request -j DROP
+
+# Do masquerading
+iptables -t nat -A POSTROUTING -o $EXTIF -j MASQUERADE
+echo 1 > /proc/sys/net/ipv4/ip_forward
+echo 1 > /proc/sys/net/ipv4/ip_dynaddr

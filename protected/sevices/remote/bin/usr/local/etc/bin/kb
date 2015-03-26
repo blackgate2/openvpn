@@ -1,0 +1,86 @@
+#!/usr/bin/perl
+
+$account=shift;
+$type=shift;
+exit print "Parameters?\n" unless $account;
+use IO::Socket;
+$|++;
+unless ($type) {
+    @variants=`find /usr/local/etc -name \'password\'`;
+    foreach $var (@variants) {
+        chomp $var;
+        open (BASE,$var);
+            while ($log=<BASE>) {
+                $true=$log;
+                chomp $log;
+                ($log,$salt)=split(':',$log);
+                if ($log eq $account) {
+                        if ($salt=~/LOCK/) {
+                            print "Already locked!\n";
+                            close(BASE);
+                            exit;
+                        } else {
+                        close(BASE);
+                        open(BASE,$var);
+                        open(TMP,">/tmp/base");
+                        while($line=<BASE>) {
+                        if ($line ne $true) {
+                        print TMP $line;
+                        } else {
+                        print TMP "$log:LOCK$salt\n";
+                        }
+                        }
+                        }
+                        system("mv /tmp/base $var");
+                        print "Locked in $var\n";
+                        $var=~s/password$/openvpn.conf/;
+                        $management=`cat $var | grep \'127.0.0.1\'`;
+                        chomp $management;
+                        (undef,$port)=split('127.0.0.1 ',$management);
+                        $kill=IO::Socket::INET->new("127.0.0.1:$port") || exit "Cant connect for killing\n";
+                        $kill->autoflush(1);
+                        $recv=<$kill>;
+                        print $kill "kill $account\r\n";
+                        $recv=<$kill>;
+                        if ($recv=~/ERROR/) { print "Not found online!!\n";
+                        } else { print "Turned offline\n"; }
+                        close($kill);
+                        exit;
+                }
+            }
+    }
+ print "Account not found!\n";
+} else {
+    $var='/etc/ppp/chap-secrets';
+    open(BASE,$var);
+    while($line=<BASE>) {
+        ($login,undef,undef,$ip)=split("\t+",$line);
+        ($ip,undef)=split(" ",$ip);
+        if ($login eq $account) {
+
+            close(BASE);
+            open(BASE,$var);
+            open(TMP,">/tmp/base");
+            while($line=<BASE>) {
+            ($login,undef,undef,$ip)=split("\t+",$line);
+                if ($login eq $account) {
+                print TMP "#$line";
+                } else {
+                print TMP "$line";
+                }
+                }
+            close(TMP);
+            close(BASE);
+            system("mv /tmp/base /etc/ppp/chap-secrets");
+            print "Locked pptp account in base\n";
+            for ($i=0;$i<20;$i++) {
+            $sys=`(ifconfig ppp$i|grep $ip) 2>/dev/null`;
+                chomp $sys;
+                if ($sys=~/$ip/) { $kill=1; `kill -9 \`cat /var/run/ppp$i.pid\``; print "Killed at ppp$i\n"; }
+            }
+            unless ($kill) { print "Not found online!!\n"; }
+        exit;
+        }
+        }
+}
+print "Acoount not found!\n";

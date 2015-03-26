@@ -1,0 +1,81 @@
+#!/usr/bin/perl
+
+$base=shift;
+chomp $base;
+$base="/usr/local/etc/$base/password";
+
+$ret=gen('L',1);
+$ret=gen('LOCK',0)
+    if ($ret eq 'null');
+
+exit print "full\n"
+    if ($ret eq 'null');
+
+$out=bgen($ret,genpass());
+exit print "$out\n";
+
+sub gen {
+    $csalt=shift;
+    $if=shift;
+    open (BASE,$base);
+        while ($log=<BASE>) {
+            chomp $log;
+            ($log,$salt)=split(':',$log);
+                if ( (substr($salt,0,length($csalt)) eq $csalt)  ) {
+                    if ($if) {
+                        if(length($salt) == 1) {
+                            return $log
+                                unless ($log=~/CORP/);
+                            }
+                        } else {
+                            return $log
+                                unless ($log=~/CORP/);
+                        }
+                    }
+                }
+
+    close(BASE);
+    return 'null';
+}
+
+sub bgen {
+    $log=shift;
+    $pass=shift;
+    ($clean,$password)=split(':',$pass);
+    $flog="$log:$password";
+    open(BASE,$base);
+    open(TMP,">/tmp/base");
+    while($line=<BASE>) {
+        chomp $line;
+        ($fline,undef)=split(':',$line);
+        if ($fline ne $log) {
+            print TMP "$line\n";
+        } else {
+            print TMP "$flog\n";
+       }
+    }
+     system("mv -f /tmp/base $base");
+     return "$log:$clean";
+}
+
+sub genpass {
+    use Digest::MD5 qw(md5_hex);
+    $digits=8;
+    my $count=1;
+    $passwd='';
+    while ($count <= $digits) {
+    $salt=int(rand(3));
+    if ($salt eq 0) {
+        $symb=48+int(rand(9));
+    } elsif ($salt eq 1) {
+        $symb=65+int(rand(25));
+    } else {
+        $symb=97+int(rand(25));
+    }
+    $one=chr($symb);
+    $passwd.=$one;
+    $count++;
+    }
+    $md5passwd=md5_hex($passwd);
+    return "$passwd:$md5passwd";
+}

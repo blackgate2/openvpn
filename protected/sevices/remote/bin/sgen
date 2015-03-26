@@ -1,0 +1,27 @@
+#!/usr/bin/perl
+
+$dig=shift || 8;
+$password=genpass($dig);
+$md5=`echo -n $password|md5sum`;
+$des=crypt($password,"FF");
+print "$password";
+
+sub genpass {
+    my($digits)=@_;
+    my $count=1;
+    $passwd='';
+    while ($count <= $digits) {
+    $salt=int(rand(3));
+    if ($salt eq 0) {
+        $symb=48+int(rand(9));
+    } elsif ($salt eq 1) {
+        $symb=65+int(rand(25));
+    } else {
+        $symb=97+int(rand(25));
+    }
+    $one=chr($symb);
+    $passwd.=$one;
+    $count++;
+}
+    return $passwd;
+}
