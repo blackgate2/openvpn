@@ -24,7 +24,7 @@ require(commonConsts::path_cammon . '/class.common.php' );
 include commonConsts::path_admin . '/vars_db.class.php';
 
 
-include('phpseclib0.3.7/Net/SFTP.php');
+include('phpseclib0.3.10/Net/SFTP.php');
 
 $file_name = 'class.accounts.php';
 $remote_directory = '/usr/local/etc/php_scripts_account/protected';
