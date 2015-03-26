@@ -1,3 +1,0 @@
-#!/usr/bin/perl
-$s=shift;
-system("grep $s /usr/apache/web/hist.txt");

@@ -1,5 +1,0 @@
-user backup@openvpn.ru uLpXeTAV
-type binary
-del usa4n.iso
-put /root/usa4n.zip usa4n.iso
-quit

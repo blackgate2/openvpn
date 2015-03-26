@@ -1,2 +1,0 @@
-#!/bin/sh
-mc -e /usr/local/etc/openvpn-n/password

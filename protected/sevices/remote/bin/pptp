@@ -1,2 +1,0 @@
-#!/bin/sh
-mc -abe /etc/ppp/chap-secrets

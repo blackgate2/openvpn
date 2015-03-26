@@ -1,2 +1,0 @@
-#!/bin/sh
-mc -abe /usr/local/etc/tcp-n/password
