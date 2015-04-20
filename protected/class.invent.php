@@ -14,6 +14,8 @@ class invent {
     private $inv_cont;
     private $hosts;
     private $q;
+    private $usr;
+    private $pass;
     public $ok;
 
     public function __construct($comand,$usr,$pass) {
@@ -22,7 +24,7 @@ class invent {
         
         $this->comand=$comand;
         $this->usr=$usr;
-        $this->pass='V1ufP2ob5$';
+        $this->pass=$pass;
         $this->hosts = vars_db::get_hosts('',$this->q);
 
         $this->get_inv();
@@ -34,9 +36,9 @@ class invent {
     private function get_inv() {
         foreach ($this->hosts as $h) {
             $connection = ssh2_connect($h['hostname'], 22);
-            ssh2_auth_password($connection, 'root', 'V1ufP2ob5$');
+            ssh2_auth_password($connection, $this->usr, $this->pass);
 
-            $stream = ssh2_exec($connection, '/usr/local/etc/bin/inv_oleg 1');
+            $stream = ssh2_exec($connection, $this->comand);
             stream_set_blocking($stream, true);
             $tmp= explode("\n", stream_get_contents($stream));
             $this->inv_cont=array_merge($this->inv_cont,$tmp);

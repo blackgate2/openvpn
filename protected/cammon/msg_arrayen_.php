@@ -127,11 +127,20 @@ $msg = array(
     'error_try_agen' => 'Error: It seems that something went wrong. Try again',
     /* ------- письмо при регистрации --------- */
     'reg_email_suject' => 'Успешная регистрация. openvpn.ru',
+//    'reg_email_body' => "
+//                           <p>Hello, <name> </p>
+//                             <p>You have successfully signed up for <a href=\"openvpn.ru\">openvpn.ru</a>\r\n
+//                             To activate the account click on the link <alink>.\r\n
+//                             If the link do not opened, please copy the address bar of the browser\r\n</p>
+//                             <p>This is an automated message, reply to that is not required.\r\n</p>
+//                             <p>Thank you</p>
+//                             Openvpn.ru",
     'reg_email_body' => "
                            <p>Hello, <name> </p>
-                             <p>You have successfully signed up for <a href=\"openvpn.ru\">openvpn.ru</a>\r\n
-                             To activate the account click on the link <alink>.\r\n
-                             If the link do not opened, please copy the address bar of the browser\r\n</p>
+                             <p>You have successfully signed up for <a href=\"openvpn.ru\">openvpn.ru</a>\r\n</p>
+                            <p>Логин: <login>\r\n
+                               Пароль: <pass>\r\n                                              
+                            </p>
                              <p>This is an automated message, reply to that is not required.\r\n</p>
                              <p>Thank you</p>
                              Openvpn.ru",

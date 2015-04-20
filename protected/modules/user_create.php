@@ -14,7 +14,6 @@ $t = array(
 );
 
 
-
 if ($_POST['post'] == 'writing') {
 
     // ------------------------------ проверки каждого поля при регистрации ------------------------------ //
@@ -27,18 +26,23 @@ if ($_POST['post'] == 'writing') {
         
         $passwd=  hesh_pass($_POST['passwd'], commonConsts::sol_pass1,commonConsts::sol_pass2);
         
-        /** деактивируем билетик */
-        $q->qry('Update bilets_reg_users Set status="" Where bilet="?"', $_POST['biletik']);
+        /**  активируем билетик */
+        $q->qry('Update bilets_reg_users Set status="1" Where bilet="?"', $_POST['biletik']);
 
         /** формируем код для активации */
         $activ_cod = md5(commonConsts::sol_pass2 . time() . commonConsts::sol_pass2);
 
-        /** формируем ссылку */
+        /** формируем ссылку 
         $alink = '<a href="' . commonConsts::url . '/user_active/?alink=' . $activ_cod . '">'. commonConsts::url . '/user_active/?alink=' . $activ_cod .'</a>';
-
-        /** отсылаем на почту ссылочку для активации пользователя  */
+        */
+        
+        /** отсылаем на 
+         * почту логин 
+         * пароль  пользователя  */
         $body_mail = str_replace('<name>', $_POST['name'], $msg['reg_email_body']);
-        $body_mail = str_replace('<alink>', $alink, $body_mail);
+        $body_mail = str_replace('<login>', $_POST['login'], $body_mail);
+        $body_mail = str_replace('<pass>', $_POST['passwd'], $body_mail);
+        
         
         send_mail($_POST['email'],  commonConsts::admin_email, commonConsts::admin_name, $msg['reg_email_suject'], $body_mail);
 
