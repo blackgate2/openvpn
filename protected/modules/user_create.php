@@ -29,9 +29,9 @@ if ($_POST['post'] == 'writing') {
         /**  активируем билетик */
         $q->qry('Update bilets_reg_users Set status="1" Where bilet="?"', $_POST['biletik']);
 
-        /** формируем код для активации */
+        /** формируем код для активации 
         $activ_cod = md5(commonConsts::sol_pass2 . time() . commonConsts::sol_pass2);
-
+        */
         /** формируем ссылку 
         $alink = '<a href="' . commonConsts::url . '/user_active/?alink=' . $activ_cod . '">'. commonConsts::url . '/user_active/?alink=' . $activ_cod .'</a>';
         */
@@ -47,7 +47,7 @@ if ($_POST['post'] == 'writing') {
         send_mail($_POST['email'],  commonConsts::admin_email, commonConsts::admin_name, $msg['reg_email_suject'], $body_mail);
 
         /** пишем регистрационные данные */
-        $q->qry('Insert Into users (login,passwd,name,email,icq,bilet,status) Values("?","?","?","?","?","?","")', $_POST['login'], $passwd, $_POST['name'], $_POST['email'], $_POST['icq'], $activ_cod);
+        $q->qry('Insert Into users (login,passwd,name,email,icq,bilet,status) Values("?","?","?","?","?","?","1")', $_POST['login'], $passwd, $_POST['name'], $_POST['email'], $_POST['icq'], 1);
 
         /** редиректим страничку */
         $url = commonConsts::url.'/user_create/'.$nav->lang.'/?postis=1';

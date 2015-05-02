@@ -1,0 +1,2 @@
+-- ALTER TABLE `forbac_test`.`orders` 
+-- ADD COLUMN `unlocktimeout` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `user_update_id`;

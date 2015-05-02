@@ -35,7 +35,7 @@ if ($action == 'invent') {
 }
 /** ----------------------------- в лочим родительский заказ при копировании    ---------------------------------------- */
 if ($action == 'insert' && $table == 'orders' && $_POST['is_lock_parent']) {
-    if ($a->lock_by_date_exp()) {
+    if ($a->lock_by_date_exp_after_copy()) {
         $msg_alert = ok('заблокировали родительский заказ');
     } else {
         $msg_alert = error('Error DB');
@@ -81,9 +81,7 @@ if ($action == 'del_configs' && $table == 'orders' && $objects_ids != '') {
 /** ----------------------------- смена статуса  ---------------------------------------- */
 if ($action == 'changestatus' && isset($statusNEW) && $table && ($id || $objects_ids)) {
 
-    if ($table == 'users' && $id)
-        $q->qry('Update ? SET status=\'?\', user_update_id =' . $_SESSION['auth_user_id'] . ' Where id=?', $tables[$table . '_show']['table_view'], $statusNEW, $id);
-    elseif ($table && $id)
+    if ($table && $id)
         $q->qry('Update ? SET status=\'?\' Where id=?', $tables[$table . '_show']['table_view'], $statusNEW, $id);
     elseif ($table && $objects_ids)
         $q->qry('Update ? SET status=\'?\' Where id IN (?)', $tables[$table . '_show']['table_view'], $statusNEW, $objects_ids);

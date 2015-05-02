@@ -55,7 +55,14 @@ class actions {
         $this->q->query('Update orders SET action_id = 2, datetime_expire = DATE_ADD(now(),INTERVAL -1 day) Where id IN (' . $this->objects_ids . ')');
         return $this->q->commit();
     }
-    
+
+    public function lock_by_date_exp_after_copy($interval='30 MINUTE') {
+        //echo 'Update orders SET action_id = 2, datetime_expire = DATE_ADD(now(),INTERVAL -1 day) Where id IN (' . $this->objects_ids . ')';
+        $this->q->begin();
+        $this->q->query('Update orders SET action_id = 2, datetime_expire = DATE_ADD(now(),INTERVAL '.$interval.') Where id IN (' . $this->objects_ids . ')');
+        return $this->q->commit();
+    }
+
     public function set_date_exp($date) {
         //$this->q->begin();
         //$this->q->query('Call deleteOrdersServersActionsIds ("' . $this->objects_ids . '") ');
