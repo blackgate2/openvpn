@@ -13,10 +13,14 @@ require(commonConsts::path_admin . '/vars_runtime.php');
 
 //require(commonConsts::path_protect . '/class.alink.php');
 
-if (is_numeric($_GET['InvId'])) {
+/* 
+ * после факта оплаты обязательно 
+ * редиректим что бы не накручивали дату конца оплаты
+ * 
+ */
+if (isset($_REQUEST["InvId"])){
     redirect('/user');
 }
-//$a = new alink($p);
 
 if ($is_login) {
 
@@ -44,21 +48,17 @@ if ($is_login) {
         <link type="text/css" href="/css/users.css" rel="stylesheet" />';
 
     $content['name'] = $msg['user_orders'];
-
+    /*
+     * если был факт оплаты выводим сообщение
+     */
+    if (isset($_SESSION['payment_msg_allert'])){
+    $content['content_page'] .= '<p class="alert" >'.$_SESSION['payment_msg_allert'].'</p>';
+        unset($_SESSION['payment_msg_allert']);
+    }
     if (!empty($show->dataAll)) {
 
-        $content['content_page'].=($msg_alert) ? '<script>
-            $("#dialog_alert").dialog({
-                title: "!",
-                height: 100
-            });
-            $("#dialog_alert").html("<p>' . $msg_alert . '</p>");
-            $("#dialog_alert").dialog(\'open\');
-            setTimeout(function() {
-            window.location = "/user"
-            }, 1500);
-            </script>' : '';
-        $content['content_page'].='<p class="alert" ></p><div class="actions">' . $show->actions_buttons() . '</div>';
+        
+        $content['content_page'].='<div class="actions">' . $show->actions_buttons() . '</div>';
         $content['content_page'].=$show->show();
     } else {
         $content['content_page'].=$msg['user_no_orders'];

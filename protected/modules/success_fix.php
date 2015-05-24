@@ -13,7 +13,8 @@ if ($shp_item == 1) {
             $q->update('order_invoices', array('num_order' => $order_invoices), ' Where id = ' . $inv_id);
         }
 
-        $msg_alert = ($order->msg_error) ? $order->msg_error : $msg['order_payment_ok'];
+        $_SESSION['payment_msg_allert'] = ($order->msg_error) ? $order->msg_error : $msg['order_payment_ok'];
+        
     }
 
     /* формируем письмецо */
@@ -89,6 +90,7 @@ if ($shp_item == 1) {
     $mail_body = $show->show();
 
     send_mail(commonConsts::admin_email, commonConsts::admin_email, commonConsts::admin_name, 'order_ext', $mail_body);
-    $msg_alert = $msg['order_ext_payment_ok'];
+    $_SESSION['payment_msg_allert'] = $msg['order_ext_payment_ok'];
+    
     //common::urldirect('/user');
 }
