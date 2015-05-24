@@ -19,8 +19,8 @@ if ($shp_item == 1) {
 
     /* формируем письмецо */
     /**  табличка    */
-    $show = new show_from_db($msg);
-    $show->obj = $tables['user_orders_show'];
+    $show = new show_from_db($msg,$tables['user_orders_show']);
+    
     $sql = 'Select ' . $show->obj['fields_sql'] . ' ,u.name as uname From ' . $show->obj['table_view'] . '  
                     ' . $show->obj['where'] . '
                       JOIN order_invoices inv ON inv.num_order = o.num_order and inv.id = ' . $inv_id . '
@@ -70,8 +70,8 @@ if ($shp_item == 1) {
     }
     $q->commit();
 
-    $show = new show_from_db($msg);
-    $show->obj = $tables['user_orders_show'];
+    $show = new show_from_db($msg,$tables['user_orders_show']);
+    
 
     $sql = 'Select ' . $show->obj['fields_sql'] . ' ,u.name as uname From ' . $show->obj['table_view'] . '  
                     ' . $show->obj['where'] . '

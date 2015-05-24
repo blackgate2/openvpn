@@ -16,7 +16,7 @@ require('actions.class.php');
 
 
 $o = new db_object($q, $tables[$table], $table_lang, $id);
-$show = new show_from_db($msg);
+
 if ($table == 'orders')
     $a = new actions($ids, $q);
 

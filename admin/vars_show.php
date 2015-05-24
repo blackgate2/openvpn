@@ -108,7 +108,7 @@ $tables['user_groups_discount_show'] = array(
     'order' => 'ud.id',
     'order_dir' => ($_SESSION[$table_lang]['order_dir']) ? 'desc' : '',
     'dialog_url_edit' => '/admin/dialog.php?m=main&table=' . $table,
-    'defMaxRow' => 300,
+    'defMaxRow' => 5,
     'isEdit' => 0,
     'isCopy' => 0,
     'isDel' => 0,
@@ -116,11 +116,11 @@ $tables['user_groups_discount_show'] = array(
     'isNav' => 0,
     'isSortbl' => 0,
     'field_foto' => '',
-    'isDialog' => 1,
+    'isDialog' => 0,
     'path_foto' => '',
     'nonSortblFields' => array('status'),
     'actions_pannel' => array(),
-    'isDefaultActions'=>1,
+    'isDefaultActions'=>0,
 );
 
 $tables['countries_by_order_id_show'] = array(

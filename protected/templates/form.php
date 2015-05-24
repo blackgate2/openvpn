@@ -48,7 +48,7 @@
     <?php
 }
 ?>
-<?php if ($table == 'orders_params') { ?>
+<?php if ($table == 'orders_params' || $table == 'users_groups' ) { ?>
             $('button.is_disabled').click(function(event) {
                 event.preventDefault();
                 $('#is_check_portable').val(($('#portable').hasClass('disabled')) ? 1 : '');

@@ -1,13 +1,13 @@
 <?php
 
 echo displayHeadlineAdm($tables[$table . '_show']['cap'], $str_filters, $str_navigation);
-$show = new show_from_db($msg);
+$show = new show_from_db($msg,$tables[$table . '_show']);
 if (!isset($tables[$table . '_show']['url']))
     $show->set_url('index.php?m=main&table=' . $table . '&action=show');
 else
     $show->set_url($tables[$table . '_show']['url']);
 
-$show->obj = $tables[$table . '_show'];
+
 if ($edit_id)
     $show->setEditID(array($edit_id));
 elseif (is_array($ids))

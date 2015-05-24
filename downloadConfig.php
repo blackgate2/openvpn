@@ -1,4 +1,4 @@
-<?
+<?php
 
 session_start();
 ini_set('zlib.output_compression', 'Off');

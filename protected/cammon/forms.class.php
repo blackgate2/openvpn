@@ -1336,7 +1336,7 @@ class forms {
                 }
                 $this->str.= '</tr>';
             }
-            if ($this->count_view_col > 1 && $i > 1 && (($i) % $col_range) == 0)
+            if ($this->count_view_col > 1 && $i > 1 && (($i+1) % $col_range) == 0)
                 $this->str.= '</td></table><td  id="form_col' . $i . '"><table>';
         }
         $this->str.= '</td></tr></table>
