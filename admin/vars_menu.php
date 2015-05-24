@@ -96,7 +96,7 @@ $admin_menu = array(
             ),
             array(
                 fold => false,
-                title => 'Скидки',
+                title => 'Группы cкидок',
                 href => 'index.php',
                 m => 'main',
                 action => 'show',

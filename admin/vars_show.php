@@ -99,22 +99,22 @@ $tables['user_groups_show'] = array(
     'isDefaultActions'=>1,
 );
 $tables['user_groups_discount_show'] = array(
-    'titles' => array('ID', 'Название', 'Скидка'),
-    'fields' => array('id', 'name', 'discount'),
-    'fields_sql' => 'ud.id, ud.name, ud.discount',
+    'titles' => array('ID', 'Название'),
+    'fields' => array('id', 'name'),
+    'fields_sql' => 'ud.id, ud.name',
     'table' => 'user_groups_discount',
     'table_view' => 'user_groups_discount ud',
     'where' => '',
-    'order' => 'ud.name',
+    'order' => 'ud.id',
     'order_dir' => ($_SESSION[$table_lang]['order_dir']) ? 'desc' : '',
     'dialog_url_edit' => '/admin/dialog.php?m=main&table=' . $table,
     'defMaxRow' => 300,
-    'isEdit' => 1,
-    'isCopy' => 1,
-    'isDel' => 1,
-    'isCheck' => 1,
-    'isNav' => 1,
-    'isSortbl' => 1,
+    'isEdit' => 0,
+    'isCopy' => 0,
+    'isDel' => 0,
+    'isCheck' => 0,
+    'isNav' => 0,
+    'isSortbl' => 0,
     'field_foto' => '',
     'isDialog' => 1,
     'path_foto' => '',
@@ -254,12 +254,15 @@ $tables['faq_group_show'] = array(
     'isDefaultActions'=>1,
 );
 $tables['users_show'] = array(
-    'titles' => array('ID', 'Login', 'Группа', 'ФИО', 'Email', 'ICQ', 'Jabber', 'Тип пользователя', 'Статус', 'Уведомлять по', 'Дата регистрации', 'Заметки'),
-    'fields' => array('id', 'login', 'gr',     'name', 'email', 'icq', 'jabber', 'tip_user', 'status', 'note_method', 'date_reg', 'notes'),
-    'fields_sql'=>'u.id, u.login, g.name as gr, u.name,u.email, u.icq, u.jabber, u.tip_user, u.status, u.note_method, u.date_reg, u.notes',
+    'titles' => array('ID', 'Login', 'Группа рассылки','Группа скидки', 'ФИО', 'Email', 'ICQ', 'Jabber', 'Тип пользователя', 'Статус', 'Уведомлять по', 'Дата регистрации', 'Заметки'),
+    'fields' => array('id', 'login', 'gr',             'gd',            'name', 'email', 'icq', 'jabber', 'tip_user', 'status', 'note_method', 'date_reg', 'notes'),
+    'fields_sql'=>'u.id, u.login, g.name as gr, gd.name as gd, u.name,u.email, u.icq, u.jabber, u.tip_user, u.status, u.note_method, u.date_reg, u.notes',
     'table' => 'users',
     'table_view' => 'users u',
-    'where' => 'LEFT JOIN user_groups g ON g.id=u.group_id',
+    'where' => ''
+    . 'LEFT JOIN user_groups g ON g.id=u.group_id '
+    . 'LEFT JOIN user_groups_discount gd ON gd.id=u.price_dis_id '
+    . 'WHERE 1 ',
     'order' => isset($_SESSION['users']['order']) ? $_SESSION['users']['order'] : 'u.id',
     'order_dir' => ($_SESSION['users']['order_dir']) ? 'desc' : '',
     'dialog_url_edit' => '/admin/dialog.php?m=main&table=' . $table,
@@ -276,6 +279,14 @@ $tables['users_show'] = array(
     'nonSortblFields' => array('status'),
     'actions_pannel' => array(),
     'isDefaultActions'=>1,
+    'actions_pannel' => array(
+        
+        array('title' => 'Групповая правка',
+            'url' => 'dialog.php?m=main&table=users_groups',
+            'action' => 'edit',
+            'css' => 'link_group_dialog_modal ui-button-text-only',
+            'confirm' => ''),
+        )
 );
 
 $tables['accounts_show'] = array(
@@ -902,11 +913,11 @@ $tables['orders_show'] = array(
     'nonSortblFields' => array('status'),
     'isDefaultActions'=>1,
     'actions_pannel' => array(
-        array('title' => 'Заблок.',
-            'url' => 'dialog.php?m=main&table=' . $table,
-            'action' => 'lock_orders',
-            'css' => 'link_group_dialog_modal ui-button-text-only',
-            'confirm' => ''),
+//        array('title' => 'Заблок.',
+//            'url' => 'dialog.php?m=main&table=' . $table,
+//            'action' => 'lock_orders',
+//            'css' => 'link_group_dialog_modal ui-button-text-only',
+//            'confirm' => ''),
         array('title' => 'Изменить',
             'url' => 'dialog.php?m=main&table=orders_params',
             'action' => 'edit',

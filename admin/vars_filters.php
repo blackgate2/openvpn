@@ -17,7 +17,50 @@ $tables['prices_filter'] = array(
         name => 'type_filter',
         value => array(),
         data => 'vars_db::types'),
-    array(form => 'select', caption => 'Период', status => '0', name => 'period_filter', value => array(), data => 'vars_db::periods'),
+    array(form => 'select', caption => 'Период', 
+        status => '0', name => 'period_filter', value => array(), data => 'vars_db::periods'),
+    array(form => 'select',
+        caption => 'Страна',
+        status => '0',
+        name => 'country_filter',
+        value => array(),
+        data => 'vars_db::countries'),
+    
+);
+$tables['users_filter'] = array(
+    array(form => 'select', 
+        caption => 'Группа рассылки', 
+        status => '0', 
+        first_val => '', 
+        name => 'group_id_filter', 
+        value => $_SESSION[$_filter]['group_id_filter'],
+        data => array('vars_db::__table', array('table' => 'user_groups', 'order' => 'id'))),
+    
+    array(form => 'select', 
+        caption => 'Группа скидок', 
+        status => '0', 
+        first_val => '', 
+        name => 'group_dis_id_filter', 
+        value => $_SESSION[$_filter]['group_dis_id_filter'],
+        data => array('vars_db::__table', array('table' => 'user_groups_discount', 'order' => 'id'))),
+    
+    array(form => 'select_simple', caption => 'Тип пользователя', 
+    status => '0', 
+    name => 'tip_user_filter', 
+    values => array('' => '','user' => 'user', 'operator' => 'operator', 'admin' => 'admin'), 
+    value => $_SESSION[$_filter]['tip_user_filter']),
+    
+    array(form => 'select_simple', caption => 'Статус', 
+    status => '0', 
+    name => 'status_filter', 
+    values => array('' => '', '1' => 'включен', '2' => 'выключен'), 
+    value => $_SESSION[$_filter]['status_filter']),
+    
+    array(form => 'text', caption => 'login,ФИО,email,icq,jabber,skype', 
+        status => 'X', name => 'text_filter', value => $_SESSION[$_filter]['text_filter']),
+    
+
+        
 );
 $tables['params_pages_ids_filter'] = array(
 

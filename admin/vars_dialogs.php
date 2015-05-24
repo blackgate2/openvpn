@@ -47,6 +47,18 @@ $tables['user_groups_df'] = array(
     'dialog_inc_modul'=>'',
     'dialog_template_form' => '',
 );
+$tables['users_groups_df'] = array(
+    'table' => 'users',
+    'dialog_name' => 'dialog_modal',
+    'dialog_title' => 'Групповая правка ',
+    'dialog_title_field'=>'name',
+    'dialog_is_modal'=>true,
+    'dialog_width' => '750',
+    'dialog_height' => '550',
+    'count_view_col'=>1,
+    'dialog_inc_modul'=>'',
+    'dialog_template_form' => '',
+);
 $tables['orders_params_df'] = array(
     'table' => 'orders',
     'dialog_name' => 'dialog_modal',
@@ -161,9 +173,9 @@ $tables['prices_df'] = array(
     'dialog_title' => 'Цена',
     'dialog_title_field'=>'name',
     'dialog_is_modal'=>true,
-    'dialog_width' => '300',
+    'dialog_width' => '850',
     'dialog_height' => '520',
-    'count_view_col'=>1,
+    'count_view_col'=>3,
     'dialog_inc_modul'=>'',
     'dialog_template_form' => '',
 );

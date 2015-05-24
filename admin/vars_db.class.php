@@ -33,6 +33,10 @@ class vars_db {
         $q = DB::Open();
         return $q->fetch_data_to_array('Select id,name From types  ');
     }
+    public static function countries() {
+        $q = DB::Open();
+        return $q->fetch_data_to_array('Select id,name From countries ');
+    }
     public static function periods() {
         $q = DB::Open();
         return $q->fetch_data_to_array('Select id,name From periods  ');
