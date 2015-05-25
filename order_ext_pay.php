@@ -9,6 +9,7 @@ require commonConsts::path_modules . '/robokassa.params.php';
 require(commonConsts::path_cammon . '/class.auth.php');
 require(commonConsts::path_protect . '/class.orders_sum.php');
 require(commonConsts::path_cammon . '/class.common.php');
+require(commonConsts::path_admin . '/vars_db.class.php' );
 //'typeID:'+i+' country: '+country+' period'+period+' portable:'+portable+' amount:'+amount
 
 

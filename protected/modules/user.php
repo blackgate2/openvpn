@@ -13,6 +13,9 @@ require(commonConsts::path_admin . '/vars_runtime.php');
 
 //require(commonConsts::path_protect . '/class.alink.php');
 
+
+
+
 /* 
  * после факта оплаты обязательно 
  * редиректим что бы не накручивали дату конца оплаты

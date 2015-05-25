@@ -43,11 +43,12 @@ class orders_sum {
     private function get_prices() {
         $order_params = $this->get_order_params();
         $prices = array();
+        $price_dis_id = vars_db::user_group_discount();
         foreach ($order_params as $d) {
             /* получаем цену для выбранного периода  */
             $this->q->qry('Select
-                    p.name as price,
-                    p.portable_price
+                        IFNULL(p.name'.$price_dis_id.',p.name) as price,
+                        IFNULL(p.portable_price'.$price_dis_id.',p.portable_price) as portable_price
                     From prices p               
                     ' . (($d['type_id'] == 1) ? 'Join price_country_ids i On i.priceID=p.id and i.countryID=' . $d['country_id'] : '') . '               
                     Where p.type_id=? and p.period_id= ? Limit 1 ', $d['type_id'], $this->period_ids[$d['id']]);

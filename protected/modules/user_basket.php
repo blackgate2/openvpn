@@ -7,6 +7,7 @@ if ($is_login) {
     include(commonConsts::path_cammon . '/class.common.php');
     include(commonConsts::path_cammon . '/show_from_db.class.php' );
     include(commonConsts::path_cammon . '/forms.class.php' );
+    require(commonConsts::path_admin . '/vars_db.class.php' );
     /* ------------------    формирование корзинки     -------------------- */
     $obj = array(
         'titles' => $msg['order_fields'],
@@ -47,9 +48,12 @@ if ($is_login) {
         }
     //print_r($basket);
     $total = 0;
+    $price_dis_id = vars_db::user_group_discount();
     foreach ($basket as $i => $v) {
         $d = $q->get_fetch_data('Select
-                        ' . (($v['portable']) ? ' IF(p.portable_price <> 0, p.portable_price,p.name)' : 'p.name') . '  as price
+                        ' . (($v['portable']) ? 
+                                'IFNULL(p.portable_price'.$price_dis_id.',p.portable_price)' : 
+                                'IFNULL(p.name'.$price_dis_id.',p.name)').'  as price
                     From prices p
                     ' . (($v['type_id'] == 1) ? 'Join price_country_ids i On i.priceID=p.id and i.countryID=' . $v['country_id'] : '') . '
                     Where p.type_id=' . $v['type_id'] . ' and p.period_id=' . $v['period_id'] . '

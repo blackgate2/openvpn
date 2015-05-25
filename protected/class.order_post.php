@@ -50,11 +50,12 @@ class order_post {
     }
 
     private function setPrices() {
+        $price_dis_id = vars_db::user_group_discount();
         foreach ($this->_typeIDs as $typeID) {
             $this->q->query('
                     Select
-                        p.name as price,
-                        p.portable_price
+                        IFNULL(p.name'.$price_dis_id.',p.name) as price,
+                        IFNULL(p.portable_price'.$price_dis_id.',p.portable_price) as portable_price
                     From prices p
 
                     ' . (($typeID == 1) ? 'Join price_country_ids i On i.priceID=p.id and i.countryID=' . $this->_countryIDs[$typeID] : '') . '

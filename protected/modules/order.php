@@ -1,7 +1,8 @@
-<?
+<?php
 
 require(commonConsts::path_protect.'/class.order_form.php');
 
+//$_SESSION['auth_user_id'];
 
 if ($_REQUEST['biletik']) {
         
