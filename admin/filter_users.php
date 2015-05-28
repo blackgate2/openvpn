@@ -16,3 +16,4 @@ $tables['users_show']['where'].=($_SESSION[$_filter]['tip_user_filter']) ? ' and
 $tables['users_show']['where'].=($_SESSION[$_filter]['group_id_filter']) ? ' and u.group_id = ' . $_SESSION[$_filter]['group_id_filter'] : '';
 $tables['users_show']['where'].=($_SESSION[$_filter]['group_dis_id_filter']) ? ' and u.price_dis_id= ' . $_SESSION[$_filter]['group_dis_id_filter'] : '';
 
+$tables['users_show']['where'].=($_SESSION[$_filter]['user_id_filter'])? ' AND  u.id = '.$_SESSION[$_filter]['user_id_filter']: '';

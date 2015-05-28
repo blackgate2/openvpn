@@ -251,3 +251,6 @@ div.form  .ui-autocomplete-input {
 .green{
     color: green; 
 }
+.ui-menu-item{
+    font-size: 10px
+}

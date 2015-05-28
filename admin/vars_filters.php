@@ -28,6 +28,20 @@ $tables['prices_filter'] = array(
     
 );
 $tables['users_filter'] = array(
+    array(form => 'autocomplete',
+        placeholder => 'Заказчик',
+        status => '0',
+        edit_name => 'user_name_filter',
+        name => 'user_id_filter',
+        id => 'user_id_filter',
+        value => $_SESSION[$_filter]['user_id_filter'],
+        title => $_SESSION[$_filter]['user_name_filter'],
+        maxRows => 300,
+        minLength => 2,
+        event_select => ' ',
+        get_val_title => '',
+        ajax_url => 'dialog.php?m=ajax_respons_users',
+    ),
     array(form => 'select', 
         caption => 'Группа рассылки', 
         status => '0', 
@@ -56,10 +70,6 @@ $tables['users_filter'] = array(
     values => array('' => '', '1' => 'включен', '2' => 'выключен'), 
     value => $_SESSION[$_filter]['status_filter']),
     
-    array(form => 'text', caption => 'login,ФИО,email,icq,jabber,skype', 
-        status => 'X', name => 'text_filter', value => $_SESSION[$_filter]['text_filter']),
-    
-
         
 );
 $tables['params_pages_ids_filter'] = array(
@@ -79,35 +89,6 @@ $tables['params_pages_ids_filter'] = array(
 
 );
 $tables['orders_filter'] = array(
-    array(form => 'select',
-        caption => 'Тип VPN',
-        status => '0',
-        name => 'type_filter',
-        value => (is_array($_SESSION[$_filter]['type_filter'])) ? $_SESSION[$_filter]['type_filter'] : array(),
-        data => 'vars_db::types'),
-    array(form => 'select', caption => 'Период', status => '0', name => 'period_filter',
-        value => (is_array($_SESSION[$_filter]['period_filter'])) ? $_SESSION[$_filter]['period_filter'] : array(),
-        data => 'vars_db::periods'),
-    array(form => 'select', caption => 'Сервер(а)', status => '0', name => 'server_ids_filter',
-        value => (is_array($_SESSION[$_filter]['server_ids_filter'])) ? $_SESSION[$_filter]['server_ids_filter'] : array(),
-        // get_value=>array('vars_db::__selected_ids',array('table'=>'order_server_ids', 'field'=>'serverID', 'where'=>'orderID='.$id )),
-        data => array('vars_db::__table', array('table' => 'servers', 'order' => 'name', 'where'=>' status="1" '))),
-    array(form => 'select', caption => 'Статус', status => '0', name => 'actions_filter',
-        value => (is_array($_SESSION[$_filter]['actions_filter'])) ? $_SESSION[$_filter]['actions_filter'] : array(),
-        data => 'vars_db::actions'),
-    array(form => 'select_simple', caption => 'OS', status => '0', name => 'os_filter', value => $_SESSION[$_filter]['os_filter'], values => array('' => '', 'win' => 'Win', 'mac' => 'Mac')),
-    array(form => 'select_simple', caption => 'Оклик', status => '0', name => 'is_respons',
-        value => $_SESSION[$_filter]['os_filter'],
-        values => array('' => '', 'yes' => 'есть', 'no' => 'нет')),
-    array(form => 'date_range',
-        caption => 'Границы даты конца',
-        status => '0',
-        name => 'datetime_expire_filter',
-        format => 'dd.mm.yy',
-        value => array(
-            'min' => ($_SESSION[$_filter]['min_datetime_expire_filter']) ? $_SESSION[$_filter]['min_datetime_expire_filter'] : strDate::Date(date('Y-m-d', strtotime('-3 month'))),
-            'max' => ($_SESSION[$_filter]['max_datetime_expire_filter']) ? $_SESSION[$_filter]['max_datetime_expire_filter'] : strDate::Date(date('Y-m-d', strtotime('2 year')))),
-    ),
     array(form => 'autocomplete',
         placeholder => 'Заказчик',
         status => '0',
@@ -150,6 +131,37 @@ $tables['orders_filter'] = array(
         get_val_title => '',
         ajax_url => 'dialog.php?m=ajax_respons_num_order',
     ),
+    array(form => 'select_simple', caption => 'OS', status => '0', name => 'os_filter', value => $_SESSION[$_filter]['os_filter'], values => array('' => '', 'win' => 'Win', 'mac' => 'Mac')),
+    array(form => 'select_simple', caption => 'Оклик', status => '0', name => 'is_respons',
+        value => $_SESSION[$_filter]['os_filter'],
+        values => array('' => '', 'yes' => 'есть', 'no' => 'нет')),
+    array(form => 'date_range',
+        caption => 'Границы даты конца',
+        status => '0',
+        name => 'datetime_expire_filter',
+        format => 'dd.mm.yy',
+        value => array(
+            'min' => ($_SESSION[$_filter]['min_datetime_expire_filter']) ? $_SESSION[$_filter]['min_datetime_expire_filter'] : strDate::Date(date('Y-m-d', strtotime('-3 month'))),
+            'max' => ($_SESSION[$_filter]['max_datetime_expire_filter']) ? $_SESSION[$_filter]['max_datetime_expire_filter'] : strDate::Date(date('Y-m-d', strtotime('2 year')))),
+    ),
+
+    array(form => 'select',
+        caption => 'Тип VPN',
+        status => '0',
+        name => 'type_filter',
+        value => (is_array($_SESSION[$_filter]['type_filter'])) ? $_SESSION[$_filter]['type_filter'] : '',
+        data => 'vars_db::types'),
+    array(form => 'select', caption => 'Период', status => '0', name => 'period_filter',
+        value => (is_array($_SESSION[$_filter]['period_filter'])) ? $_SESSION[$_filter]['period_filter'] : array(),
+        data => 'vars_db::periods'),
+    array(form => 'select', caption => 'Сервер(а)', status => '0', name => 'server_ids_filter',
+        value => (is_array($_SESSION[$_filter]['server_ids_filter'])) ? $_SESSION[$_filter]['server_ids_filter'] : array(),
+        // get_value=>array('vars_db::__selected_ids',array('table'=>'order_server_ids', 'field'=>'serverID', 'where'=>'orderID='.$id )),
+        data => array('vars_db::__table', array('table' => 'servers', 'order' => 'name', 'where'=>' status="1" '))),
+    array(form => 'select', caption => 'Статус', status => '0', name => 'actions_filter',
+        value => (is_array($_SESSION[$_filter]['actions_filter'])) ? $_SESSION[$_filter]['actions_filter'] : array(),
+        data => 'vars_db::actions'),
+
 );
 $tables['log_orders_befor_filter'] = array(
     array(form => 'select_simple', caption => 'SQL действие', status => '0', name => 'log_action_filter', value => $_SESSION[$_filter]['log_action_filter'], 
